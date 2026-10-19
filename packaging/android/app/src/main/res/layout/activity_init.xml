@@ -2,6 +2,7 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:id="@+id/screen"
+	android:clipChildren="false"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
 
@@ -11,12 +12,41 @@
 		android:layout_height="wrap_content"
 		android:layout_centerHorizontal="true"
 		android:layout_centerVertical="true"
+		android:clipChildren="false"
 		android:gravity="center">
 		
+		<!-- Old static logo, replaced by layered animated logo below (Oct 19, 2026)
 		<ImageView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:src="@drawable/wesnoth_icon"/>
+		-->
+
+		<!-- Layered logo: shield, then title text on top.
+		     Sizes and positions are set in InitActivity.layoutLogo(). -->
+		<FrameLayout
+			android:id="@+id/logo_stack"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:clipChildren="false"
+			android:clipToPadding="false">
+
+			<ImageView
+				android:id="@+id/logo_shield"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:scaleType="fitCenter"
+				android:src="@drawable/splash_shield"
+				android:contentDescription="@null"/>
+
+			<ImageView
+				android:id="@+id/logo_title"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:scaleType="fitCenter"
+				android:src="@drawable/splash_title"
+				android:contentDescription="The Battle for Wesnoth"/>
+		</FrameLayout>
 			
 		<Space
 			android:layout_width="wrap_content"

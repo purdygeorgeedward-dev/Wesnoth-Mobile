@@ -43,10 +43,17 @@ import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
+import android.graphics.RenderEffect;
+import android.graphics.Shader;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -57,7 +64,12 @@ import android.view.View;
 import android.view.WindowInsets;
 import android.view.WindowInsetsController;
 import android.view.WindowManager;
+import android.util.DisplayMetrics;
 import android.view.animation.AnimationUtils;
+import android.view.animation.DecelerateInterpolator;
+import android.view.animation.OvershootInterpolator;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 import android.widget.ProgressBar;
@@ -80,6 +92,10 @@ public class InitActivity extends Activity {
 	protected void onCreate(Bundle savedState) {
 		super.onCreate(savedState);
 		setContentView(R.layout.activity_init);
+
+		// Layered animated logo (Oct 19, 2026)
+		layoutLogo();
+		playLogoIntro();
 
 		// Keep the screen on while this activity runs
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -124,6 +140,129 @@ public class InitActivity extends Activity {
 				);
 			}
 		}
+	}
+
+	// ---------------------------------------------------------------
+	// Startup logo intro (Oct 19, 2026)
+	// Shield lands first, then title text. Each layer starts large,
+	// black, blurred and tilted toward the camera, then scales down
+	// into place while brightening and sharpening.
+	// All tuning values are here.
+	// ---------------------------------------------------------------
+
+	// Logo size: fraction of screen width, capped by fraction of height
+	private static final float LOGO_MAX_W = 0.80f;
+	private static final float LOGO_MAX_H = 0.55f;
+
+	// Title placement relative to the shield image
+	private static final float TITLE_W_OF_SHIELD = 0.98f;  // title width / shield width
+	private static final float TITLE_Y_OF_SHIELD = 0.58f;  // title center / shield height
+
+	// Animation
+	private static final float START_SCALE  = 3.2f;   // how big each layer starts
+	private static final float START_TILT   = 22f;    // degrees, top tipped toward camera; 0 = none
+	private static final float START_BLUR   = 40f;    // px, Android 12+ only; 0 = none
+	private static final long  SHIELD_MS    = 900;
+	private static final long  TITLE_MS     = 750;
+	private static final long  TITLE_GAP_MS = 100;    // pause after shield lands
+	private static final long  UI_FADE_MS   = 400;    // message / progress / tap label
+
+	private void layoutLogo() {
+		DisplayMetrics dm = getResources().getDisplayMetrics();
+		ImageView shield = findViewById(R.id.logo_shield);
+		ImageView title  = findViewById(R.id.logo_title);
+		FrameLayout stack = findViewById(R.id.logo_stack);
+
+		float shieldAspect = (float) shield.getDrawable().getIntrinsicHeight()
+			/ shield.getDrawable().getIntrinsicWidth();
+		float titleAspect = (float) title.getDrawable().getIntrinsicHeight()
+			/ title.getDrawable().getIntrinsicWidth();
+
+		int w = (int) Math.min(dm.widthPixels * LOGO_MAX_W,
+			dm.heightPixels * LOGO_MAX_H / shieldAspect);
+		int h = (int) (w * shieldAspect);
+
+		FrameLayout.LayoutParams sp = new FrameLayout.LayoutParams(w, h);
+		shield.setLayoutParams(sp);
+
+		int tw = (int) (w * TITLE_W_OF_SHIELD);
+		int th = (int) (tw * titleAspect);
+		FrameLayout.LayoutParams tp = new FrameLayout.LayoutParams(tw, th);
+		tp.leftMargin = (w - tw) / 2;
+		tp.topMargin = (int) (h * TITLE_Y_OF_SHIELD - th / 2f);
+		title.setLayoutParams(tp);
+
+		stack.setLayoutParams(new android.widget.LinearLayout.LayoutParams(w, h));
+
+		// Camera distance for real perspective on the tilt
+		float cam = 8000 * dm.density;
+		shield.setCameraDistance(cam);
+		title.setCameraDistance(cam);
+	}
+
+	private void playLogoIntro() {
+		ImageView shield = findViewById(R.id.logo_shield);
+		ImageView title  = findViewById(R.id.logo_title);
+		View[] ui = {
+			findViewById(R.id.download_msg),
+			findViewById(R.id.download_progress),
+			findViewById(R.id.tap_label)
+		};
+
+		setLayerState(shield, 0f);
+		setLayerState(title, 0f);
+		title.setVisibility(View.INVISIBLE);
+		for (View v : ui) v.setAlpha(0f);
+
+		ValueAnimator shieldAnim = layerAnimator(shield, SHIELD_MS);
+		ValueAnimator titleAnim = layerAnimator(title, TITLE_MS);
+		titleAnim.setStartDelay(TITLE_GAP_MS);
+
+		shieldAnim.addListener(new AnimatorListenerAdapter() {
+			@Override public void onAnimationEnd(Animator a) {
+				title.setVisibility(View.VISIBLE);
+				titleAnim.start();
+			}
+		});
+		titleAnim.addListener(new AnimatorListenerAdapter() {
+			@Override public void onAnimationEnd(Animator a) {
+				for (View v : ui) v.animate().alpha(1f).setDuration(UI_FADE_MS).start();
+			}
+		});
+
+		shield.post(shieldAnim::start);
+	}
+
+	private ValueAnimator layerAnimator(ImageView layer, long ms) {
+		ValueAnimator anim = ValueAnimator.ofFloat(0f, 1f);
+		anim.setDuration(ms);
+		DecelerateInterpolator ease = new DecelerateInterpolator(1.6f);
+		OvershootInterpolator land = new OvershootInterpolator(0.6f);
+		anim.addUpdateListener(va -> {
+			float t = (float) va.getAnimatedValue();
+			// scale uses an overshoot so the layer settles on impact
+			float s = land.getInterpolation(t);
+			float scale = START_SCALE + (1f - START_SCALE) * s;
+			layer.setScaleX(scale);
+			layer.setScaleY(scale);
+			layer.setRotationX(START_TILT * (1f - ease.getInterpolation(t)));
+			setLayerState(layer, ease.getInterpolation(t));
+		});
+		return anim;
+	}
+
+	// p = 0: black + blurred, p = 1: full color + sharp
+	private void setLayerState(ImageView layer, float p) {
+		ColorMatrix cm = new ColorMatrix();
+		cm.setScale(p, p, p, 1f);
+		layer.setColorFilter(new ColorMatrixColorFilter(cm));
+		layer.setAlpha(Math.min(1f, 0.35f + p));
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && START_BLUR > 0) {
+			float r = START_BLUR * (1f - p);
+			layer.setRenderEffect(r < 0.5f ? null
+				: RenderEffect.createBlurEffect(r, r, Shader.TileMode.DECAL));
+		}
+		if (p >= 1f) layer.clearColorFilter();
 	}
 
 	private List<PackageInfo> readManifest() {
