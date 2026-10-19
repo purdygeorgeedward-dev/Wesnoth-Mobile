@@ -1,109 +1,86 @@
-[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
+<p align="center">
+  <img src="doc/Images/wesnoth-mobile-logo.png" alt="Wesnoth Mobile fantasy crest and title logo" width="400">
+</p>
 
-|Branch|CI status|
-|------|---------|
-|Master|[![CI](https://github.com/wesnoth/wesnoth/actions/workflows/ci-main.yml/badge.svg)](https://github.com/wesnoth/wesnoth/actions/workflows/ci-main.yml?query=branch%3Amaster)|
-|1.18|[![CI](https://github.com/wesnoth/wesnoth/actions/workflows/ci-main.yml/badge.svg?branch=1.18)](https://github.com/wesnoth/wesnoth/actions/workflows/ci-main.yml?query=branch%3A1.18)|
+# Wesnoth Mobile
 
-About
-=====
+**A phone-first Android adaptation of [The Battle for Wesnoth](https://www.wesnoth.org/).**
 
-**The Battle for Wesnoth** is an Open Source, turn-based tactical strategy game with a high fantasy theme, featuring both singleplayer and online/hotseat multiplayer combat. Fight a desperate battle to reclaim the throne of Wesnoth, search for the key to immortality, or take part in any number of other adventures.
+[![Development](https://img.shields.io/badge/status-active%20development-orange)](https://github.com/purdygeorgeedward-dev/Wesnoth-Mobile/tree/master)
+[![Platform](https://img.shields.io/badge/platform-Android-3DDC84)](packaging/android)
+[![License](https://img.shields.io/badge/code-GPL--2.0--or--later-blue)](COPYING)
 
-Community
----------
+Wesnoth Mobile aims to bring the depth of Wesnoth's turn-based fantasy strategy to modern Android phones **without treating a phone like a miniature desktop**. The project builds on Wesnoth's existing game engine and content while developing a touch-oriented, responsive interface designed for portrait and landscape play.
 
-The official Battle for Wesnoth Forums:
-  <https://forums.wesnoth.org/>
+> **Development status:** This fork is a work in progress. The Android foundation has been modified, but the planned native interface redesign is not complete. No APK from the current source changes has yet been built and verified. Features described as *planned* below are not promises of current functionality.
 
-Discord:
-  <https://discord.gg/battleforwesnoth>
+## The game
 
-IRC:
-  <https://wiki.wesnoth.org/Support#IRC>
+[The Battle for Wesnoth](https://www.wesnoth.org/) is a free and open-source, turn-based tactical strategy game set in a richly developed fantasy world. Recruit armies, capture villages, manage gold and terrain advantages, advance veteran units, and fight through story-driven campaigns. The upstream game includes single-player adventures, multiplayer modes, user-created content, and extensive modding capabilities.
 
-Mastodon:
-  <https://fosstodon.org/@wesnoth>
+Wesnoth Mobile intends to preserve that strategic experience while making it comfortable to play on a touchscreen.
 
-Steam forums:
-  <https://steamcommunity.com/app/599390/discussions/>
+## Our direction
 
-Features
---------
+| Area | Goal | Status |
+| --- | --- | --- |
+| Android application identity | Install independently of the upstream Android app | Implemented in source; untested |
+| Phone-friendly launcher | Responsive startup layout and larger settings touch target | Initial changes committed |
+| Portrait and landscape | Support both device orientations | Orientation restrictions removed; native UI work pending |
+| Touch controls | Tap selection, intuitive map panning, pinch zoom, and contextual actions | Planned |
+| Responsive game interface | Rework menus, dialogs, information panels, and battlefield controls for small screens | Planned |
+| Startup experience | Animated, skippable opening with a custom visual and musical identity | Planned |
+| Original presentation | Develop distinctive interface styling and, later, original visual and musical assets | Planned |
 
-* A variety of different campaigns, each with their own tactical challenges, emotionally charged story, and multiple difficulty levels.
-* A detailed world and storytelling with hundreds of sprites, animations, and characters.
-* Many different unit skills and traits across several factions.
-* A map editor with multiple tools, hundreds types of terrain, and the ability for you to save and share maps with others. Create your own scenarios/battles for near infinite replayability.
-* Highly moddable, allowing a wide array of community created map packs, eras, and entire campaigns.
-* Online and local multiplayer gameplay to play with friends, strangers, or against the AI.
-* Changeable settings for base gameplay, with nearly limitless options for different hotkey configurations.
-* Beautifully composed playlist that captures the era and grandiosity of this lore-filled high-fantasy world.
+The guiding principle is straightforward: **keep the strategy; rethink the interaction.**
 
-Installing
-----------
+## Development progress
 
-Wesnoth can be played on Windows, macOS, and Linux, and can be installed using:
-* [Steam](https://store.steampowered.com/app/599390/Battle_for_Wesnoth/) (all)
-* [itch.io](https://wesnoth.itch.io/battle-for-wesnoth) (Windows and macOS)
-* The [macOS App Store](https://apps.apple.com/us/app/the-battle-for-wesnoth/id1450738104)
-* standalone installers on [SourceForge](https://sourceforge.net/projects/wesnoth/files/) (Windows and macOS)
-* [Flatpak](https://flathub.org/apps/details/org.wesnoth.Wesnoth) (Linux)
+Development takes place directly on [`master`](https://github.com/purdygeorgeedward-dev/Wesnoth-Mobile/tree/master). The upstream gameplay and content remain the starting point.
 
-Additionally, ports are available for [iOS](https://apps.apple.com/us/app/battle-for-wesnoth/id575852062) and [Android](https://sourceforge.net/projects/wesnoth/files/android/). The iOS port is currently unmaintained and is for an older version (1.14). The Android port is available for 1.19 only (alpha).
+The first source changes establish a separate Android application ID, improve launcher sizing and accessibility, remove forced orientation restrictions, correct launch argument formatting, address first-run status-file initialization, and improve ZIP archive extraction safety. These changes still require compilation and device testing.
 
-To build the game from source, see [INSTALL](/INSTALL.md) for instructions.
+The Android source changes have not yet been compiled or tested on a device.
 
-Contributing
-------------
+### Follow the work
 
-Wesnoth is most in need of skilled C++ developers (C++14 and later), however there are things that nearly anyone can help with:
-* Simple tasks in C++.
-* The Lua and WML used for content scripting.
-* Python used by various external tools.
-* Even play testing and giving feedback on updated campaigns!
+- [Developer log](DEVELOPER_LOG.md) — ongoing engineering decisions, progress, and risks.
+- [Development change log](MOBILE_DEVELOPMENT_LOG.md) — detailed changes and validation requirements.
+- [Build notes](BUILD_NOTES.md) — build-by-build results and device observations once APKs are published.
+- [GitHub commits](https://github.com/purdygeorgeedward-dev/Wesnoth-Mobile/commits/master) — the source history.
 
-Additionally, Wesnoth lacks art for a variety of unit animations - anyone who would be interested in lending a hand in updating existing unit sprites or creating animations should take a look at the [Art Contributions](https://forums.wesnoth.org/viewforum.php?f=9) forum as well as contact our current art director.
+## Building from source
 
-See also: [CONTRIBUTING](/CONTRIBUTING.md)
+This repository contains Wesnoth's upstream C++ game engine and an Android packaging project under [`packaging/android/`](packaging/android/). Native dependencies, Android SDK/NDK tooling, and source submodules are required.
 
-For any questions, the best place to start is to simply join Wesnoth's forums, Discord, or IRC and start asking!
+For the general engine requirements, see [INSTALL.md](INSTALL.md). Clone with submodules:
 
+```bash
+git clone --recurse-submodules https://github.com/purdygeorgeedward-dev/Wesnoth-Mobile.git
+cd Wesnoth-Mobile
+```
 
-Donations
----------
+The Android Gradle project is in `packaging/android`. For the full dependency → C++ engine → APK/AAB procedure, including GitHub Actions and local Linux commands, see the [Android Build Guide](docs/ANDROID_BUILD_GUIDE.md). The instructions are source-verified but a successful fork build and device test have not yet been recorded. Check [BUILD_NOTES.md](BUILD_NOTES.md) for actual build results.
 
-Donations can be sent via [Software in the Public Interest](https://www.spi-inc.org/projects/wesnoth/), [Liberapay](https://liberapay.com/Wesnoth), as well as when downloading through itch.io. All money donated is used to pay for project expenses such as server rent and art commissions, and is very much appreciated.
+## Upstream and community
 
+Wesnoth Mobile is an **independent fork**, not an official release of The Battle for Wesnoth. The original project and its contributors created the game on which this work depends.
 
-License
--------
+For upstream gameplay documentation, campaigns, community content, and support:
 
-All source code is licensed under the GNU GPL v2+. Most art and music is also licensed under the GNU GPL v2+, however new contributions are now licensed under the Creative Commons BY-SA v4.0. For more detailed information on Wesnoth's licensing, see the wiki:
+- [Official Wesnoth website](https://www.wesnoth.org/)
+- [Wesnoth wiki](https://wiki.wesnoth.org/)
+- [Official forums](https://forums.wesnoth.org/)
+- [Upstream source repository](https://github.com/wesnoth/wesnoth)
+- [Wesnoth manual](https://wiki.wesnoth.org/WesnothManual)
 
-  <https://wiki.wesnoth.org/Wesnoth:Copyrights>
+## Licensing and attribution
 
+Wesnoth is free and open-source software. The game's source code is licensed under the **GNU General Public License, version 2 or later**; see [COPYING](COPYING). Artwork, music, and other content may have different applicable licenses and attribution requirements. See the upstream [copyright and licensing information](https://wiki.wesnoth.org/Wesnoth:Copyrights) and individual file notices.
 
-More Information
-----------------
+This fork retains the obligations and notices of the upstream project. New mobile-specific work must comply with the applicable licenses.
 
-For extensive documentation about all aspects of the game, see the official Battle for Wesnoth web site:
+---
 
-  <https://www.wesnoth.org/>
-  <https://wiki.wesnoth.org/>
+*Wesnoth Mobile — a familiar world, redesigned for your fingertips.*
 
-A (translated) description of how to play the game can be found in doc/manual/manual.*.html, or online at:
-
-  <https://wiki.wesnoth.org/WesnothManual>
-
-For information on creating your own maps, scenarios, and other content, see:
-
-  <https://wiki.wesnoth.org/Create>
-
-Gallery
--------
-
-![screenshot_main_menu](https://www.wesnoth.org/images/sshots/wesnoth-1.16.0-1.jpg)
-![scrreenshot_isars_cross](https://www.wesnoth.org/images/sshots/wesnoth-1.16.0-2.jpg)
-![screenshot_campaign_menu](https://www.wesnoth.org/images/sshots/wesnoth-1.16.0-5.jpg)
-![screenshot_map](https://www.wesnoth.org/images/sshots/wesnoth-1.16.0-8.jpg)
