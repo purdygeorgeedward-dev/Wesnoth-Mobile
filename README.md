@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="doc/Images/wesnoth-mobile-logo.png" alt="Wesnoth Mobile fantasy crest and title logo" width="400">
+  <img src="images/logos)wesnoth-mobile-logo.webp" alt="Wesnoth Mobile fantasy crest and title logo" width="400">
 </p>
 
 # Wesnoth Mobile
