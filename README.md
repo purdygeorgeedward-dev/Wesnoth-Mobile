@@ -2,7 +2,7 @@
   <img src="images/logos/wesnoth-mobile-logo.webp" alt="Wesnoth Mobile fantasy crest and title logo" width="400">
 </p>
 
-# Wesnoth Mobile
+# WESNOTH MOBILE
 
 **A phone-first Android adaptation of [The Battle for Wesnoth](https://www.wesnoth.org/).**
 
