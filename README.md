@@ -52,7 +52,9 @@ Set in Wesnoth's distant future, *Under the Burning Suns* follows the desert elf
 
 The personalities of Wesnoth's heroes and villains are as important to its storytelling as its battles. Character portraits communicate courage, uncertainty, anger, wisdom, and defeat before a line of dialogue is spoken.
 
-Our visual-artwork work revisits familiar characters with new portraits, expressions, costumes, and interpretations, while drawing inspiration from the world and stories that made them memorable. These illustrations are part of an evolving presentation effort, not a claim that every campaign has already been redesigned.
+Under the direction of George Edward Purdy, the lead artist and character designer from Master of Magic, this project's graphics work revisits familiar characters with new portraits, expressions, costumes, and interpretations, while drawing inspiration from the world and stories that made them memorable. 
+
+(These illustrations are part of an evolving presentation effort, not a claim that every campaign has already been redesigned.)
 
 For more about the original adventures, see the [Wesnoth campaign documentation](https://wiki.wesnoth.org/Mainline_campaigns).
 
