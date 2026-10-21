@@ -4,7 +4,7 @@
 
 # WESNOTH MOBILE
 
-**A phone-first Android adaptation of [The Battle for Wesnoth](https://www.wesnoth.org/).**
+**A mobile-first Android adaptation of [The Battle for Wesnoth](https://www.wesnoth.org/).**
 
 [![Development](https://img.shields.io/badge/status-active%20development-orange)](https://github.com/purdygeorgeedward-dev/Wesnoth-Mobile/tree/master)
 [![Platform](https://img.shields.io/badge/platform-Android-3DDC84)](packaging/android)
