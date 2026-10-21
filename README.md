@@ -58,15 +58,7 @@ For more about the original adventures, see the [Wesnoth campaign documentation]
 
 ## Our Direction
 
-| Area | Goal | Status |
-| --- | --- | --- |
-| Android application identity | Install independently of the upstream Android app | Implemented in source; untested |
-| Phone-friendly launcher | Responsive startup layout and larger settings touch target | Initial changes committed |
-| Portrait and landscape | Support both device orientations | Orientation restrictions removed; native UI work pending |
-| Touch controls | Tap selection, intuitive map panning, pinch zoom, and contextual actions | Planned |
-| Responsive game interface | Rework menus, dialogs, information panels, and battlefield controls for small screens | Planned |
-| Startup experience | Animated, skippable opening with a custom visual and musical identity | Planned |
-| Original presentation | Develop distinctive interface styling and, later, original visual and musical assets | Planned |
+Wesnoth Mobile is being designed around a phone-first experience: an independent Android app with a responsive launcher, portrait and landscape support, intuitive touch controls, and menus, dialogs, and battlefield controls adapted to small screens. The longer-term vision includes a distinctive startup experience, interface styling, and original visual and musical assets.
 
 The guiding principle is straightforward: **keep the strategy; rethink the interaction.**
 
