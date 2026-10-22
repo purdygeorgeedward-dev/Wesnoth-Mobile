@@ -98,9 +98,10 @@ git clone --recurse-submodules https://github.com/purdygeorgeedward-dev/Wesnoth-
 cd Wesnoth-Mobile
 ```
 
+
 The Android Gradle project is in `packaging/android`. For the full dependency → C++ engine → APK/AAB procedure, including GitHub Actions and local Linux commands, see the [Android Build Guide](docs/ANDROID_BUILD_GUIDE.md). The instructions are source-verified but a successful fork build and device test have not yet been recorded. Check [BUILD_NOTES.md](BUILD_NOTES.md) for actual build results.
 
-<p align="center"><img src="images/characters/ethiliel.webp" alt="Ethiliel portrait" height="260"></p>
+<p align="center"><img src="images/characters/konrad-chainmail-cup.webp" alt="Konrad portrait" height="260"></p>
 
 ## Upstream and Community
 
@@ -114,7 +115,7 @@ For upstream gameplay documentation, campaigns, community content, and support:
 - [Upstream source repository](https://github.com/wesnoth/wesnoth)
 - [Wesnoth manual](https://wiki.wesnoth.org/WesnothManual)
 
-<p align="center"><img src="images/characters/angarthing.webp" alt="Angarthing portrait" height="260"></p>
+<p align="center"><img src="images/characters/konrad-chainmail-concerned.webp" alt="Konrad portrait" height="260"></p>
 
 ## Licensing and Attribution
 
