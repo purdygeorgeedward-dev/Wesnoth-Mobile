@@ -14,9 +14,9 @@
 
 > **Development status:** This fork is a work in progress. The Android foundation has been modified, but the planned native interface redesign is not complete. No APK from the current source changes has yet been built and verified. Features described as *planned* below are not promises of current functionality.
 
-## The Game
-
 <p align="center"><img src="images/characters/konrad-elvish.webp" alt="Konrad portrait" height="260"></p>
+
+## The Game
 
 [The Battle for Wesnoth](https://www.wesnoth.org/) is a free and open-source, turn-based tactical strategy game set in a richly developed fantasy world. Recruit armies, capture villages, manage gold and terrain advantages, advance veteran units, and fight through story-driven campaigns. The upstream game includes single-player adventures, multiplayer modes, user-created content, and extensive modding capabilities.
 
@@ -60,17 +60,17 @@ Under the direction of George Edward Purdy, the lead artist and character design
 
 For more about the original adventures, see the [Wesnoth campaign documentation](https://wiki.wesnoth.org/Mainline_campaigns).
 
-## Our Direction
-
 <p align="center"><img src="images/characters/lisar.webp" alt="Li'sar portrait" height="260"></p>
+
+## Our Direction
 
 Wesnoth Mobile is being designed around a phone-first experience: an independent Android app with a responsive launcher, portrait and landscape support, intuitive touch controls, and menus, dialogs, and battlefield controls adapted to small screens. The longer-term vision includes a distinctive startup experience, interface styling, and original visual and musical assets.
 
 The guiding principle is straightforward: **keep the strategy; rethink the interaction.**
 
-## Development Progress
-
 <p align="center"><img src="images/characters/kalenz.webp" alt="Kalenz portrait" height="260"></p>
+
+## Development Progress
 
 Development takes place directly on [`master`](https://github.com/purdygeorgeedward-dev/Wesnoth-Mobile/tree/master). The upstream gameplay and content remain the starting point.
 
@@ -85,9 +85,9 @@ The Android source changes have not yet been compiled or tested on a device.
 - [Build notes](BUILD_NOTES.md) — build-by-build results and device observations once APKs are published.
 - [GitHub commits](https://github.com/purdygeorgeedward-dev/Wesnoth-Mobile/commits/master) — the source history.
 
-## Building from Source
-
 <p align="center"><img src="images/characters/delfador-mad.webp" alt="Delfador portrait" height="260"></p>
+
+## Building from Source
 
 This repository contains Wesnoth's upstream C++ game engine and an Android packaging project under [`packaging/android/`](packaging/android/). Native dependencies, Android SDK/NDK tooling, and source submodules are required.
 
@@ -100,9 +100,9 @@ cd Wesnoth-Mobile
 
 The Android Gradle project is in `packaging/android`. For the full dependency → C++ engine → APK/AAB procedure, including GitHub Actions and local Linux commands, see the [Android Build Guide](docs/ANDROID_BUILD_GUIDE.md). The instructions are source-verified but a successful fork build and device test have not yet been recorded. Check [BUILD_NOTES.md](BUILD_NOTES.md) for actual build results.
 
-## Upstream and Community
-
 <p align="center"><img src="images/characters/ethiliel.webp" alt="Ethiliel portrait" height="260"></p>
+
+## Upstream and Community
 
 Wesnoth Mobile is an **independent fork**, not an official release of The Battle for Wesnoth. The original project and its contributors created the game on which this work depends.
 
@@ -114,9 +114,9 @@ For upstream gameplay documentation, campaigns, community content, and support:
 - [Upstream source repository](https://github.com/wesnoth/wesnoth)
 - [Wesnoth manual](https://wiki.wesnoth.org/WesnothManual)
 
-## Licensing and Attribution
-
 <p align="center"><img src="images/characters/angarthing.webp" alt="Angarthing portrait" height="260"></p>
+
+## Licensing and Attribution
 
 Wesnoth is free and open-source software. The game's source code is licensed under the **GNU General Public License, version 2 or later**; see [COPYING](COPYING). Artwork, music, and other content may have different applicable licenses and attribution requirements. See the upstream [copyright and licensing information](https://wiki.wesnoth.org/Wesnoth:Copyrights) and individual file notices.
 
