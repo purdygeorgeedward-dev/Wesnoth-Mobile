@@ -15,41 +15,48 @@
 > [!NOTE]
 > **Development status:** This fork is a work in progress. The Android foundation has been modified, but the planned native interface redesign is not complete. No APK from the current source changes has yet been built and verified. Features described as *planned* below are not promises of current functionality.
 > 
-<p align="center"><img width="100%" src="images/characters/konrad-elvish.webp" alt="Konrad portrait"></p>
+
+<p align="center"><img width="100%" src="images/characters/wesnoth-3d-map.webp" alt="3D map"></p>
 
 ## The Game
 
 [The Battle for Wesnoth](https://www.wesnoth.org/) is a free and open-source, turn-based tactical strategy game set in a richly developed fantasy world. Recruit armies, capture villages, manage gold and terrain advantages, advance veteran units, and fight through story-driven campaigns. The upstream game includes single-player adventures, multiplayer modes, user-created content, and extensive modding capabilities.
 
+<p align="center"><img width="100%" src="images/characters/konrad-elvish.webp" alt="Konrad portrait"></p>
+
 Wesnoth Mobile intends to preserve that strategic experience while making it comfortable to play on a touchscreen.
 
-<p align="right"><img width="100%" src="images/characters/ethiliel.webp" alt="Ethiliel portrait"></p>
 
 ## The Legends of Wesnoth
 
 Wesnoth's story-driven campaigns span centuries of fantasy history, from the founding of the kingdom to the distant future. Here are some of its best-known adventures and characters.
 
-<p align="left"><img width="100%" src="images/characters/princess-lisar.webp" alt="Li'sar portrait"></p>
+<p align="right"><img width="100%" src="images/characters/ethiliel.webp" alt="Ethiliel portrait"></p>
 
 ### Heir to the Throne
 
 One of Wesnoth's most recognizable campaigns, *Heir to the Throne* follows **Konrad**, a young man raised among the elves, as he challenges **Queen Asheviere**'s rule. Guided by the legendary mage **Delfador**, he searches for the **Sceptre of Fire** and gathers allies, including **Princess Li'sar** and the ancient elvish lord **Kalenz**. Questions of loyalty, identity, and rightful rule drive the adventure.
 
+<p align="left"><img width="100%" src="images/characters/princess-lisar.webp" alt="Li'sar portrait"></p>
+
 ### The Rise of Wesnoth
 
 *The Rise of Wesnoth* tells the story of **Prince Haldric**, who leads refugees from the Green Isle across the ocean and struggles to establish a new homeland. Alongside **Lady Jessene**, he faces dangers that include the formidable **Lich-Lord Jevyan**. This campaign explores the origins of the kingdom featured in later stories.
 
-<p align="left"><img width="100%" src="images/characters/kalenz.webp" alt="Kalenz portrait"></p>
+<p align="left"><img width="100%" src="images/characters/haldric-small.webp" alt="Haldric portrait"></p>
 
 ### Legend of Wesmere
 
 Set in an earlier age, *Legend of Wesmere* follows **Kalenz** through wars and political struggles that shape elvish history. It reveals the experiences behind the legendary leader encountered in *Heir to the Throne*.
 
-<p align="right"><img width="100%" src="images/characters/delfador-mad.webp" alt="Delfador portrait"></p>
+<p align="left"><img width="100%" src="images/characters/kalenz.webp" alt="Kalenz portrait"></p>
+
 
 ### Delfador's Memoirs
 
 Long before mentoring Konrad, **Delfador** was a young mage caught up in events that would change Wesnoth. *Delfador's Memoirs* follows his early adventures and the path toward his reputation as one of the kingdom's greatest wizards.
+
+<p align="right"><img width="100%" src="images/characters/delfador-mad.webp" alt="Delfador portrait"></p>
 
 ### Northern Rebirth
 
@@ -59,15 +66,16 @@ In the Northland, **Tallin** helps lead a rebellion against orcish domination. *
 
 Set in Wesnoth's distant future, *Under the Burning Suns* follows the desert elf **Kaleh**, alongside **Nym**, as their people search for a new home in a drastically changed world. Its setting and survival-focused journey offer a striking contrast to the kingdom's earlier adventures.
 
-<p align="right"><img width="100%" src="images/characters/maddock.webp" alt="Maddock portrait"></p>
 
 ### Bringing the Characters to Life
 
 The personalities of Wesnoth's heroes and villains are as important to its storytelling as its battles. Character portraits communicate courage, uncertainty, anger, wisdom, and defeat before a line of dialogue is spoken.
 
-<p align="center"><img width="100%" src="images/characters/asheviere-mad.webp" alt="Asheviere portrait"></p>
+<p align="right"><img width="100%" src="images/characters/maddock.webp" alt="Maddock portrait"></p>
 
 Under the direction of George Edward Purdy, the lead artist and character designer from Master of Magic, this project's graphics work revisits familiar characters with new portraits, expressions, costumes, and interpretations, while drawing inspiration from the world and stories that made them memorable. 
+
+<p align="center"><img width="100%" src="images/characters/asheviere-mad.webp" alt="Asheviere portrait"></p>
 
 (These illustrations are part of an evolving presentation effort, not a claim that every campaign has already been redesigned.)
 
