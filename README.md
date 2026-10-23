@@ -99,7 +99,7 @@ The Android source changes have not yet been compiled or tested on a device.
 - [Build notes](BUILD_NOTES.md) — build-by-build results and device observations once APKs are published.
 - [GitHub commits](https://github.com/purdygeorgeedward-dev/Wesnoth-Mobile/commits/master) — the source history.
 
-<p align="left"><img width="100%" src="images/characters/shaman.webp" alt="Shaman portrait"></p>
+<p align="left"><img width="100%" src="images/characters/moremirmu.webp" alt="Moremirmu portrait"></p>
 
 ## Building from Source
 
