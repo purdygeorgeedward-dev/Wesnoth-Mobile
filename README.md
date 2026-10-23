@@ -60,6 +60,8 @@ Long before mentoring Konrad, **Delfador** was a young mage caught up in events 
 
 In the Northland, **Tallin** helps lead a rebellion against orcish domination. *Northern Rebirth* brings humans, dwarves, and other peoples together in a hard-fought struggle for freedom and a new political order.
 
+<p align="right"><img width="100%" src="images/characters/tallin.webp" alt="Tallin portrait"></p>
+
 ### Under the Burning Suns
 
 Set in Wesnoth's distant future, *Under the Burning Suns* follows the desert elf **Kaleh**, alongside **Nym**, as their people search for a new home in a drastically changed world. Its setting and survival-focused journey offer a striking contrast to the kingdom's earlier adventures.
