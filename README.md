@@ -138,9 +138,8 @@ Wesnoth is free and open-source software. The game's source code is licensed und
 
 This fork retains the obligations and notices of the upstream project. New mobile-specific work must comply with the applicable licenses.
 
+<p align="center"><img width="100%" src="images/characters/sea-orc.webp" alt="sea orc portrait"></p>
+
 ---
 
 *Wesnoth Mobile — a familiar world, redesigned for your fingertips.*
-
-<p align="center"><img width="100%" src="images/characters/sea-orc.webp" alt="sea orc portrait"></p>
-
