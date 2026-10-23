@@ -16,16 +16,14 @@
 > **Development status:** This fork is a work in progress. The Android foundation has been modified, but the planned native interface redesign is not complete. No APK from the current source changes has yet been built and verified. Features described as *planned* below are not promises of current functionality.
 > 
 
-<p align="center"><img width="100%" src="images/maps/wesnoth-3d-map.webp" alt="3D map"></p>
-
 ## The Game
 
 [The Battle for Wesnoth](https://www.wesnoth.org/) is a free and open-source, turn-based tactical strategy game set in a richly developed fantasy world. Recruit armies, capture villages, manage gold and terrain advantages, advance veteran units, and fight through story-driven campaigns. The upstream game includes single-player adventures, multiplayer modes, user-created content, and extensive modding capabilities.
 
-<p align="center"><img width="100%" src="images/characters/konrad-elvish.webp" alt="Konrad portrait"></p>
+<p align="center"><img width="100%" src="images/maps/wesnoth-3d-map.webp" alt="3D map"></p>
 
 Wesnoth Mobile intends to preserve that strategic experience while making it comfortable to play on a touchscreen.
-
+<p align="center"><img width="100%" src="images/characters/konrad-elvish.webp" alt="Konrad portrait"></p>
 
 ## The Legends of Wesnoth
 
