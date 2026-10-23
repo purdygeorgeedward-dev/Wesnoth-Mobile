@@ -34,8 +34,6 @@ Wesnoth's story-driven campaigns span centuries of fantasy history, from the fou
 
 One of Wesnoth's most recognizable campaigns, *Heir to the Throne* follows **Konrad**, a young man raised among the elves, as he challenges **Queen Asheviere**'s rule. Guided by the legendary mage **Delfador**, he searches for the **Sceptre of Fire** and gathers allies, including **Princess Li'sar** and the ancient elvish lord **Kalenz**. Questions of loyalty, identity, and rightful rule drive the adventure.
 
-
-
 ### The Rise of Wesnoth
 
 *The Rise of Wesnoth* tells the story of **Prince Haldric**, who leads refugees from the Green Isle across the ocean and struggles to establish a new homeland. Alongside **Lady Jessene**, he faces dangers that include the formidable **Lich-Lord Jevyan**. This campaign explores the origins of the kingdom featured in later stories.
@@ -46,7 +44,7 @@ One of Wesnoth's most recognizable campaigns, *Heir to the Throne* follows **Kon
 
 Set in an earlier age, *Legend of Wesmere* follows **Kalenz** through wars and political struggles that shape elvish history. It reveals the experiences behind the legendary leader encountered in *Heir to the Throne*.
 
-<p align="center"><img src="images/characters/delfador-mad.webp" alt="Delfador portrait" height="260"></p>
+<p align="right"><img src="images/characters/delfador-mad.webp" alt="Delfador portrait" height="260"></p>
 
 ### Delfador's Memoirs
 
