@@ -29,7 +29,7 @@ Wesnoth Mobile intends to preserve that strategic experience while making it com
 
 Wesnoth's story-driven campaigns span centuries of fantasy history, from the founding of the kingdom to the distant future. Here are some of its best-known adventures and characters.
 
-<p align="left"><img width="100%" src="images/characters/lisar.webp" alt="Li'sar portrait"></p>
+<p align="left"><img width="100%" src="images/characters/princess-lisar.webp" alt="Li'sar portrait"></p>
 
 ### Heir to the Throne
 
