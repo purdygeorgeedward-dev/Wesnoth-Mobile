@@ -13,7 +13,7 @@
 **Wesnoth Mobile** aims to bring the depth of Wesnoth's turn-based fantasy strategy to modern Android phones **without treating a phone like a miniature desktop**. The project builds on Wesnoth's existing game engine and content while developing a touch-oriented, responsive interface designed for portrait and landscape play.
 
 > **Development status:** This fork is a work in progress. The Android foundation has been modified, but the planned native interface redesign is not complete. No APK from the current source changes has yet been built and verified. Features described as *planned* below are not promises of current functionality.
-
+> 
 <p align="center"><img src="images/characters/konrad-elvish.webp" alt="Konrad portrait" height="260"></p>
 
 ## The Game
@@ -22,9 +22,13 @@
 
 Wesnoth Mobile intends to preserve that strategic experience while making it comfortable to play on a touchscreen.
 
+<p align="right"><img src="images/characters/ethiliel.webp" alt="Ethiliel portrait" height="260"></p>
+
 ## The Legends of Wesnoth
 
 Wesnoth's story-driven campaigns span centuries of fantasy history, from the founding of the kingdom to the distant future. Here are some of its best-known adventures and characters.
+
+<p align="left"><img src="images/characters/lisar.webp" alt="Li'sar portrait" height="260"></p>
 
 ### Heir to the Throne
 
@@ -34,9 +38,13 @@ One of Wesnoth's most recognizable campaigns, *Heir to the Throne* follows **Kon
 
 *The Rise of Wesnoth* tells the story of **Prince Haldric**, who leads refugees from the Green Isle across the ocean and struggles to establish a new homeland. Alongside **Lady Jessene**, he faces dangers that include the formidable **Lich-Lord Jevyan**. This campaign explores the origins of the kingdom featured in later stories.
 
+<p align="left"><img src="images/characters/kalenz.webp" alt="Kalenz portrait" height="260"></p>
+
 ### Legend of Wesmere
 
 Set in an earlier age, *Legend of Wesmere* follows **Kalenz** through wars and political struggles that shape elvish history. It reveals the experiences behind the legendary leader encountered in *Heir to the Throne*.
+
+<p align="center"><img src="images/characters/delfador-mad.webp" alt="Delfador portrait" height="260"></p>
 
 ### Delfador's Memoirs
 
@@ -44,15 +52,19 @@ Long before mentoring Konrad, **Delfador** was a young mage caught up in events 
 
 ### Northern Rebirth
 
-In the Northlands, **Tallin** helps lead a rebellion against orcish domination. *Northern Rebirth* brings humans, dwarves, and other peoples together in a hard-fought struggle for freedom and a new political order.
+In the Northland, **Tallin** helps lead a rebellion against orcish domination. *Northern Rebirth* brings humans, dwarves, and other peoples together in a hard-fought struggle for freedom and a new political order.
 
 ### Under the Burning Suns
 
 Set in Wesnoth's distant future, *Under the Burning Suns* follows the desert elf **Kaleh**, alongside **Nym**, as their people search for a new home in a drastically changed world. Its setting and survival-focused journey offer a striking contrast to the kingdom's earlier adventures.
 
+<p align="right"><img src="images/characters/maddock.webp" alt="Maddock portrait" height="260"></p>
+
 ### Bringing the Characters to Life
 
 The personalities of Wesnoth's heroes and villains are as important to its storytelling as its battles. Character portraits communicate courage, uncertainty, anger, wisdom, and defeat before a line of dialogue is spoken.
+
+<p align="center"><img src="images/characters/asheviere-mad.webp" alt="Asheviere portrait" height="260"></p>
 
 Under the direction of George Edward Purdy, the lead artist and character designer from Master of Magic, this project's graphics work revisits familiar characters with new portraits, expressions, costumes, and interpretations, while drawing inspiration from the world and stories that made them memorable. 
 
@@ -60,7 +72,7 @@ Under the direction of George Edward Purdy, the lead artist and character design
 
 For more about the original adventures, see the [Wesnoth campaign documentation](https://wiki.wesnoth.org/Mainline_campaigns).
 
-<p align="center"><img src="images/characters/lisar.webp" alt="Li'sar portrait" height="260"></p>
+<p align="center"><img src="images/characters/konrad-chainmail-glad.webp" alt="Konrad portrait" height="260"></p>
 
 ## Our Direction
 
@@ -68,7 +80,7 @@ Wesnoth Mobile is being designed around a phone-first experience: an independent
 
 The guiding principle is straightforward: **keep the strategy; rethink the interaction.**
 
-<p align="center"><img src="images/characters/kalenz.webp" alt="Kalenz portrait" height="260"></p>
+<p align="center"><img src="images/characters/angarthing.webp" alt="Angarthing portrait" height="260"></p>
 
 ## Development Progress
 
@@ -78,6 +90,8 @@ The first source changes establish a separate Android application ID, improve la
 
 The Android source changes have not yet been compiled or tested on a device.
 
+<p align="center"><img src="images/characters/konrad-chainmail-mad.webp" alt="Konrad portrait" height="260"></p>
+
 ### Follow the Work
 
 - [Developer log](DEVELOPER_LOG.md) — ongoing engineering decisions, progress, and risks.
@@ -85,7 +99,7 @@ The Android source changes have not yet been compiled or tested on a device.
 - [Build notes](BUILD_NOTES.md) — build-by-build results and device observations once APKs are published.
 - [GitHub commits](https://github.com/purdygeorgeedward-dev/Wesnoth-Mobile/commits/master) — the source history.
 
-<p align="center"><img src="images/characters/delfador-mad.webp" alt="Delfador portrait" height="260"></p>
+<p align="left"><img src="images/characters/shaman.webp" alt="Shaman portrait" height="260"></p>
 
 ## Building from Source
 
@@ -98,6 +112,7 @@ git clone --recurse-submodules https://github.com/purdygeorgeedward-dev/Wesnoth-
 cd Wesnoth-Mobile
 ```
 
+<p align="center"><img src="images/characters/chantal-shyde.webp" alt="Chantal Shyde portrait" height="260"></p>
 
 The Android Gradle project is in `packaging/android`. For the full dependency → C++ engine → APK/AAB procedure, including GitHub Actions and local Linux commands, see the [Android Build Guide](docs/ANDROID_BUILD_GUIDE.md). The instructions are source-verified but a successful fork build and device test have not yet been recorded. Check [BUILD_NOTES.md](BUILD_NOTES.md) for actual build results.
 
@@ -126,4 +141,6 @@ This fork retains the obligations and notices of the upstream project. New mobil
 ---
 
 *Wesnoth Mobile — a familiar world, redesigned for your fingertips.*
+
+<p align="center"><img src="images/characters/sea-orc.webp" alt="sea orc portrait" height="260"></p>
 
