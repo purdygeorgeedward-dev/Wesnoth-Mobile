@@ -83,7 +83,7 @@ For more about the original adventures, see the [Wesnoth campaign documentation]
 
 <p align="center"><img width="100%" src="images/characters/konrad-chainmail-glad.webp" alt="Konrad portrait"></p>
 
-## Our Direction
+## Direction
 
 Wesnoth Mobile is being designed around a phone-first experience: an independent Android app with a responsive launcher, portrait and landscape support, intuitive touch controls, and menus, dialogs, and battlefield controls adapted to small screens. The longer-term vision includes a distinctive startup experience, interface styling, and original visual and musical assets.
 
