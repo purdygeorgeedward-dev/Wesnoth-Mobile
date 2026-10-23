@@ -14,7 +14,7 @@
 
 > **Development status:** This fork is a work in progress. The Android foundation has been modified, but the planned native interface redesign is not complete. No APK from the current source changes has yet been built and verified. Features described as *planned* below are not promises of current functionality.
 > 
-<p align="center"><img src="images/characters/konrad-elvish.webp" alt="Konrad portrait" height="260"></p>
+<p align="center"><img src="images/characters/konrad-elvish.webp" alt="Konrad portrait" height="400"></p>
 
 ## The Game
 
