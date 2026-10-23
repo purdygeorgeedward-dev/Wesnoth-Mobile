@@ -16,7 +16,7 @@
 > **Development status:** This fork is a work in progress. The Android foundation has been modified, but the planned native interface redesign is not complete. No APK from the current source changes has yet been built and verified. Features described as *planned* below are not promises of current functionality.
 > 
 
-<p align="center"><img width="100%" src="images/characters/wesnoth-3d-map.webp" alt="3D map"></p>
+<p align="center"><img width="100%" src="images/maps/wesnoth-3d-map.webp" alt="3D map"></p>
 
 ## The Game
 
