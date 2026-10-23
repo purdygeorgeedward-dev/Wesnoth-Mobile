@@ -66,6 +66,7 @@ In the Northland, **Tallin** helps lead a rebellion against orcish domination. *
 
 Set in Wesnoth's distant future, *Under the Burning Suns* follows the desert elf **Kaleh**, alongside **Nym**, as their people search for a new home in a drastically changed world. Its setting and survival-focused journey offer a striking contrast to the kingdom's earlier adventures.
 
+<p align="right"><img width="100%" src="images/characters/kaleh.webp" alt="Kaleh portrait"></p>
 
 ### Bringing the Characters to Life
 
