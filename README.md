@@ -71,7 +71,7 @@ The personalities of Wesnoth's heroes and villains are as important to its story
 
 <p align="right"><img width="100%" src="images/characters/maddock.webp" alt="Maddock portrait"></p>
 
-Under the direction of George Edward Purdy, the lead artist and character designer from Master of Magic, this project's graphics work revisits familiar characters with new portraits, expressions, costumes, and interpretations, while drawing inspiration from the world and stories that made them memorable. 
+Under the direction of George Edward Purdy, the primary character designer from Master of Magic, this project's graphics work revisits familiar characters with new portraits, expressions, costumes, and interpretations, while drawing inspiration from the world and stories that made them memorable.
 
 <p align="center"><img width="100%" src="images/characters/asheviere-mad.webp" alt="Asheviere portrait"></p>
 
