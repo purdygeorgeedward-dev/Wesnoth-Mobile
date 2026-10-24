@@ -75,3 +75,8 @@ Dated record of every push. Times are Mountain Time (El Paso).
 
 **Files**
 - `DEVELOPMENT_JOURNAL.md`: loving ruler vs. little tyrant choice, and how WML supports it.
+
+## 2026-10-24 13:55 MDT — Journal: Princess Maker model
+
+**Files**
+- `DEVELOPMENT_JOURNAL.md`: Essoth campaign modeled on Princess Maker, and how Wesnoth can support it.
