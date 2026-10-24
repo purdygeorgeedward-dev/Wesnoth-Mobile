@@ -80,3 +80,8 @@ Dated record of every push. Times are Mountain Time (El Paso).
 
 **Files**
 - `DEVELOPMENT_JOURNAL.md`: Essoth campaign modeled on Princess Maker, and how Wesnoth can support it.
+
+## 2026-10-24 13:58 MDT — Journal: alignment stat
+
+**Files**
+- `DEVELOPMENT_JOURNAL.md`: moral alignment stat and its tie-in to Wesnoth's lawful/chaotic unit alignment; her theme music shifting with path.

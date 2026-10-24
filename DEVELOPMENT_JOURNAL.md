@@ -154,6 +154,8 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
   - Ideas discussed: a hidden "mercy vs. fear" score from her choices; allies join or defect, villages stay loyal or rebel (income), different scenario paths, separate endings; her portraits change with the path (George's art).
   - Model: like *Princess Maker* (raising sim with stats and many endings), combined with tactical battles.
   - Feasible in Wesnoth: between-battle "upbringing" screens with Lua/GUI dialogs; stats kept in campaign variables; training choices change her unit (abilities, traits, advancement); endings chosen from the stats.
+  - Her theme music can shift with her path (tender vs. darker), alongside the portraits.
+  - Alignment stat: a moral score (e.g. -100 evil to +100 good) tracking drift either way. Tie-in to Wesnoth's existing unit alignment: good path → lawful (stronger by day), evil path → chaotic (stronger at night), middle → neutral or liminal. Applied with `[modify_unit]` as she drifts.
 
 ### Open items
 - Stray files the game never loads (kept on purpose): underscore copies in `Heir_To_The_Throne` (`lisar_*`, `isolde_old`, `harper_old`, `delfador_mentoring`), `konrad-chainmail-cup`, `konrad-chainmail-defeated`; in Classic `harper_old`, `isolde_old`, `konrad-elvish-sceptre`; Legend of Wesmere `haldricll`, `kalenz-young`; Dead Water `portraits/campaign_image.png`.
