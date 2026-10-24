@@ -22,3 +22,18 @@ Dated record of every push. Times are Mountain Time (El Paso).
 **Pending**
 - Full-screen background art under the logo. Planned at 3840×3840 with key content in the center ~1650 px.
 - Theme song at startup. Will be wired in when uploaded.
+
+## 2026-10-24 11:49 MDT — Portrait filename fixes; README cleanup
+
+**Portraits** (new art copied onto the names the game loads; uploaded originals kept)
+- `Heir_To_The_Throne_Classic/images/portraits/`: `lisar_glad` → `lisar-glad`, `lisar_mad` → `lisar-mad`, `lisar_sceptre` → `lisar-sceptre`, `lisar_defeat` → `lisar-defeat`, `delfador_mentoring` → `delfador-mentoring` (all .webp). Replaces upstream art.
+- `Descent_Into_Darkness/images/portraits/`: `dela_mad.webp` → `dela-mad.webp`.
+- `Sceptre_of_Fire/images/portraits/`: `haldric-II.webp` → `haldric-ii.webp` (Android filenames are case-sensitive).
+- `Heir_To_The_Throne/images/portraits/`: `lisar-defeated.webp` → `lisar-defeat.webp`; `isolde-old.webp` converted to `isolde-old.png` (code loads the .png).
+
+**README.md**
+- Status disclaimers commented out (top note, illustrations line, two Development Progress sentences, Building from Source sentence).
+- Konrad image alt text now names each variant.
+
+**Known, not fixed**
+- `Heir_To_The_Throne_Classic/units/Tutorial_Warrior.cfg` and `Tutorial_Fighter.cfg` reference `portraits/konrad.webp`, which does not exist (same in upstream).
