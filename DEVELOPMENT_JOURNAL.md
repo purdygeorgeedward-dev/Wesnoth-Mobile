@@ -156,6 +156,7 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
   - Feasible in Wesnoth: between-battle "upbringing" screens with Lua/GUI dialogs; stats kept in campaign variables; training choices change her unit (abilities, traits, advancement); endings chosen from the stats.
   - Her theme music can shift with her path (tender vs. darker), alongside the portraits.
   - Alignment stat: a moral score (e.g. -100 evil to +100 good) tracking drift either way. Tie-in to Wesnoth's existing unit alignment: good path → lawful (stronger by day), evil path → chaotic (stronger at night), middle → neutral or liminal. Applied with `[modify_unit]` as she drifts.
+  - Alignment also drives the art style: different portrait and story-art sets per range (swapped by variable at thresholds); whole-screen color grading via `[color_adjust]` and image path functions (`~CS()`, `~BLEND()`, etc.), warm and bright toward good, cold and desaturated toward evil; in the 2.5D view, the sky, fog and cloud colors follow too.
 
 ### Open items
 - Stray files the game never loads (kept on purpose): underscore copies in `Heir_To_The_Throne` (`lisar_*`, `isolde_old`, `harper_old`, `delfador_mentoring`), `konrad-chainmail-cup`, `konrad-chainmail-defeated`; in Classic `harper_old`, `isolde_old`, `konrad-elvish-sceptre`; Legend of Wesmere `haldricll`, `kalenz-young`; Dead Water `portraits/campaign_image.png`.

@@ -85,3 +85,8 @@ Dated record of every push. Times are Mountain Time (El Paso).
 
 **Files**
 - `DEVELOPMENT_JOURNAL.md`: moral alignment stat and its tie-in to Wesnoth's lawful/chaotic unit alignment; her theme music shifting with path.
+
+## 2026-10-24 13:59 MDT — Journal: alignment-driven art style
+
+**Files**
+- `DEVELOPMENT_JOURNAL.md`: art style shifting with her alignment (art sets, color grading, sky/fog).
