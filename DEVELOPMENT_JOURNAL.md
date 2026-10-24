@@ -134,8 +134,22 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
   - Winds of Fate: `scary_ambient_wind`
 - **Plan:** after all graphics work is done, George will replace all the music for a consistent soundtrack.
 
+### Goal, licensing and name (13:50 MDT)
+- **Goal:** convert Wesnoth into a AAA-quality game: one consistent art direction from title screen to final cutscene, a unified score, the 2.5D map, battle scenes, and a phone-first interface, on top of Wesnoth's proven game design.
+- **Music timing:** George will do a full playthrough before writing the new tracks, so music is written for the moments it plays over. (Offered: a list of which scenarios use which tracks.)
+- **Licensing (general information, not legal advice):**
+  - Wesnoth's code is GPL. Changes must stay GPL and source must be available when the game is distributed.
+  - Wesnoth's existing art, music and story are GPL too. Anything kept or directly edited from them stays GPL.
+  - Original new art and music are George's own work, and he chooses their license. Precedent: id Software released the Doom and Quake engines as GPL but kept the game data commercial.
+  - Gray area: new art of Wesnoth's characters (Konrad, Li'sar, etc.). Get an IP lawyer's read before selling.
+  - Selling is allowed under the GPL. Buyers must be able to get the source (the public repo covers this), and they can't be stopped from sharing. Krita (Krimble's upstream) is GPL and sold on Steam and the Microsoft Store.
+  - Use a name of its own in stores, not "The Battle for Wesnoth."
+- **Name: "Essoth."** No existing game or product by that name was found in a quick web search. The echo of Essos (*A Song of Ice and Fire*) is intentional. Esso (ExxonMobil fuel) is a different market. A USPTO trademark search is still to do before launch.
+
 ### Open items
 - Stray files the game never loads (kept on purpose): underscore copies in `Heir_To_The_Throne` (`lisar_*`, `isolde_old`, `harper_old`, `delfador_mentoring`), `konrad-chainmail-cup`, `konrad-chainmail-defeated`; in Classic `harper_old`, `isolde_old`, `konrad-elvish-sceptre`; Legend of Wesmere `haldricll`, `kalenz-young`; Dead Water `portraits/campaign_image.png`.
 - Secrets of the Ancients: new portraits are PNG, pending conversion. The game loads `campaign-image.webp` (hyphen).
 - README "Direction" section doesn't yet mention the 2.5D map or battle cutscenes.
 - A design document for the 2.5D map can be added to the repo if wanted.
+- USPTO trademark check for "Essoth" before launch.
+- IP lawyer review of licensing for new art and music before selling.

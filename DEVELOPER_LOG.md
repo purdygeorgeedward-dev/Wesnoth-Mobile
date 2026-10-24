@@ -50,3 +50,8 @@ Dated record of every push. Times are Mountain Time (El Paso).
 
 **Files**
 - `DEVELOPMENT_JOURNAL.md`: added a Music section to the Oct 24 entry (track inventory, campaign-only tracks, plan to replace all music after graphics).
+
+## 2026-10-24 13:50 MDT — Journal: goal, licensing, name
+
+**Files**
+- `DEVELOPMENT_JOURNAL.md`: added AAA-conversion goal, playthrough before music, GPL licensing notes, and the product name "Essoth" (Essos echo intentional). Two new open items: USPTO trademark check, IP lawyer review.
