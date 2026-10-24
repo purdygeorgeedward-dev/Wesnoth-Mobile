@@ -60,3 +60,8 @@ Dated record of every push. Times are Mountain Time (El Paso).
 
 **Files**
 - `DEVELOPMENT_JOURNAL.md`: title is "Essoth"; subtitle idea "Essoth: Tactics of the Fallen Kingdom".
+
+## 2026-10-24 13:53 MDT — Journal: campaigns
+
+**Files**
+- `DEVELOPMENT_JOURNAL.md`: existing campaigns can be included under GPL terms; original Essoth campaign planned last.

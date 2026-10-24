@@ -146,6 +146,8 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
   - Use a name of its own in stores, not "The Battle for Wesnoth."
 - **Name: "Essoth."** No existing game or product by that name was found in a quick web search. The echo of Essos (*A Song of Ice and Fire*) is intentional. Esso (ExxonMobil fuel) is a different market. A USPTO trademark search is still to do before launch.
 - **Title (13:52 MDT):** just "Essoth", not "The Battle for Essoth". It avoids sitting next to "The Battle for Wesnoth" and works better as a one-word store and home-screen name. Subtitle idea George liked: **"Essoth: Tactics of the Fallen Kingdom."**
+- **Existing campaigns (13:53 MDT):** can be included, changed and sold. They stay GPL (story, scenarios, WML). Keep the original authors' credits (`data/core/about.cfg`) and add George's alongside. Mark modified files as changed. The in-story kingdom name "Wesnoth" is fine as a place name, or it can be renamed.
+- **Essoth campaign:** George will write an original Essoth campaign last, after everything else is done.
 
 ### Open items
 - Stray files the game never loads (kept on purpose): underscore copies in `Heir_To_The_Throne` (`lisar_*`, `isolde_old`, `harper_old`, `delfador_mentoring`), `konrad-chainmail-cup`, `konrad-chainmail-defeated`; in Classic `harper_old`, `isolde_old`, `konrad-elvish-sceptre`; Legend of Wesmere `haldricll`, `kalenz-young`; Dead Water `portraits/campaign_image.png`.
