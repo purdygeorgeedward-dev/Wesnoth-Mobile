@@ -37,3 +37,11 @@ Dated record of every push. Times are Mountain Time (El Paso).
 
 **Known, not fixed**
 - `Heir_To_The_Throne_Classic/units/Tutorial_Warrior.cfg` and `Tutorial_Fighter.cfg` reference `portraits/konrad.webp`, which does not exist (same in upstream).
+
+## 2026-10-24 13:39 MDT — Development journal added
+
+**Files**
+- `DEVELOPMENT_JOURNAL.md`: new. Running record of everything worked on and discussed (ideas, designs, decisions, open items). First entry covers Oct 24: battle cutscenes, 2.5D diorama map design (render passes, hex mesh, fog/sky/clouds, edge rings, build order), art plan, naming rules, work done.
+
+**Update to earlier known issue**
+- `portraits/konrad.webp` for the Classic tutorial units now exists (George's upload, commit `437be11`).
