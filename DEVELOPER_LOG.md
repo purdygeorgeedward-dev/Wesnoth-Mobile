@@ -65,3 +65,8 @@ Dated record of every push. Times are Mountain Time (El Paso).
 
 **Files**
 - `DEVELOPMENT_JOURNAL.md`: existing campaigns can be included under GPL terms; original Essoth campaign planned last.
+
+## 2026-10-24 13:54 MDT — Journal: Essoth campaign concept
+
+**Files**
+- `DEVELOPMENT_JOURNAL.md`: Essoth campaign concept, a little girl who takes over the world.
