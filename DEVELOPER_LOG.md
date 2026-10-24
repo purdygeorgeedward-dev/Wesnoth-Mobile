@@ -50,3 +50,59 @@ Dated record of every push. Times are Mountain Time (El Paso).
 
 **Files**
 - `DEVELOPMENT_JOURNAL.md`: added a Music section to the Oct 24 entry (track inventory, campaign-only tracks, plan to replace all music after graphics).
+
+## 2026-10-26 13:55 MDT — Roadmap
+
+**Files**
+- `ROADMAP.md`: new. Full plan, phases 0–9, from the Oracle build and phone playability through the mobile interface, art, battle scenes and the 2.5D map, to music and release.
+- `DEVELOPMENT_JOURNAL.md`: Oct 26 entry with the roadmap and repo findings (app ID still `org.wesnoth.Wesnoth`; three README-linked docs missing; refork not yet compiled).
+
+## 2026-10-26 14:38 MDT — Journal: sprite sheets and high-res sprites
+
+**Files**
+- `DEVELOPMENT_JOURNAL.md`: cutting AI sprite sheets into frames (process, risks, team-color remap) and the case for high-res sprites (engine support, cost, 2× proposal).
+
+## 2026-10-26 14:53 MDT — Campaign logos and theme songs
+
+**Files**
+- `DEVELOPMENT_JOURNAL.md`: campaign_image can be a logo; plan for each campaign to open with its logo and a theme song (opening story part with `music=`).
+- `ROADMAP.md`: Phase 3 item 7, campaign logos plus opening logo screen with theme song.
+
+## 2026-10-26 14:55 MDT — Journal: logo and theme timing
+
+**Files**
+- `DEVELOPMENT_JOURNAL.md`: logos in progress; theme music after each campaign's story screens are done and it has been played.
+
+## 2026-10-30 13:48 MDT — Priority: phone UI
+
+**Files**
+- `ROADMAP.md`: marked Phases 1–2 (phone UI) as top priority.
+- `DEVELOPMENT_JOURNAL.md`: Oct 30 entry; noted Secrets of the Ancients `image=` points to the deleted `campaign-image.webp`.
+
+## 2026-10-30 20:23 MDT — Journal: Secrets of the Ancients image resolved
+
+**Files**
+- `DEVELOPMENT_JOURNAL.md`: campaign image now matches `_main.cfg` (George's upload `1fde389`).
+
+## 2026-10-30 20:26 MDT — Eastern Invasion: campaign image no longer mirrored
+
+**Files**
+- `data/campaigns/Eastern_Invasion/_main.cfg`: `image=` no longer ends in `~FL()`, so the new logo displays the right way round. Original line commented out above it.
+- `DEVELOPMENT_JOURNAL.md`: campaign image naming notes and this change.
+
+## 2026-10-30 21:36 MDT — Journal: The Deceiver's Gambit replaces Delfador's Memoirs
+
+**Files**
+- `DEVELOPMENT_JOURNAL.md`: Delfador's Memoirs dropped in favour of The Deceiver's Gambit; README section and logo done by George; open item for the in-game selection image.
+
+## 2026-10-31 18:18 MDT — Wesnoth Mobile GUI theme started
+
+**Files**
+- `data/gui/themes/mobile/_main.cfg`: new theme, id `mobile` ("Wesnoth Mobile").
+- `data/gui/themes/mobile/widgets/`: button_default, menu_button_default, text_box_default, slider_default, vertical_scrollbar_default, horizontal_scrollbar_default, each enlarged for touch.
+- `data/gui/_main.cfg`: registers the Wesnoth Mobile theme.
+- `src/preferences/preferences.cpp`: Android first launch uses the Wesnoth Mobile theme (desktop logic kept under `#else`).
+- `ROADMAP.md`, `DEVELOPMENT_JOURNAL.md`: progress and the pixel-scale finding.
+
+**Status:** wmllint clean; not compiled or run yet (no build server).
+

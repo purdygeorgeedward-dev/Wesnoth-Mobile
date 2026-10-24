@@ -134,8 +134,100 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
   - Winds of Fate: `scary_ambient_wind`
 - **Plan:** after all graphics work is done, George will replace all the music for a consistent soundtrack.
 
+### Music timing (13:50 MDT)
+- George will do a full playthrough before writing the new tracks, so music is written for the moments it plays over. (Offered: a list of which scenarios use which tracks.)
+
 ### Open items
 - Stray files the game never loads (kept on purpose): underscore copies in `Heir_To_The_Throne` (`lisar_*`, `isolde_old`, `harper_old`, `delfador_mentoring`), `konrad-chainmail-cup`, `konrad-chainmail-defeated`; in Classic `harper_old`, `isolde_old`, `konrad-elvish-sceptre`; Legend of Wesmere `haldricll`, `kalenz-young`; Dead Water `portraits/campaign_image.png`.
 - Secrets of the Ancients: new portraits are PNG, pending conversion. The game loads `campaign-image.webp` (hyphen).
 - README "Direction" section doesn't yet mention the 2.5D map or battle cutscenes.
 - A design document for the 2.5D map can be added to the repo if wanted.
+
+---
+
+## 2026-10-26 (Monday)
+
+### Roadmap (13:55 MDT)
+- George asked for a detailed plan for making the game mobile, with 2.5D in the final plan. Written to `ROADMAP.md`.
+- Phase order: 0 Foundation → 1 Playable on a phone → 2 Mobile interface → 3 Art replacement (parallel) → 4 2.5D art spec, tiles and sprites → 5 Battle scenes → 6 2.5D map → 7 Playthrough and music → 8 Release.
+- Repo findings while planning:
+  - Nothing since the Oct 19 refork has been compiled, including the animated startup logo.
+  - `packaging/android/app/build.gradle` still has `applicationId "org.wesnoth.Wesnoth"`, although the README says a separate ID was set.
+  - The README links to `BUILD_NOTES.md`, `MOBILE_DEVELOPMENT_LOG.md` and `docs/ANDROID_BUILD_GUIDE.md`, which don't exist.
+  - GUI: 109 dialogs and 72 widgets in `data/gui/themes/default/`. The `celes` theme shows how a theme overrides selected parts. Dialogs can switch layouts by window size with `[resolution]` blocks.
+  - The in-game layout is a separate theme in `data/themes/default.cfg`.
+  - The engine already handles finger events (`src/controller_base.cpp`, `src/events.cpp`).
+
+### Sprite sheets and high-res sprites (14:38 MDT)
+- Question: can ganged sprite sheets made in ChatGPT be cut apart and put into the game?
+  - Yes. Claude can cut out each frame, trim it, line every frame up on the same ground point, name the files and write the animation WML.
+  - Risks with AI sheets:
+    - Frames that drift in proportions or details.
+    - Fake transparency (painted checkerboard or white backgrounds).
+    - Jitter between frames.
+    - Team color: Wesnoth recolors only exact magenta palette colors. The generator won't produce those, so team-color areas would need to be painted in one flat marker color and remapped to the palette.
+  - Each sheet needs labelling: which unit, which animation, frame order.
+- Question: any advantage in high-res sprites?
+  - Yes. Current sprites are 72×72, and the A26 shows each game pixel with 2–3 screen pixels, so sprites are enlarged and soft. Zoom levels are 36/72/144 (`src/game_config.cpp`).
+  - High-res matters most for battle scenes (units shown 2–3×) and the 2.5D near rows.
+  - Engine: textures already carry a separate draw size (`set_draw_size`, used for text, UI and the map buffer). Unit, terrain and halo drawing would need to treat a high-res sprite as 72 logical pixels. Moderate change, mainly in `src/units/drawer.cpp`.
+  - Cost: 2× resolution = 4× pixels per frame, so a larger app and more memory. Proposal: 2× (144 px) as the standard, matching the top zoom level.
+
+### Campaign logos and theme songs (14:53 MDT)
+- `campaign_image` (set by `image=` in each campaign's `_main.cfg`) is the picture in the campaign selection screen's details pane, next to the description. It can be a logo, key art or character art. A transparent-background title logo works well, and a matching set reads as a series. The small list picture is a separate setting, `icon=`.
+- **George wants each campaign to open with its logo and a theme song.**
+  - How: a new first `[part]` in the opening `[story]` of each campaign's first scenario, showing the logo (`[background_layer]` or `[image]`).
+  - The story screen supports `music=` and `sound=` per part (`src/storyscreen/part.cpp`), so the theme starts with the logo and no engine change is needed.
+  - `[image]` entries with `delay=` can reveal the logo in steps. A fully animated logo would need Lua or engine work.
+  - The campaign's theme song is one OGG per campaign, in its own `music/` folder.
+- (14:55 MDT) George is making the campaign logos now. Each campaign's theme music waits until its story screens are done and he has played the campaign.
+
+---
+
+## 2026-10-30 (Friday)
+
+### Top priority (13:48 MDT)
+- George: the most important thing is a new UI that scales cleanly to small screens (phones). That's roadmap Phases 1–2 (startup scale, touch, Wesnoth Mobile GUI theme, hand-built screens, in-game layout).
+- Found while checking the repo: `Secrets_of_the_Ancients/_main.cfg` line 27 still points to `images/portraits/campaign-image.webp`, which was deleted Oct 28, so that campaign shows no picture on the selection screen until a new file (e.g. the campaign logo) is in place or the line is changed.
+- (20:23 MDT) Secrets of the Ancients campaign image fixed by George: logo uploaded as `images/portraits/campaign-image.webp` (commit `1fde389`), the name `_main.cfg` loads. Underscore copy removed.
+
+### Campaign image names (20:26 MDT)
+- Upstream is inconsistent: 15 campaigns use `images/campaign_image.png` (underscore, PNG). Secrets of the Ancients alone uses `images/portraits/campaign-image.webp` (hyphen, WebP, in portraits). That's why following the other campaigns gave the wrong name there.
+- Eastern Invasion loaded its image with `~FL()` (mirrored left to right), which would show a logo with backwards text. Removed in `_main.cfg`, with the original line kept as a comment.
+
+### Delfador's Memoirs → The Deceiver's Gambit (21:36 MDT)
+- Delfador's Memoirs isn't in the repo: upstream replaced it with The Deceiver's Gambit in 1.19.9. It survives only as an add-on.
+- Decision: no Delfador's Memoirs. The Deceiver's Gambit is the official rewrite of the same story; a second origin story would contradict the lore and add art and upkeep.
+- README: George replaced the Delfador's Memoirs section with The Deceiver's Gambit (blurb by Claude) and added `images/logos/deceiversgambit.jpg` (commits `7918e12`, `87d9a5d`).
+- Open: in the game, The Deceiver's Gambit `_main.cfg` still shows Delfador portraits on the selection screen (lines 142, 170), not George's logo `images/campaign_image.png`.
+
+---
+
+## 2026-10-31 (Saturday)
+
+### Mobile UI: first WML work (18:18 MDT)
+- No build server yet. George: build WML as far as possible in the meantime. GitHub Actions screenshot builds were offered as an option.
+- Claude's sandbox can't compile Wesnoth (1 CPU, 3 GB RAM, resets between tasks).
+
+**How the engine scales today (key finding)**
+- `src/video.cpp` picks a whole-number pixel scale. The minimum logical window is 1280×720 (`src/preferences/preferences.hpp`).
+- The A26 is 2340×1080, so it can only get scale 1. The UI is drawn at native pixels: tiny. This is why the Oct 18 APK needed screen magnification.
+- Portrait (1080 wide) is below the 1280 minimum altogether.
+- Fix (C++, not done yet): on Android, aim for logical short side ≈ 540, giving scale 2 on the A26: about 1170×540 landscape and 540×1170 portrait.
+  - Default dialogs assume at least 720 high, so this has to land together with the hand-built phone dialogs.
+- Upstream already enlarges fonts on Android (`data/gui/macros/_initial.cfg`, `#ifdef ANDROID`: default 22 instead of 17).
+
+**GUI theme mechanics**
+- Themes live in `data/gui/themes/<name>/`. Any widget or dialog a theme doesn't define falls back to the default (Parchment) theme (`src/gui/core/gui_definition.cpp`).
+- Each widget and dialog can have several `[resolution]` blocks. `window_width`/`window_height` are minimums; the largest one that fits the screen is used. So a landscape block (e.g. 900×500) plus a base block gives separate landscape and portrait layouts.
+
+**Added**
+- New theme `data/gui/themes/mobile/` (id `mobile`, shown as "Wesnoth Mobile"), registered in `data/gui/_main.cfg`.
+- Touch-size overrides, copied from default with sizes enlarged (logical px, aimed at scale 2):
+  - Buttons: 26/30/40 → 44/48/60 tall, wider, default font size.
+  - Drop-down menus: 30 → 44 tall, default font.
+  - Text boxes: 30 → 44 tall.
+  - Sliders: 22 → 40 tall, handle 16 → 28.
+  - Scrollbars: 15–25 → 34 thick, handle min 11 → 24; bar images stretched to the full thickness.
+- `src/preferences/preferences.cpp`: on Android, first launch starts in the Wesnoth Mobile theme. The desktop logic is kept under `#else`.
+- Checked with `wmllint`: no errors. Untested in game until a build server is running.
