@@ -45,3 +45,8 @@ Dated record of every push. Times are Mountain Time (El Paso).
 
 **Update to earlier known issue**
 - `portraits/konrad.webp` for the Classic tutorial units now exists (George's upload, commit `437be11`).
+
+## 2026-10-24 13:44 MDT — Journal: music notes
+
+**Files**
+- `DEVELOPMENT_JOURNAL.md`: added a Music section to the Oct 24 entry (track inventory, campaign-only tracks, plan to replace all music after graphics).

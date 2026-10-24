@@ -123,6 +123,17 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
   - The tutorial Konrad is a human sword Fighter (`units/konrad-fighter.png`).
   - Li'sar is selectable only in the tutorial; Konrad is the lead for the rest of the campaign, which is why he has far more portraits.
 
+### Music (13:44 MDT)
+- Shared soundtrack: 45 OGG tracks in `data/core/music/`, about 171 MB. Orchestral fantasy (strings, brass, choir, percussion, some Celtic and folk). Volunteer composers over many years, so production quality varies.
+- Groups: main themes (`main_menu`, `return_to_wesnoth`, `journeys_end`); faction themes (`loyalists`, `northerners`, `knalgan_theme`, `elvish-theme`, `elf-land`); battle; exploration and mood; story moments; short victory/defeat cues.
+- Scenarios choose playlists with `[music]` in WML. A track can be replaced by dropping in an OGG with the same name.
+- Campaign-only music in `data/campaigns/<Campaign>/music/`:
+  - Heir to the Throne: `juggernaut-louder`, `kvothe`, `primal-carnage`
+  - The Deceiver's Gambit: `decoherence`, `helios`, `phase_shift`
+  - Eastern Invasion: `heavens-remix`, `journeys_end_faststart`
+  - Winds of Fate: `scary_ambient_wind`
+- **Plan:** after all graphics work is done, George will replace all the music for a consistent soundtrack.
+
 ### Open items
 - Stray files the game never loads (kept on purpose): underscore copies in `Heir_To_The_Throne` (`lisar_*`, `isolde_old`, `harper_old`, `delfador_mentoring`), `konrad-chainmail-cup`, `konrad-chainmail-defeated`; in Classic `harper_old`, `isolde_old`, `konrad-elvish-sceptre`; Legend of Wesmere `haldricll`, `kalenz-young`; Dead Water `portraits/campaign_image.png`.
 - Secrets of the Ancients: new portraits are PNG, pending conversion. The game loads `campaign-image.webp` (hyphen).
