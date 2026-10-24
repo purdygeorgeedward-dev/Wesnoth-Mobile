@@ -12,9 +12,11 @@
 
 **Wesnoth Mobile** aims to bring the depth of Wesnoth's turn-based fantasy strategy to modern Android phones **without treating a phone like a miniature desktop**. The project builds on Wesnoth's existing game engine and content while developing a touch-oriented, responsive interface designed for portrait and landscape play.
 
+<!--
 > [!NOTE]
 > **Development status:** This fork is a work in progress. The Android foundation has been modified, but the planned native interface redesign is not complete. No APK from the current source changes has yet been built and verified. Features described as *planned* below are not promises of current functionality.
 > 
+-->
 
 ## The Game
 
@@ -23,7 +25,7 @@
 <p align="center"><img width="100%" src="images/maps/wesnoth_map_1920x1080.jpg" alt="Wesnoth map"></p>
 
 Wesnoth Mobile intends to preserve that strategic experience while making it comfortable to play on a touchscreen.
-<p align="center"><img width="100%" src="images/characters/konrad-elvish.webp" alt="Konrad portrait"></p>
+<p align="center"><img width="100%" src="images/characters/konrad-elvish.webp" alt="Konrad in elvish ranger garb"></p>
 
 ## The Legends of Wesnoth
 
@@ -78,11 +80,11 @@ Under the direction of George Edward Purdy, the primary character designer from 
 
 <p align="center"><img width="100%" src="images/characters/asheviere-mad.webp" alt="Asheviere portrait"></p>
 
-(These illustrations are part of an evolving presentation effort, not a claim that every campaign has already been redesigned.)
+<!-- (These illustrations are part of an evolving presentation effort, not a claim that every campaign has already been redesigned.) -->
 
 For more about the original adventures, see the [Wesnoth campaign documentation](https://wiki.wesnoth.org/Mainline_campaigns).
 
-<p align="center"><img width="100%" src="images/characters/konrad-chainmail-glad.webp" alt="Konrad portrait"></p>
+<p align="center"><img width="100%" src="images/characters/konrad-chainmail-glad.webp" alt="Konrad in chainmail, smiling"></p>
 
 ## Direction
 
@@ -96,11 +98,11 @@ The guiding principle is straightforward: **keep the strategy; rethink the inter
 
 Development takes place directly on [`master`](https://github.com/purdygeorgeedward-dev/Wesnoth-Mobile/tree/master). The upstream gameplay and content remain the starting point.
 
-The first source changes establish a separate Android application ID, improve launcher sizing and accessibility, remove forced orientation restrictions, correct launch argument formatting, address first-run status-file initialization, and improve ZIP archive extraction safety. These changes still require compilation and device testing.
+The first source changes establish a separate Android application ID, improve launcher sizing and accessibility, remove forced orientation restrictions, correct launch argument formatting, address first-run status-file initialization, and improve ZIP archive extraction safety. <!-- These changes still require compilation and device testing. -->
 
-The Android source changes have not yet been compiled or tested on a device.
+<!-- The Android source changes have not yet been compiled or tested on a device. -->
 
-<p align="center"><img width="100%" src="images/characters/konrad-chainmail-mad.webp" alt="Konrad portrait"></p>
+<p align="center"><img width="100%" src="images/characters/konrad-chainmail-mad.webp" alt="Konrad in chainmail, angry"></p>
 
 ### Follow the Work
 
@@ -124,9 +126,9 @@ cd Wesnoth-Mobile
 
 <p align="center"><img width="100%" src="images/characters/chantal-shyde.webp" alt="Chantal Shyde portrait"></p>
 
-The Android Gradle project is in `packaging/android`. For the full dependency → C++ engine → APK/AAB procedure, including GitHub Actions and local Linux commands, see the [Android Build Guide](docs/ANDROID_BUILD_GUIDE.md). The instructions are source-verified but a successful fork build and device test have not yet been recorded. Check [BUILD_NOTES.md](BUILD_NOTES.md) for actual build results.
+The Android Gradle project is in `packaging/android`. For the full dependency → C++ engine → APK/AAB procedure, including GitHub Actions and local Linux commands, see the [Android Build Guide](docs/ANDROID_BUILD_GUIDE.md). <!-- The instructions are source-verified but a successful fork build and device test have not yet been recorded. --> Check [BUILD_NOTES.md](BUILD_NOTES.md) for actual build results.
 
-<p align="center"><img width="100%" src="images/characters/konrad-chainmail-cup.webp" alt="Konrad portrait"></p>
+<p align="center"><img width="100%" src="images/characters/konrad-chainmail-cup.webp" alt="Konrad in chainmail, raising a golden goblet"></p>
 
 ## Upstream and Community
 
@@ -140,7 +142,7 @@ For upstream gameplay documentation, campaigns, community content, and support:
 - [Upstream source repository](https://github.com/wesnoth/wesnoth)
 - [Wesnoth manual](https://wiki.wesnoth.org/WesnothManual)
 
-<p align="center"><img width="100%" src="images/characters/konrad-chainmail-concerned.webp" alt="Konrad portrait"></p>
+<p align="center"><img width="100%" src="images/characters/konrad-chainmail-concerned.webp" alt="Konrad in chainmail, concerned"></p>
 
 ## Licensing and Attribution
 
