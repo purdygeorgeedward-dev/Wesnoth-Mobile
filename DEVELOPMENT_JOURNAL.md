@@ -149,6 +149,9 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - **Existing campaigns (13:53 MDT):** can be included, changed and sold. They stay GPL (story, scenarios, WML). Keep the original authors' credits (`data/core/about.cfg`) and add George's alongside. Mark modified files as changed. The in-story kingdom name "Wesnoth" is fine as a place name, or it can be renamed.
 - **Essoth campaign:** George will write an original Essoth campaign last, after everything else is done.
   - Concept: a little girl who takes over the world.
+  - Core choice: the player plays her as a loving ruler or a little tyrant.
+  - Supported by WML: dialogue choices, campaign variables that persist between scenarios, branching to different next scenarios, changing recruits/allies/income, multiple endings.
+  - Ideas discussed: a hidden "mercy vs. fear" score from her choices; allies join or defect, villages stay loyal or rebel (income), different scenario paths, separate endings; her portraits change with the path (George's art).
 
 ### Open items
 - Stray files the game never loads (kept on purpose): underscore copies in `Heir_To_The_Throne` (`lisar_*`, `isolde_old`, `harper_old`, `delfador_mentoring`), `konrad-chainmail-cup`, `konrad-chainmail-defeated`; in Classic `harper_old`, `isolde_old`, `konrad-elvish-sceptre`; Legend of Wesmere `haldricll`, `kalenz-young`; Dead Water `portraits/campaign_image.png`.

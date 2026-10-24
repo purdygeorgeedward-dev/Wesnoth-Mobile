@@ -70,3 +70,8 @@ Dated record of every push. Times are Mountain Time (El Paso).
 
 **Files**
 - `DEVELOPMENT_JOURNAL.md`: Essoth campaign concept, a little girl who takes over the world.
+
+## 2026-10-24 13:55 MDT — Journal: Essoth campaign choice system
+
+**Files**
+- `DEVELOPMENT_JOURNAL.md`: loving ruler vs. little tyrant choice, and how WML supports it.
