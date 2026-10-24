@@ -55,3 +55,8 @@ Dated record of every push. Times are Mountain Time (El Paso).
 
 **Files**
 - `DEVELOPMENT_JOURNAL.md`: added AAA-conversion goal, playthrough before music, GPL licensing notes, and the product name "Essoth" (Essos echo intentional). Two new open items: USPTO trademark check, IP lawyer review.
+
+## 2026-10-24 13:52 MDT — Journal: title decision
+
+**Files**
+- `DEVELOPMENT_JOURNAL.md`: title is "Essoth"; subtitle idea "Essoth: Tactics of the Fallen Kingdom".

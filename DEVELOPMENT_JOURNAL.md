@@ -145,6 +145,7 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
   - Selling is allowed under the GPL. Buyers must be able to get the source (the public repo covers this), and they can't be stopped from sharing. Krita (Krimble's upstream) is GPL and sold on Steam and the Microsoft Store.
   - Use a name of its own in stores, not "The Battle for Wesnoth."
 - **Name: "Essoth."** No existing game or product by that name was found in a quick web search. The echo of Essos (*A Song of Ice and Fire*) is intentional. Esso (ExxonMobil fuel) is a different market. A USPTO trademark search is still to do before launch.
+- **Title (13:52 MDT):** just "Essoth", not "The Battle for Essoth". It avoids sitting next to "The Battle for Wesnoth" and works better as a one-word store and home-screen name. Subtitle idea George liked: **"Essoth: Tactics of the Fallen Kingdom."**
 
 ### Open items
 - Stray files the game never loads (kept on purpose): underscore copies in `Heir_To_The_Throne` (`lisar_*`, `isolde_old`, `harper_old`, `delfador_mentoring`), `konrad-chainmail-cup`, `konrad-chainmail-defeated`; in Classic `harper_old`, `isolde_old`, `konrad-elvish-sceptre`; Legend of Wesmere `haldricll`, `kalenz-young`; Dead Water `portraits/campaign_image.png`.
