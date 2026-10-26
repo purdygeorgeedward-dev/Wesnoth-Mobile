@@ -184,3 +184,18 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 ### Essoth campaign concept, refined (14:09 MDT)
 - A little girl who becomes queen. She must make decisions that lead her, step by step, toward good or evil. It will have some elements of *Princess Maker*.
 - Where it falls in the roadmap order is not decided yet.
+
+### Sprite sheets and high-res sprites (14:38 MDT)
+- Question: can ganged sprite sheets made in ChatGPT be cut apart and put into the game?
+  - Yes. Claude can cut out each frame, trim it, line every frame up on the same ground point, name the files and write the animation WML.
+  - Risks with AI sheets:
+    - Frames that drift in proportions or details.
+    - Fake transparency (painted checkerboard or white backgrounds).
+    - Jitter between frames.
+    - Team color: Wesnoth recolors only exact magenta palette colors. The generator won't produce those, so team-color areas would need to be painted in one flat marker color and remapped to the palette.
+  - Each sheet needs labelling: which unit, which animation, frame order.
+- Question: any advantage in high-res sprites?
+  - Yes. Current sprites are 72×72, and the A26 shows each game pixel with 2–3 screen pixels, so sprites are enlarged and soft. Zoom levels are 36/72/144 (`src/game_config.cpp`).
+  - High-res matters most for battle scenes (units shown 2–3×) and the 2.5D near rows.
+  - Engine: textures already carry a separate draw size (`set_draw_size`, used for text, UI and the map buffer). Unit, terrain and halo drawing would need to treat a high-res sprite as 72 logical pixels. Moderate change, mainly in `src/units/drawer.cpp`.
+  - Cost: 2× resolution = 4× pixels per frame, so a larger app and more memory. Proposal: 2× (144 px) as the standard, matching the top zoom level.

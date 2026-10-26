@@ -102,3 +102,8 @@ Dated record of every push. Times are Mountain Time (El Paso).
 **Files**
 - `ROADMAP.md`: Phase 8 now reads: a little girl who becomes queen; her decisions lead her step by step toward good or evil; some Princess Maker elements; position in the order open.
 - `DEVELOPMENT_JOURNAL.md`: Oct 26 entry for the refined concept.
+
+## 2026-10-26 14:38 MDT — Journal: sprite sheets and high-res sprites
+
+**Files**
+- `DEVELOPMENT_JOURNAL.md`: cutting AI sprite sheets into frames (process, risks, team-color remap) and the case for high-res sprites (engine support, cost, 2× proposal).
