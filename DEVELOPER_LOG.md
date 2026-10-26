@@ -107,3 +107,9 @@ Dated record of every push. Times are Mountain Time (El Paso).
 
 **Files**
 - `DEVELOPMENT_JOURNAL.md`: cutting AI sprite sheets into frames (process, risks, team-color remap) and the case for high-res sprites (engine support, cost, 2× proposal).
+
+## 2026-10-26 14:53 MDT — Campaign logos and theme songs
+
+**Files**
+- `DEVELOPMENT_JOURNAL.md`: campaign_image can be a logo; plan for each campaign to open with its logo and a theme song (opening story part with `music=`).
+- `ROADMAP.md`: Phase 3 item 7, campaign logos plus opening logo screen with theme song.

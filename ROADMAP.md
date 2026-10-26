@@ -129,6 +129,7 @@ Runs in parallel from now on.
 4. Title and loading backgrounds.
 5. Interface art for the Essoth theme.
 6. Journey maps (`data/campaigns/<Campaign>/images/maps/`).
+7. Campaign logos: one per campaign, used as `campaign_image` and on a new opening story screen that plays the campaign's theme song (`[part]` `music=`). The theme songs come with Phase 7.
 
 **Rules:**
 - Match each existing filename exactly.

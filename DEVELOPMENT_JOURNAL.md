@@ -199,3 +199,11 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
   - High-res matters most for battle scenes (units shown 2–3×) and the 2.5D near rows.
   - Engine: textures already carry a separate draw size (`set_draw_size`, used for text, UI and the map buffer). Unit, terrain and halo drawing would need to treat a high-res sprite as 72 logical pixels. Moderate change, mainly in `src/units/drawer.cpp`.
   - Cost: 2× resolution = 4× pixels per frame, so a larger app and more memory. Proposal: 2× (144 px) as the standard, matching the top zoom level.
+
+### Campaign logos and theme songs (14:53 MDT)
+- `campaign_image` (set by `image=` in each campaign's `_main.cfg`) is the picture in the campaign selection screen's details pane, next to the description. It can be a logo, key art or character art. A transparent-background title logo works well, and a matching set reads as a series. The small list picture is a separate setting, `icon=`.
+- **George wants each campaign to open with its logo and a theme song.**
+  - How: a new first `[part]` in the opening `[story]` of each campaign's first scenario, showing the logo (`[background_layer]` or `[image]`).
+  - The story screen supports `music=` and `sound=` per part (`src/storyscreen/part.cpp`), so the theme starts with the logo and no engine change is needed.
+  - `[image]` entries with `delay=` can reveal the logo in steps. A fully animated logo would need Lua or engine work.
+  - The campaign's theme song is one OGG per campaign, in its own `music/` folder.
