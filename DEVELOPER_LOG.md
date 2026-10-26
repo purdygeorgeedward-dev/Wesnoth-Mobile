@@ -90,3 +90,9 @@ Dated record of every push. Times are Mountain Time (El Paso).
 
 **Files**
 - `DEVELOPMENT_JOURNAL.md`: art style shifting with her alignment (art sets, color grading, sky/fog).
+
+## 2026-10-26 13:55 MDT — Roadmap
+
+**Files**
+- `ROADMAP.md`: new. Full plan, phases 0–9, from the Oracle build and phone playability through the mobile interface, art, battle scenes and the 2.5D map, to music, the Essoth campaign and release.
+- `DEVELOPMENT_JOURNAL.md`: Oct 26 entry with the roadmap and repo findings (app ID still `org.wesnoth.Wesnoth`; three README-linked docs missing; refork not yet compiled).

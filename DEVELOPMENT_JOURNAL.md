@@ -165,3 +165,18 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - A design document for the 2.5D map can be added to the repo if wanted.
 - USPTO trademark check for "Essoth" before launch.
 - IP lawyer review of licensing for new art and music before selling.
+
+---
+
+## 2026-10-26 (Monday)
+
+### Roadmap (13:55 MDT)
+- George asked for a detailed plan for making the game mobile, with 2.5D in the final plan. Written to `ROADMAP.md`.
+- Phase order: 0 Foundation → 1 Playable on a phone → 2 Mobile interface → 3 Art replacement (parallel) → 4 2.5D art spec, tiles and sprites → 5 Battle scenes → 6 2.5D map → 7 Playthrough and music → 8 Essoth campaign → 9 Release.
+- Repo findings while planning:
+  - Nothing since the Oct 19 refork has been compiled, including the animated startup logo.
+  - `packaging/android/app/build.gradle` still has `applicationId "org.wesnoth.Wesnoth"`, although the README says a separate ID was set.
+  - The README links to `BUILD_NOTES.md`, `MOBILE_DEVELOPMENT_LOG.md` and `docs/ANDROID_BUILD_GUIDE.md`, which don't exist.
+  - GUI: 109 dialogs and 72 widgets in `data/gui/themes/default/`. The `celes` theme shows how a theme overrides selected parts. Dialogs can switch layouts by window size with `[resolution]` blocks.
+  - The in-game layout is a separate theme in `data/themes/default.cfg`.
+  - The engine already handles finger events (`src/controller_base.cpp`, `src/events.cpp`).
