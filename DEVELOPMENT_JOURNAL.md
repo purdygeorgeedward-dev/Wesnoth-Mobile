@@ -180,3 +180,7 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
   - GUI: 109 dialogs and 72 widgets in `data/gui/themes/default/`. The `celes` theme shows how a theme overrides selected parts. Dialogs can switch layouts by window size with `[resolution]` blocks.
   - The in-game layout is a separate theme in `data/themes/default.cfg`.
   - The engine already handles finger events (`src/controller_base.cpp`, `src/events.cpp`).
+
+### Essoth campaign concept, refined (14:09 MDT)
+- A little girl who becomes queen. She must make decisions that lead her, step by step, toward good or evil. It will have some elements of *Princess Maker*.
+- Where it falls in the roadmap order is not decided yet.

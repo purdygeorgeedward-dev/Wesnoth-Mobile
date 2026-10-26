@@ -16,7 +16,7 @@ Written 2026-10-26. Discussion and reasoning behind each item: `DEVELOPMENT_JOUR
 | 5 | Battle scenes | Short animated attack scenes with portraits |
 | 6 | 2.5D map | Tilted diorama map with standing cutouts, fog, sky and clouds |
 | 7 | Playthrough and music | New score written for the moments it plays over |
-| 8 | Essoth campaign | Original campaign: the little girl who takes over the world |
+| 8 | Essoth campaign | Original campaign: a little girl who becomes queen (position in order open) |
 | 9 | Release | Store build, licensing and name checks |
 
 Phase 3 runs alongside phases 1–2. Every phase ends with a build on the Oracle server and a test on the Samsung A26.
@@ -238,7 +238,8 @@ The spec is set before any tile or sprite is drawn, so nothing is made twice.
 
 ## Phase 8: Essoth campaign
 
-- A little girl who takes over the world. The player raises her as a loving ruler or a little tyrant, in the style of *Princess Maker*.
+- A little girl who becomes queen. She must make decisions that lead her, step by step, toward good or evil. Some elements of *Princess Maker*.
+- Position in the order is open (George, Oct 26).
 - Upbringing screens between battles (Lua dialogs).
 - Stats kept in campaign variables.
 - A moral score from -100 to +100:

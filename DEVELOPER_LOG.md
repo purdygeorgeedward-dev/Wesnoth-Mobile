@@ -96,3 +96,9 @@ Dated record of every push. Times are Mountain Time (El Paso).
 **Files**
 - `ROADMAP.md`: new. Full plan, phases 0–9, from the Oracle build and phone playability through the mobile interface, art, battle scenes and the 2.5D map, to music, the Essoth campaign and release.
 - `DEVELOPMENT_JOURNAL.md`: Oct 26 entry with the roadmap and repo findings (app ID still `org.wesnoth.Wesnoth`; three README-linked docs missing; refork not yet compiled).
+
+## 2026-10-26 14:09 MDT — Essoth campaign concept refined
+
+**Files**
+- `ROADMAP.md`: Phase 8 now reads: a little girl who becomes queen; her decisions lead her step by step toward good or evil; some Princess Maker elements; position in the order open.
+- `DEVELOPMENT_JOURNAL.md`: Oct 26 entry for the refined concept.
