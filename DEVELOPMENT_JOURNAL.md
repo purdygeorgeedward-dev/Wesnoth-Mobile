@@ -207,3 +207,4 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
   - The story screen supports `music=` and `sound=` per part (`src/storyscreen/part.cpp`), so the theme starts with the logo and no engine change is needed.
   - `[image]` entries with `delay=` can reveal the logo in steps. A fully animated logo would need Lua or engine work.
   - The campaign's theme song is one OGG per campaign, in its own `music/` folder.
+- (14:55 MDT) George is making the campaign logos now. Each campaign's theme music waits until its story screens are done and he has played the campaign.

@@ -113,3 +113,8 @@ Dated record of every push. Times are Mountain Time (El Paso).
 **Files**
 - `DEVELOPMENT_JOURNAL.md`: campaign_image can be a logo; plan for each campaign to open with its logo and a theme song (opening story part with `music=`).
 - `ROADMAP.md`: Phase 3 item 7, campaign logos plus opening logo screen with theme song.
+
+## 2026-10-26 14:55 MDT — Journal: logo and theme timing
+
+**Files**
+- `DEVELOPMENT_JOURNAL.md`: logos in progress; theme music after each campaign's story screens are done and it has been played.
