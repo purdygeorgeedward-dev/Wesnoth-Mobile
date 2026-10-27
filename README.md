@@ -66,7 +66,7 @@ Set in an earlier age, *Legend of Wesmere* follows **Kalenz** through wars and p
 
 Long before mentoring Konrad, **Delfador** was a young mage caught up in events that would change Wesnoth. *Delfador's Memoirs* follows his early adventures and the path toward his reputation as one of the kingdom's greatest wizards.
 
-<p align="right"><img width="100%" src="images/characters/delfador-mad.webp" alt="Delfador portrait"></p>
+<p align="right"><img width="100%" src="images/characters/young-delfador.webp" alt="Delfador portrait"></p>
 
 <br><br>
 
