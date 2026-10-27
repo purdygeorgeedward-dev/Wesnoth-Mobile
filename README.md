@@ -10,7 +10,7 @@
 [![Platform](https://img.shields.io/badge/platform-Android-3DDC84)](packaging/android)
 [![License](https://img.shields.io/badge/code-GPL--2.0--or--later-blue)](COPYING)
 
-**Wesnoth Mobile** aims to bring the depth of Wesnoth's turn-based RPG-styled fantasy strategy to modern Android phones. The project builds on Wesnoth's existing game engine and content while developing a touch-oriented, responsive interface. The extensive graphics replacements in this project will make a reforged version of Battle for Wesnoth in the process.
+**Wesnoth Mobile** aims to bring the depth of Wesnoth's turn-based RPG-style fantasy strategy to modern Android phones. The project builds on Wesnoth's existing game engine and content while developing a touch-oriented, responsive interface. The extensive graphics replacements in this project will make a reforged version of Battle for Wesnoth in the process.
 
 ## The Game
 
