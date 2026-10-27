@@ -10,13 +10,7 @@
 [![Platform](https://img.shields.io/badge/platform-Android-3DDC84)](packaging/android)
 [![License](https://img.shields.io/badge/code-GPL--2.0--or--later-blue)](COPYING)
 
-**Wesnoth Mobile** aims to bring the depth of Wesnoth's turn-based fantasy strategy to modern Android phones **without treating a phone like a miniature desktop**. The project builds on Wesnoth's existing game engine and content while developing a touch-oriented, responsive interface designed for portrait and landscape play.
-
-<!--
-> [!NOTE]
-> **Development status:** This fork is a work in progress. The Android foundation has been modified, but the planned native interface redesign is not complete. No APK from the current source changes has yet been built and verified. Features described as *planned* below are not promises of current functionality.
-> 
--->
+**Wesnoth Mobile** aims to bring the depth of Wesnoth's turn-based RPG-styled fantasy strategy to modern Android phones. The project builds on Wesnoth's existing game engine and content while developing a touch-oriented, responsive interface. The extensive graphics replacements in this project will make a reforged version of Battle for Wesnoth in the process.
 
 ## The Game
 
@@ -24,7 +18,8 @@
 
 <p align="center"><img width="100%" src="images/maps/wesnoth_map_1920x1080.jpg" alt="Wesnoth map"></p>
 
-Wesnoth Mobile intends to preserve that strategic experience while making it comfortable to play on a touchscreen.
+Wesnoth Mobile intends to preserve the strategic experience while making it comfortable to play on a touchscreen.
+
 <p align="center"><img width="100%" src="images/characters/konrad-elvish.webp" alt="Konrad in elvish ranger garb"></p>
 
 ## The Legends of Wesnoth
@@ -84,15 +79,13 @@ Set in Wesnoth's distant future, *Under the Burning Suns* follows the desert elf
 
 ### Bringing the Characters to Life
 
-The personalities of Wesnoth's heroes and villains are as important to its storytelling as its battles. Character portraits communicate courage, uncertainty, anger, wisdom, and defeat before a line of dialogue is spoken.
+The personalities of Wesnoth's heroes and villains are as important to its storytelling as its battles. The character portraits communicate courage, uncertainty, anger, wisdom, and defeat before a line of dialogue is spoken.
 
 <p align="right"><img width="100%" src="images/characters/maddock.webp" alt="Maddock portrait"></p>
 
-Under the direction of George Edward Purdy, the primary character designer from Master of Magic, this project's graphics work revisits familiar characters with new portraits, expressions, costumes, and interpretations, while drawing inspiration from the world and stories that made them memorable.
+Under the direction of George Edward Purdy, the primary character designer from Master of Magic, this project's graphics revisit familiar characters with new portraits, expressions, costumes, and interpretations, while drawing inspiration from the world and stories that made them memorable.
 
 <p align="center"><img width="100%" src="images/characters/asheviere-mad.webp" alt="Asheviere portrait"></p>
-
-<!-- (These illustrations are part of an evolving presentation effort, not a claim that every campaign has already been redesigned.) -->
 
 For more about the original adventures, see the [Wesnoth campaign documentation](https://wiki.wesnoth.org/Mainline_campaigns).
 
@@ -100,19 +93,13 @@ For more about the original adventures, see the [Wesnoth campaign documentation]
 
 ## Direction
 
-Wesnoth Mobile is being designed around a phone-first experience: an independent Android app with a responsive launcher, portrait and landscape support, intuitive touch controls, and menus, dialogs, and battlefield controls adapted to small screens. The longer-term vision includes a distinctive startup experience, interface styling, and original visual and musical assets.
-
-The guiding principle is straightforward: **keep the strategy; rethink the interaction.**
+Wesnoth Mobile is being designed around a phone-first experience: an independent Android app with a responsive launcher, intuitive touch controls, and menus, dialogs, and battlefield controls adapted to small screens. The longer-term vision includes a distinctive startup experience, interface styling, and original visual and musical assets.
 
 <p align="center"><img width="100%" src="images/characters/angarthing.webp" alt="Angarthing portrait"></p>
 
 ## Development Progress
 
 Development takes place directly on [`master`](https://github.com/purdygeorgeedward-dev/Wesnoth-Mobile/tree/master). The upstream gameplay and content remain the starting point.
-
-The first source changes establish a separate Android application ID, improve launcher sizing and accessibility, remove forced orientation restrictions, correct launch argument formatting, address first-run status-file initialization, and improve ZIP archive extraction safety. <!-- These changes still require compilation and device testing. -->
-
-<!-- The Android source changes have not yet been compiled or tested on a device. -->
 
 <p align="center"><img width="100%" src="images/characters/konrad-chainmail-mad.webp" alt="Konrad in chainmail, angry"></p>
 
@@ -144,7 +131,7 @@ The Android Gradle project is in `packaging/android`. For the full dependency �
 
 ## Upstream and Community
 
-Wesnoth Mobile is an **independent fork**, not an official release of The Battle for Wesnoth. The original project and its contributors created the game on which this work depends.
+Wesnoth Mobile is an independent fork, **not an official release of The Battle for Wesnoth**. The original project and its contributors created the game on which this work depends.
 
 For upstream gameplay documentation, campaigns, community content, and support:
 
@@ -166,4 +153,4 @@ This fork retains the obligations and notices of the upstream project. New mobil
 
 ---
 
-*Wesnoth Mobile — a familiar world, redesigned for your fingertips.*
+*Wesnoth Mobile — classic gameplay in the palm of your hand.*
