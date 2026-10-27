@@ -43,7 +43,7 @@ One of Wesnoth's most recognizable campaigns, *Heir to the Throne* follows **Kon
 
 ### The Rise of Wesnoth
 
-<p align="right"><img width="100%" src="images/logos/The-Rise-ol_.jpg" alt="The Rise of Wesnoth"></p>
+<p align="right"><img width="100%" src="images/logos/The-Rise-of-Wesnoth.jpg" alt="The Rise of Wesnoth"></p>
 
 *The Rise of Wesnoth* tells the story of **Prince Haldric**, who leads refugees from the Green Isle across the ocean and struggles to establish a new homeland. Alongside **Lady Jessene**, he faces dangers that include the formidable **Lich-Lord Jevyan**. This campaign explores the origins of the kingdom featured in later stories.
 
@@ -51,7 +51,7 @@ One of Wesnoth's most recognizable campaigns, *Heir to the Throne* follows **Kon
 
 ### Legend of Wesmere
 
-<p align="right"><img width="100%" src="images/logosL/egend-if-Wesmere.jpg" alt="Legend of Wesmere"></p>
+<p align="right"><img width="100%" src="images/logos/egend-of-Wesmere.jpg" alt="Legend of Wesmere"></p>
 
 Set in an earlier age, *Legend of Wesmere* follows **Kalenz** through wars and political struggles that shape elvish history. It reveals the experiences behind the legendary leader encountered in *Heir to the Throne*.
 
