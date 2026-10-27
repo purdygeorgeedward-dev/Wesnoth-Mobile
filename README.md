@@ -2,7 +2,7 @@
   <img src="images/logos/wesnoth-logo.webp" alt="Wesnoth Mobile fantasy crest and title logo" width="100%">
 </p>
 
-# WESNOTH MOBILE
+# Wesnoth Mobile
 
 **A mobile-first Android adaptation of [The Battle for Wesnoth](https://www.wesnoth.org/) featuring enhanced graphics assets.**
 
@@ -28,56 +28,69 @@ Wesnoth's story-driven campaigns span centuries of fantasy history, from the fou
 
 <p align="right"><img width="100%" src="images/characters/ethiliel.webp" alt="Ethiliel portrait"></p>
 
-### Heir to the Throne
+<br><br>
 
-<p align="right"><img width="100%" src="images/logos/Heir-to-the-Throne.jpg" alt="Heir to the Throne"></p>
+<p align="right"><img width="100%" src="images/logos/Heir-to-the-Throne.jpg" alt="Heir to the Throne">
+
+### Heir to the Throne
 
 One of Wesnoth's most recognizable campaigns, *Heir to the Throne* follows **Konrad**, a young man raised among the elves, as he challenges **Queen Asheviere**'s rule. Guided by the legendary mage **Delfador**, he searches for the **Sceptre of Fire** and gathers allies, including **Princess Li'sar** and the ancient elvish lord **Kalenz**. Questions of loyalty, identity, and rightful rule drive the adventure.
 
-<p align="left"><img width="100%" src="images/characters/princess-lisar.webp" alt="Li'sar portrait"></p>
+<img width="100%" src="images/characters/princess-lisar.webp" alt="Li'sar portrait"></p>
 
-### The Rise of Wesnoth
+<br><br>
 
 <p align="right"><img width="100%" src="images/logos/The-Rise-of-Wesnoth.jpg" alt="The Rise of Wesnoth"></p>
+
+### The Rise of Wesnoth
 
 *The Rise of Wesnoth* tells the story of **Prince Haldric**, who leads refugees from the Green Isle across the ocean and struggles to establish a new homeland. Alongside **Lady Jessene**, he faces dangers that include the formidable **Lich-Lord Jevyan**. This campaign explores the origins of the kingdom featured in later stories.
 
 <p align="left"><img width="100%" src="images/characters/haldric-small.webp" alt="Haldric portrait"></p>
 
-### Legend of Wesmere
+<br><br>
 
 <p align="right"><img width="100%" src="images/logos/Legend-of-Wesmere.jpg" alt="Legend of Wesmere"></p>
+
+### Legend of Wesmere
 
 Set in an earlier age, *Legend of Wesmere* follows **Kalenz** through wars and political struggles that shape elvish history. It reveals the experiences behind the legendary leader encountered in *Heir to the Throne*.
 
 <p align="left"><img width="100%" src="images/characters/kalenz.webp" alt="Kalenz portrait"></p>
 
-
-### Delfador's Memoirs
+<br><br>
 
 <p align="right"><img width="100%" src="images/logos/delfadors-memoirs.jpg" alt="Delfador's Memoirs"></p>
+
+### Delfador's Memoirs
 
 Long before mentoring Konrad, **Delfador** was a young mage caught up in events that would change Wesnoth. *Delfador's Memoirs* follows his early adventures and the path toward his reputation as one of the kingdom's greatest wizards.
 
 <p align="right"><img width="100%" src="images/characters/delfador-mad.webp" alt="Delfador portrait"></p>
 
-### Northern Rebirth
+<br><br>
 
 <p align="right"><img width="100%" src="images/logos/Northern-Rebirth.jpg" alt="Northern Rebirth"></p>
+
+### Northern Rebirth
 
 In the Northland, **Tallin** helps lead a rebellion against orcish domination. *Northern Rebirth* brings humans, dwarves, and other peoples together in a hard-fought struggle for freedom and a new political order.
 
 <p align="right"><img width="100%" src="images/characters/tallin.webp" alt="Tallin portrait"></p>
 
-### Under the Burning Suns
+<br><br>
 
 <p align="right"><img width="100%" src="images/logos/Under-the-Burning-Suns.jpg" alt="Under the Burning Suns"></p>
 
+### Under the Burning Suns
+
 Set in Wesnoth's distant future, *Under the Burning Suns* follows the desert elf **Kaleh**, alongside **Nym**, as their people search for a new home in a drastically changed world. Its setting and survival-focused journey offer a striking contrast to the kingdom's earlier adventures.
 
-<p align="right"><img width="100%" src="images/characters/kaleh.webp" alt="Kaleh portrait"></p>
+<br><br>
 
 ### Bringing the Characters to Life
+
+<p align="right"><img width="100%" src="images/characters/kaleh.webp" alt="Kaleh portrait"></p>
 
 The personalities of Wesnoth's heroes and villains are as important to its storytelling as its battles. The character portraits communicate courage, uncertainty, anger, wisdom, and defeat before a line of dialogue is spoken.
 
