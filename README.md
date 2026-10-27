@@ -51,7 +51,7 @@ One of Wesnoth's most recognizable campaigns, *Heir to the Throne* follows **Kon
 
 ### Legend of Wesmere
 
-<p align="right"><img width="100%" src="images/logos/egend-of-Wesmere.jpg" alt="Legend of Wesmere"></p>
+<p align="right"><img width="100%" src="images/logos/Legend-of-Wesmere.jpg" alt="Legend of Wesmere"></p>
 
 Set in an earlier age, *Legend of Wesmere* follows **Kalenz** through wars and political struggles that shape elvish history. It reveals the experiences behind the legendary leader encountered in *Heir to the Throne*.
 
@@ -68,7 +68,7 @@ Long before mentoring Konrad, **Delfador** was a young mage caught up in events 
 
 ### Northern Rebirth
 
-<p align="right"><img width="100%" src="images/logos/Northern-Res .jpg" alt="Northern Rebirth"></p>
+<p align="right"><img width="100%" src="images/logos/Northern-Rebirth.jpg" alt="Northern Rebirth"></p>
 
 In the Northland, **Tallin** helps lead a rebellion against orcish domination. *Northern Rebirth* brings humans, dwarves, and other peoples together in a hard-fought struggle for freedom and a new political order.
 
