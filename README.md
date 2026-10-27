@@ -86,19 +86,16 @@ In the Northland, **Tallin** helps lead a rebellion against orcish domination. *
 
 Set in Wesnoth's distant future, *Under the Burning Suns* follows the desert elf **Kaleh**, alongside **Nym**, as their people search for a new home in a drastically changed world. Its setting and survival-focused journey offer a striking contrast to the kingdom's earlier adventures.
 
+<p align="right"><img width="100%" src="images/characters/kaleh.webp" alt="Kaleh portrait"></p>
+
 <br><br>
 
 ### Bringing the Characters to Life
-
-<p align="right"><img width="100%" src="images/characters/kaleh.webp" alt="Kaleh portrait"></p>
-
 The personalities of Wesnoth's heroes and villains are as important to its storytelling as its battles. The character portraits communicate courage, uncertainty, anger, wisdom, and defeat before a line of dialogue is spoken.
 
-<p align="right"><img width="100%" src="images/characters/maddock.webp" alt="Maddock portrait"></p>
+<p align="center"><img width="100%" src="images/characters/asheviere-mad.webp" alt="Asheviere portrait"></p>
 
 Under the direction of George Edward Purdy, the primary character designer from Master of Magic, this project's graphics revisit familiar characters with new portraits, expressions, costumes, and interpretations, while drawing inspiration from the world and stories that made them memorable.
-
-<p align="center"><img width="100%" src="images/characters/asheviere-mad.webp" alt="Asheviere portrait"></p>
 
 For more about the original adventures, see the [Wesnoth campaign documentation](https://wiki.wesnoth.org/Mainline_campaigns).
 
