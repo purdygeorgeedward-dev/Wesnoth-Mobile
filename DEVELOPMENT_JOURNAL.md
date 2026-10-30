@@ -208,3 +208,11 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
   - `[image]` entries with `delay=` can reveal the logo in steps. A fully animated logo would need Lua or engine work.
   - The campaign's theme song is one OGG per campaign, in its own `music/` folder.
 - (14:55 MDT) George is making the campaign logos now. Each campaign's theme music waits until its story screens are done and he has played the campaign.
+
+---
+
+## 2026-10-30 (Friday)
+
+### Top priority (13:48 MDT)
+- George: the most important thing is a new UI that scales cleanly to small screens (phones). That's roadmap Phases 1–2 (startup scale, touch, Essoth GUI theme, hand-built screens, in-game layout).
+- Found while checking the repo: `Secrets_of_the_Ancients/_main.cfg` line 27 still points to `images/portraits/campaign-image.webp`, which was deleted Oct 28, so that campaign shows no picture on the selection screen until a new file (e.g. the campaign logo) is in place or the line is changed.

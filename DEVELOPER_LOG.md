@@ -118,3 +118,9 @@ Dated record of every push. Times are Mountain Time (El Paso).
 
 **Files**
 - `DEVELOPMENT_JOURNAL.md`: logos in progress; theme music after each campaign's story screens are done and it has been played.
+
+## 2026-10-30 13:48 MDT — Priority: phone UI
+
+**Files**
+- `ROADMAP.md`: marked Phases 1–2 (phone UI) as top priority.
+- `DEVELOPMENT_JOURNAL.md`: Oct 30 entry; noted Secrets of the Ancients `image=` points to the deleted `campaign-image.webp`.

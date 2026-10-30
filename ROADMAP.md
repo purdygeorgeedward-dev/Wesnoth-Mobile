@@ -19,7 +19,7 @@ Written 2026-10-26. Discussion and reasoning behind each item: `DEVELOPMENT_JOUR
 | 8 | Essoth campaign | Original campaign: a little girl who becomes queen (position in order open) |
 | 9 | Release | Store build, licensing and name checks |
 
-Phase 3 runs alongside phases 1–2. Every phase ends with a build on the Oracle server and a test on the Samsung A26.
+**Top priority (George, Oct 30): Phases 1–2, a new UI that scales cleanly to phones.** Phase 3 runs alongside phases 1–2. Every phase ends with a build on the Oracle server and a test on the Samsung A26.
 
 ---
 
