@@ -57,10 +57,10 @@ Set in an earlier age, *Legend of Wesmere* follows **Kalenz** through wars and p
 
 <br><br>
 
-### Delfador's Memoirs
-<p align="right"><img width="100%" src="images/logos/delfadors-memoirs.jpg" alt="Delfador's Memoirs"></p>
+### The Deceiver's Gambit
+<p align="right"><img width="100%" src="images/logos/deceiversgambit.jpg" alt="The Deceiver's Gambit"></p>
 
-Long before mentoring Konrad, **Delfador** was a young mage caught up in events that would change Wesnoth. *Delfador's Memoirs* follows his early adventures and the path toward his reputation as one of the kingdom's greatest wizards.
+Fresh from the magic academy at Alduin, young **Delfador** rides beside King Garard II in a great war against the orcs of the north. Victory follows victory, yet Wesnoth keeps slipping toward chaos, and somewhere in the shadows of the court, someone is moving the pieces. Told in two parts, *The Deceiver's Gambit* reveals how a gifted apprentice became the wizard Konrad would one day call his mentor.
 
 <p align="right"><img width="100%" src="images/characters/young-delfador.webp" alt="Delfador portrait"></p>
 
