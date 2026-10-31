@@ -135,3 +135,8 @@ Dated record of every push. Times are Mountain Time (El Paso).
 **Files**
 - `data/campaigns/Eastern_Invasion/_main.cfg`: `image=` no longer ends in `~FL()`, so the new logo displays the right way round. Original line commented out above it.
 - `DEVELOPMENT_JOURNAL.md`: campaign image naming notes and this change.
+
+## 2026-10-30 21:36 MDT — Journal: The Deceiver's Gambit replaces Delfador's Memoirs
+
+**Files**
+- `DEVELOPMENT_JOURNAL.md`: Delfador's Memoirs dropped in favour of The Deceiver's Gambit; README section and logo done by George; open item for the in-game selection image.

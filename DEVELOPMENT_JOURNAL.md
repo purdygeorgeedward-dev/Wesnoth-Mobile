@@ -221,3 +221,9 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 ### Campaign image names (20:26 MDT)
 - Upstream is inconsistent: 15 campaigns use `images/campaign_image.png` (underscore, PNG). Secrets of the Ancients alone uses `images/portraits/campaign-image.webp` (hyphen, WebP, in portraits). That's why following the other campaigns gave the wrong name there.
 - Eastern Invasion loaded its image with `~FL()` (mirrored left to right), which would show a logo with backwards text. Removed in `_main.cfg`, with the original line kept as a comment.
+
+### Delfador's Memoirs → The Deceiver's Gambit (21:36 MDT)
+- Delfador's Memoirs isn't in the repo: upstream replaced it with The Deceiver's Gambit in 1.19.9. It survives only as an add-on.
+- Decision: no Delfador's Memoirs. The Deceiver's Gambit is the official rewrite of the same story; a second origin story would contradict the lore and add art and upkeep.
+- README: George replaced the Delfador's Memoirs section with The Deceiver's Gambit (blurb by Claude) and added `images/logos/deceiversgambit.jpg` (commits `7918e12`, `87d9a5d`).
+- Open: in the game, The Deceiver's Gambit `_main.cfg` still shows Delfador portraits on the selection screen (lines 142, 170), not George's logo `images/campaign_image.png`.
