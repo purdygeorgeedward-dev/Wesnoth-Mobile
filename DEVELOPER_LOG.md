@@ -129,3 +129,9 @@ Dated record of every push. Times are Mountain Time (El Paso).
 
 **Files**
 - `DEVELOPMENT_JOURNAL.md`: campaign image now matches `_main.cfg` (George's upload `1fde389`).
+
+## 2026-10-30 20:26 MDT — Eastern Invasion: campaign image no longer mirrored
+
+**Files**
+- `data/campaigns/Eastern_Invasion/_main.cfg`: `image=` no longer ends in `~FL()`, so the new logo displays the right way round. Original line commented out above it.
+- `DEVELOPMENT_JOURNAL.md`: campaign image naming notes and this change.

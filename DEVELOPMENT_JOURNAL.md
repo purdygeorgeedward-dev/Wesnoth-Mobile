@@ -217,3 +217,7 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - George: the most important thing is a new UI that scales cleanly to small screens (phones). That's roadmap Phases 1–2 (startup scale, touch, Essoth GUI theme, hand-built screens, in-game layout).
 - Found while checking the repo: `Secrets_of_the_Ancients/_main.cfg` line 27 still points to `images/portraits/campaign-image.webp`, which was deleted Oct 28, so that campaign shows no picture on the selection screen until a new file (e.g. the campaign logo) is in place or the line is changed.
 - (20:23 MDT) Secrets of the Ancients campaign image fixed by George: logo uploaded as `images/portraits/campaign-image.webp` (commit `1fde389`), the name `_main.cfg` loads. Underscore copy removed.
+
+### Campaign image names (20:26 MDT)
+- Upstream is inconsistent: 15 campaigns use `images/campaign_image.png` (underscore, PNG). Secrets of the Ancients alone uses `images/portraits/campaign-image.webp` (hyphen, WebP, in portraits). That's why following the other campaigns gave the wrong name there.
+- Eastern Invasion loaded its image with `~FL()` (mirrored left to right), which would show a logo with backwards text. Removed in `_main.cfg`, with the original line kept as a comment.
