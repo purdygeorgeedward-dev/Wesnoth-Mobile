@@ -216,3 +216,4 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 ### Top priority (13:48 MDT)
 - George: the most important thing is a new UI that scales cleanly to small screens (phones). That's roadmap Phases 1–2 (startup scale, touch, Essoth GUI theme, hand-built screens, in-game layout).
 - Found while checking the repo: `Secrets_of_the_Ancients/_main.cfg` line 27 still points to `images/portraits/campaign-image.webp`, which was deleted Oct 28, so that campaign shows no picture on the selection screen until a new file (e.g. the campaign logo) is in place or the line is changed.
+- (20:23 MDT) Secrets of the Ancients campaign image fixed by George: logo uploaded as `images/portraits/campaign-image.webp` (commit `1fde389`), the name `_main.cfg` loads. Underscore copy removed.

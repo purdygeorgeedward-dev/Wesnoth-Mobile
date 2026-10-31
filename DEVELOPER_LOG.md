@@ -124,3 +124,8 @@ Dated record of every push. Times are Mountain Time (El Paso).
 **Files**
 - `ROADMAP.md`: marked Phases 1–2 (phone UI) as top priority.
 - `DEVELOPMENT_JOURNAL.md`: Oct 30 entry; noted Secrets of the Ancients `image=` points to the deleted `campaign-image.webp`.
+
+## 2026-10-30 20:23 MDT — Journal: Secrets of the Ancients image resolved
+
+**Files**
+- `DEVELOPMENT_JOURNAL.md`: campaign image now matches `_main.cfg` (George's upload `1fde389`).
