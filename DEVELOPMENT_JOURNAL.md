@@ -286,3 +286,7 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 ### Cloud layer: added to art spec (13:20 MST)
 - George: don't forget the cloud layer. It was already in Phase 6 (drifting layer, shadows, clouds over the scenery rings) but missing from the Phase 4 art spec.
 - `ROADMAP.md`: Phase 4 spec now lists cloud textures (2 to 3 tileable alpha layers, one shadow mask). Phase 6 notes draw order (after cutouts, far rows only), slower scroll than the ground, and how shadows reach the ground.
+
+### Campaign portraits complete (13:22 MST)
+- George: all of the campaign portraits are done. Some campaigns have almost none, which he finds odd.
+- Previous status (Oct 23): portraits made up through Secrets of the Ancients. Next on his list: all core unit portraits, then decide which other graphics most benefit from revision.
