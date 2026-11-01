@@ -262,3 +262,14 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - The list, description pane, sort header and Combat/Difficulty menus are copied from the default theme's `campaign_dialog.cfg`, so the translated text stays the same.
 - Checked: wmllint clean; macros expanded and brackets balance; every widget id `src/gui/dialogs/campaign_selection.cpp` looks up is present. Not compiled or run (no build server).
 - Risk: the window now fills the screen with `automatic_placement = false` and `width/height = screen`. If it opens at the wrong size on the A26, that's the first thing to adjust.
+
+### Smooth camera: plan and momentum panning (08:37 MST)
+- George: plan ahead for 2.5D; until then he wants smooth scaling and smooth motion.
+- Findings (source): finger drag already pans the map one step per touch event, but only with no unit selected. No momentum. No pinch (only a TODO in `src/events.cpp`). Zoom is stepped hex sizes, changed by hotkeys and wheel only.
+- Plan added to `ROADMAP.md` (Phase 1, "Smooth camera"). Key rule: camera state lives in `display`, input only calls camera functions, so the 2.5D projection can replace what is behind them.
+- **Momentum panning written** (not compiled or run):
+  - `src/display.hpp/.cpp`: `pan_sample`, `pan_release`, `pan_cancel`, `kinetic_pan_step`. Speed is measured from the last drag steps (blended), a fling starts only if the finger was moving above 250 px/s and lifted within 80 ms of the last move, capped at 8000 px/s, friction time constant 0.35 s, stops below 40 px/s.
+  - `src/mouse_events.cpp`: drag pan now also feeds `pan_sample` (original line kept as a comment).
+  - `src/mouse_handler_base.cpp`: touch down calls `pan_cancel`; touch release calls `pan_release`.
+  - `src/controller_base.cpp`: `handle_scroll` adds the fling each frame; reaching the map edge cancels it (original line kept as a comment).
+- Next: smooth pinch zoom.

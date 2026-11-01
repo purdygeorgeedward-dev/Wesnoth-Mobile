@@ -62,6 +62,22 @@ Written 2026-10-26. Discussion and reasoning behind each item: `DEVELOPMENT_JOUR
 
 **Done when:** a full scenario can be played on the A26 by touch alone, in either orientation.
 
+### Smooth camera (2D now, 2.5D later)
+
+Rule: all camera state (position, zoom, and later tilt and rotation) lives in `display`. Input code only calls camera functions; nothing else touches `zoom_` or `viewport_origin_`. The 2.5D projection module (Phase 6) then replaces what sits behind those functions, and touch input needs no rewrite.
+
+1. **Momentum panning.** Written 2026-11-01, not yet run.
+   - `display::pan_sample / pan_release / pan_cancel / kinetic_pan_step`.
+   - A finger flick keeps the map moving and slows it with friction (0.35 s time constant). A new touch or the map edge stops it.
+   - Only when no unit is selected, same as plain drag.
+2. **Smooth pinch zoom.** Next.
+   - Track the two fingers from the raw finger events (SDL3 has no pinch event). Needs `src/events.cpp` and `src/controller_base.cpp`.
+   - While pinching, the offscreen map texture `front_` is drawn scaled about the pinch centre when it is copied to the screen in `display::expose()`. GPU scaling, no re-render, so it follows the fingers at full frame rate.
+   - When the preview scale drifts past about ±25%, or the fingers lift, commit: `set_zoom()` to the nearest hex size that is a multiple of 4, re-centred on the pinch centre, then redraw sharp. Range 16 to 288.
+   - Double-tap on empty map: step between zoom levels.
+3. **Pan and zoom share one view transform** (centre, scale) applied at the `expose()` copy.
+4. **2.5D readiness.** That same copy is where Phase 6 draws `front_` onto the tilted hex mesh. The preview scale becomes the mesh scale, and the pan offset becomes the camera position. Add the tilt angle to the same transform later. Standing cutouts (units, trees) are drawn after it, as already planned.
+
 ---
 
 ## Phase 2: Mobile interface

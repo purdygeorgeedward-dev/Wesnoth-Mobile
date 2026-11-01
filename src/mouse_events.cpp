@@ -156,7 +156,10 @@ void mouse_handler::touch_motion(int x, int y, const bool browse, bool update, m
 
 		if(gui().map_area().contains(x, y)) {
 			point pos = sdl::get_mouse_location();
-			gui().scroll(drag_from_ - pos);
+			// gui().scroll(drag_from_ - pos);   // original, kept for reference (2026-11-01)
+			const point moved = drag_from_ - pos;
+			gui().scroll(moved);
+			gui().pan_sample(moved);   // feeds the momentum scroll (display::pan_release)
 			drag_from_ = pos;
 		}
 		return;

@@ -1640,6 +1640,92 @@ bool display::zoom_at_min()
 	return zoom_ == MinZoom;
 }
 
+void display::pan_sample(const point& moved)
+{
+	const auto now = std::chrono::steady_clock::now();
+
+	if(!pan_sampling_) {
+		// First step of a drag: nothing to measure yet.
+		pan_sampling_ = true;
+		pan_vx_ = 0.0;
+		pan_vy_ = 0.0;
+		pan_last_sample_ = now;
+		return;
+	}
+
+	const double dt = std::chrono::duration<double>(now - pan_last_sample_).count();
+	if(dt < 0.001) {
+		return;
+	}
+
+	// Blend with the previous reading so one jittery event doesn't set the speed.
+	pan_vx_ = 0.6 * (moved.x / dt) + 0.4 * pan_vx_;
+	pan_vy_ = 0.6 * (moved.y / dt) + 0.4 * pan_vy_;
+	pan_last_sample_ = now;
+}
+
+void display::pan_release()
+{
+	const auto now = std::chrono::steady_clock::now();
+	const double idle = std::chrono::duration<double>(now - pan_last_sample_).count();
+	double speed = std::hypot(pan_vx_, pan_vy_);
+
+	// A finger that stopped before lifting doesn't fling, and neither does a slow drag.
+	if(pan_sampling_ && idle < 0.08 && speed > 250.0) {
+		const double max_speed = 8000.0;
+		if(speed > max_speed) {
+			pan_vx_ *= max_speed / speed;
+			pan_vy_ *= max_speed / speed;
+		}
+		kinetic_carry_x_ = 0.0;
+		kinetic_carry_y_ = 0.0;
+		kinetic_last_step_ = now;
+		kinetic_active_ = true;
+	}
+
+	pan_sampling_ = false;
+}
+
+void display::pan_cancel()
+{
+	pan_sampling_ = false;
+	kinetic_active_ = false;
+	pan_vx_ = 0.0;
+	pan_vy_ = 0.0;
+	kinetic_carry_x_ = 0.0;
+	kinetic_carry_y_ = 0.0;
+}
+
+point display::kinetic_pan_step()
+{
+	if(!kinetic_active_) {
+		return point{};
+	}
+
+	const auto now = std::chrono::steady_clock::now();
+	double dt = std::chrono::duration<double>(now - kinetic_last_step_).count();
+	kinetic_last_step_ = now;
+	// A long frame (loading, a dialog) must not throw the map across the screen.
+	dt = std::clamp(dt, 0.0, 0.05);
+
+	const double x = pan_vx_ * dt + kinetic_carry_x_;
+	const double y = pan_vy_ * dt + kinetic_carry_y_;
+	const point step{static_cast<int>(x), static_cast<int>(y)};
+	kinetic_carry_x_ = x - step.x;
+	kinetic_carry_y_ = y - step.y;
+
+	// Friction: exponential slow-down, time constant 0.35 s.
+	const double decay = std::exp(-dt / 0.35);
+	pan_vx_ *= decay;
+	pan_vy_ *= decay;
+
+	if(std::hypot(pan_vx_, pan_vy_) < 40.0) {
+		pan_cancel();
+	}
+
+	return step;
+}
+
 bool display::set_zoom(bool increase)
 {
 	// Ensure we don't try to access nonexistent vector indices.

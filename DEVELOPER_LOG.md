@@ -131,3 +131,15 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - `data/gui/themes/mobile/dialogs/campaign_dialog.cfg`: new, portrait and landscape layouts.
 - `ROADMAP.md`: item 2 (Campaign selection) marked written.
 - `DEVELOPMENT_JOURNAL.md`: entry added.
+
+## 2026-11-01 08:37 MST — Smooth camera plan; momentum panning
+
+**Files**
+- `src/display.hpp`, `src/display.cpp`: momentum panning functions and state.
+- `src/mouse_events.cpp`: drag pan feeds `pan_sample`.
+- `src/mouse_handler_base.cpp`: touch down cancels, touch release starts the fling.
+- `src/controller_base.cpp`: fling applied each frame; edge stops it.
+- `ROADMAP.md`: "Smooth camera (2D now, 2.5D later)" plan.
+- `DEVELOPMENT_JOURNAL.md`: entry.
+
+**Status:** not compiled or run yet (no build server).

@@ -340,9 +340,17 @@ bool controller_base::handle_scroll(int mousex, int mousey, int mouse_flags)
 		}
 	}
 
+	// Momentum from a finger flick on the map (display::pan_release).
+	if(get_display().kinetic_pan_active()) {
+		const point kinetic = get_display().kinetic_pan_step();
+		dx += kinetic.x;
+		dy += kinetic.y;
+	}
+
 	// If nothing is scrolling, just return.
 	if (!dx && !dy) {
-		return false;
+		// A fling can move less than one pixel in a frame; it is still scrolling.
+		return get_display().kinetic_pan_active();
 	}
 
 	// If we are continuing a scroll, carry over any subpixel movement.
@@ -355,7 +363,12 @@ bool controller_base::handle_scroll(int mousex, int mousey, int mouse_flags)
 	scroll_carry_y_ = dy - double(dist.y);
 
 	// Scroll the display
-	get_display().scroll(dist);
+	// get_display().scroll(dist);   // original, kept for reference (2026-11-01)
+	const bool moved = get_display().scroll(dist);
+	if(!moved && dist != point{}) {
+		// Reached the edge of the map: end any fling.
+		get_display().pan_cancel();
+	}
 
 	// Even if the integer parts are both zero, we are still scrolling.
 	// The subpixel amounts will add up.

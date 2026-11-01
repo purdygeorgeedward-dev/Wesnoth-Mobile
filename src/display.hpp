@@ -475,6 +475,20 @@ public:
 	 */
 	bool scroll(const point& amount, bool force = false);
 
+	/**
+	 * Momentum ("fling") panning for touch screens (Wesnoth Mobile, 2026-11-01).
+	 *
+	 * pan_sample()        called for every finger-drag step with the pixels just panned.
+	 * pan_release()       called when the finger lifts; starts a fling if the finger was moving.
+	 * pan_cancel()        stops any fling (finger down again, map edge reached).
+	 * kinetic_pan_step()  called once per frame; returns the pixels to scroll (zero when idle).
+	 */
+	void pan_sample(const point& moved);
+	void pan_release();
+	void pan_cancel();
+	point kinetic_pan_step();
+	bool kinetic_pan_active() const { return kinetic_active_; }
+
 	/** Zooms the display in (true) or out (false). */
 	bool set_zoom(bool increase);
 
@@ -720,6 +734,17 @@ protected:
 	 */
 	point viewport_origin_;
 	bool view_locked_;
+
+	// Momentum panning state (see pan_sample / pan_release / kinetic_pan_step).
+	// Velocities are in pixels per second, in the direction the viewport moves.
+	std::chrono::steady_clock::time_point pan_last_sample_{};
+	std::chrono::steady_clock::time_point kinetic_last_step_{};
+	double pan_vx_{0.0};
+	double pan_vy_{0.0};
+	double kinetic_carry_x_{0.0};
+	double kinetic_carry_y_{0.0};
+	bool pan_sampling_{false};
+	bool kinetic_active_{false};
 	theme theme_;
 	/**
 	 * The current zoom, in pixels (on screen) per 72 pixels (in the

@@ -167,6 +167,7 @@ void mouse_handler_base::mouse_press(const SDL_MouseButtonEvent& event, const bo
 
 		if(event.down == true) {
 			cancel_dragging();
+			gui().pan_cancel();   // a new touch stops a map fling in progress
 			touch_timestamp = now;
 			init_dragging(dragging_touch_);
 			if (!mouse_button_event(event, SDL_BUTTON_LEFT, loc, true)) {
@@ -410,6 +411,7 @@ void mouse_handler_base::clear_dragging(const SDL_MouseButtonEvent& event, bool 
 
 		if(dragging_touch_) {
 			dragging_touch_ = false;
+			gui().pan_release();   // start a momentum scroll if the finger was moving
 			// Maybe to do: create touch_drag_end(). Do panning and what else there. OTOH, it's fine now.
 			left_drag_end(event.x, event.y, browse);
 		}
