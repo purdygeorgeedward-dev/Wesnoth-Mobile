@@ -290,3 +290,6 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 ### Campaign portraits complete (13:22 MST)
 - George: all of the campaign portraits are done. Some campaigns have almost none, which he finds odd.
 - Previous status (Oct 23): portraits made up through Secrets of the Ancients. Next on his list: all core unit portraits, then decide which other graphics most benefit from revision.
+
+### Core unit portraits in progress (13:24 MST)
+- George is making the core unit portraits and has reached the undead units.

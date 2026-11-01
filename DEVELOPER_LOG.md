@@ -174,3 +174,10 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - `DEVELOPMENT_JOURNAL.md`: entry.
 
 **Status:** notes only, no code.
+
+## 2026-11-01 13:24 MST — Core portraits progress
+
+**Files**
+- `DEVELOPMENT_JOURNAL.md`: entry.
+
+**Status:** notes only, no code.
