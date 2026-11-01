@@ -236,11 +236,19 @@ void prefs::set_initial_gui2_theme()
 			pref_constants::min_window_height
 		};
 
+#ifdef __ANDROID__
+		// Wesnoth Mobile (2026-10-31): phones start with the touch-friendly Wesnoth Mobile GUI theme.
+		// The desktop size check below is kept for other platforms.
+		(void)window_size;
+		(void)min_size;
+		preferences_[prefs_list::gui2_theme] = "mobile";
+#else
 		if(min_size.x <= window_size.x && min_size.y <= window_size.y) {
 			preferences_[prefs_list::gui2_theme] = "modern";
 		} else {
 			preferences_[prefs_list::gui2_theme] = "default";
 		}
+#endif
 
 		write_preferences();
 	}
