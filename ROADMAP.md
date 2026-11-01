@@ -75,12 +75,12 @@ The approach is a hybrid:
 - New theme folder `data/gui/themes/mobile/`, built like the existing `celes` theme, which overrides selected pieces of the `default` theme.
 - Widgets (`widgets/`): bigger touch targets (at least 48 dp), larger text, and spacing tuned for fingers.
 - This alone improves all 109 dialogs in `data/gui/themes/default/dialogs/`.
-- Started 2026-10-31 (id `mobile`, shown as "Wesnoth Mobile"): theme registered; touch sizes for buttons, drop-downs, text boxes, sliders and scrollbars; Android starts in it. Next: Android pixel scale (logical short side about 540) together with the hand-built dialogs.
+- Started 2026-10-31 (id `mobile`, shown as "Wesnoth Mobile"): theme registered; touch sizes for buttons, drop-downs, text boxes, sliders and scrollbars; Android starts in it. Android pixel scale done 2026-11-01 (short side ≥ 540 logical px, scale 2 on the A26).
 
 ### 2b. Hand-built screens (landscape and portrait each)
 Dialogs choose a layout by window size with `[resolution]` blocks. Planned set:
 
-1. Title screen
+1. Title screen: done 2026-11-01 (portrait and landscape)
 2. Campaign selection
 3. Difficulty selection
 4. Story screen (1920×1080 story art)

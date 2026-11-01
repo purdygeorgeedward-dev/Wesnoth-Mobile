@@ -34,8 +34,16 @@ class terrain_type;
 
 namespace pref_constants
 {
+#ifdef __ANDROID__
+// Wesnoth Mobile (2026-11-01): phones lay out on a logical screen whose short
+// side is about 540 px (pixel scale 2 on a 1080-px-wide phone), in landscape
+// or portrait. The desktop minimum (1280x720) is kept below for other platforms.
+const int min_window_width  = 540;
+const int min_window_height = 540;
+#else
 const int min_window_width  = 1280;
 const int min_window_height = 720;
+#endif
 
 const int def_window_width  = 1920;
 const int def_window_height = 1080;

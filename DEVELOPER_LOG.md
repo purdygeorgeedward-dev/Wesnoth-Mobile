@@ -112,3 +112,15 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - Private planning notes removed from `DEVELOPMENT_JOURNAL.md`, `ROADMAP.md`, `DEVELOPER_LOG.md` and from commit messages, across commits from 2026-10-24 13:50 onward. History on `master` was rewritten and force-pushed.
 - Any other clone of this repo made before this push needs a fresh clone.
 - Some commit hashes quoted in the journal from Oct 24 onward refer to the pre-cleanup commits.
+
+## 2026-11-01 00:59 MDT — Phone pixel scale; phone main menu
+
+**Files**
+- `src/preferences/preferences.hpp`: Android minimum logical window 540×540 (desktop values kept under `#else`).
+- `src/video.cpp`: Android automatic pixel scale keeps the short side ≥ 540 logical px (desktop logic kept under `#else`).
+- `data/gui/themes/mobile/dialogs/title_screen.cfg`: new phone main menu, portrait and landscape layouts.
+- `data/gui/themes/mobile/widgets/image_mobile.cfg`: `mobile_logo` image definition (logo capped at 480×160).
+- `data/gui/themes/mobile/_main.cfg`: loads `dialogs/`.
+- `DEVELOPMENT_JOURNAL.md`, `ROADMAP.md`: progress.
+
+**Status:** wmllint clean; not compiled or run yet.

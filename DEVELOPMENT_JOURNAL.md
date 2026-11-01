@@ -231,3 +231,25 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
   - Scrollbars: 15–25 → 34 thick, handle min 11 → 24; bar images stretched to the full thickness.
 - `src/preferences/preferences.cpp`: on Android, first launch starts in the Wesnoth Mobile theme. The desktop logic is kept under `#else`.
 - Checked with `wmllint`: no errors. Untested in game until a build server is running.
+
+---
+
+## 2026-11-01 (Sunday)
+
+### Mobile UI: phone pixel scale and main menu (00:59 MDT)
+**Pixel scale (Android only, C++)**
+- `src/preferences/preferences.hpp`: on Android the minimum logical window is 540×540 (desktop keeps 1280×720 under `#else`).
+- `src/video.cpp`: on Android, automatic scale = the largest whole number that keeps the short side at least 540 logical px. A26 (1080×2340) gets scale 2: about 540×1170 portrait, 1170×540 landscape. Text and widgets are twice the size of the Oct 18 build.
+
+**Main menu for phones**
+- `data/gui/themes/mobile/dialogs/title_screen.cfg`: two layouts, chosen by screen size.
+  - **Portrait** (base): logo, then the menu (two buttons per row), then tips, then footer (About, version, Language).
+  - **Landscape** (800×400 and up): logo and tips on the left, menu on the right, footer along the bottom.
+- Every widget id the code requires is present (`src/gui/dialogs/title_screen.cpp`); if one is missing, the game silently drops back to the default theme. Help moved from the tips box into the menu.
+- `data/gui/themes/mobile/widgets/image_mobile.cfg`: `mobile_logo` image definition. It caps the 600×200 logo at 480×160 (same shape) so it fits a 540-wide portrait screen.
+- `data/gui/themes/mobile/_main.cfg` now loads the theme's `dialogs/` folder.
+- wmllint clean. Not compiled or run yet (no build server).
+
+**Known gaps until more screens are done**
+- Stock dialogs assume at least 720 px of height. At 540 some may not fit until their phone versions are built.
+- The in-game layout (`data/themes/default.cfg`) is designed for 800×600 and up, so it needs its own phone version (roadmap 2c).

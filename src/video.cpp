@@ -237,6 +237,12 @@ bool update_framebuffer()
 	// Determine best pixel scale according to preference and window size
 	int scale = 1;
 	if (prefs::get().auto_pixel_scale()) {
+#ifdef __ANDROID__
+		// Wesnoth Mobile (2026-11-01): use the largest scale that keeps the short
+		// side at least 540 logical px (min_window_* on Android). A 1080x2340
+		// phone gets scale 2: about 540x1170 portrait or 1170x540 landscape.
+		scale = max_scale_;
+#else
 		// Try to match the default size (1280x720) but do not reduce below
 		int def_scale = std::min(
 			osize.x / pref_constants::def_window_width,
@@ -247,6 +253,7 @@ bool update_framebuffer()
 			osize.x / (pref_constants::max_window_width+1) + 1,
 			osize.y / (pref_constants::max_window_height+1) + 1);
 		scale = std::max(scale, min_scale);
+#endif
 	} else {
 		scale = std::min(max_scale_, prefs::get().pixel_scale());
 	}
