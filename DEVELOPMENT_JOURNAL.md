@@ -253,3 +253,12 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 **Known gaps until more screens are done**
 - Stock dialogs assume at least 720 px of height. At 540 some may not fit until their phone versions are built.
 - The in-game layout (`data/themes/default.cfg`) is designed for 800×600 and up, so it needs its own phone version (roadmap 2c).
+
+### Mobile UI: campaign selection screen (07:22 MST)
+- `data/gui/themes/mobile/dialogs/campaign_dialog.cfg`: new phone version of the campaign selection window (`campaign_selection`). Two layouts by screen size, both full-screen.
+  - **Portrait** (base, about 540×1170): title, search box, then one panel with the sort/filter header, the campaign list, and the description below it; then Modifications, Combat and Difficulty, one label-and-menu pair per row; then Play and Cancel.
+  - **Landscape** (800×400 and up, about 1170×540): title and search on one row; list on the left, description on the right; the three menus in one row; Play and Cancel underneath.
+- List rows have 10 px borders instead of 5 for finger taps.
+- The list, description pane, sort header and Combat/Difficulty menus are copied from the default theme's `campaign_dialog.cfg`, so the translated text stays the same.
+- Checked: wmllint clean; macros expanded and brackets balance; every widget id `src/gui/dialogs/campaign_selection.cpp` looks up is present. Not compiled or run (no build server).
+- Risk: the window now fills the screen with `automatic_placement = false` and `width/height = screen`. If it opens at the wrong size on the A26, that's the first thing to adjust.

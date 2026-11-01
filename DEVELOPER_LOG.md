@@ -124,3 +124,10 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - `DEVELOPMENT_JOURNAL.md`, `ROADMAP.md`: progress.
 
 **Status:** wmllint clean; not compiled or run yet.
+
+## 2026-11-01 07:22 MST — Mobile UI: campaign selection
+
+**Files**
+- `data/gui/themes/mobile/dialogs/campaign_dialog.cfg`: new, portrait and landscape layouts.
+- `ROADMAP.md`: item 2 (Campaign selection) marked written.
+- `DEVELOPMENT_JOURNAL.md`: entry added.
