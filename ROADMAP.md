@@ -243,6 +243,21 @@ The spec is set before any tile or sprite is drawn, so nothing is made twice.
 ### Camera
 - Pan and zoom only, no rotation, because the sprites are drawn from one angle.
 
+### Normal maps (investigated 2026-11-01)
+- **Plain `SDL_RenderGeometry` can't do it.** It has no per-pixel lighting.
+- **SDL 3.4 can.** Its custom GPU render state (`SDL_CreateGPURenderState`) takes our own fragment shader, extra texture samplers (the normal map) and uniforms (light direction and colour).
+- **Not yet checked on our build:**
+  - Which SDL version the Android build uses. `CMakeLists.txt` asks for SDL3 with no minimum version.
+  - `src/sdl/window.cpp` creates the renderer with `SDL_CreateRendererWithProperties` and falls back to OpenGL, then software. The custom render state needs the SDL GPU renderer, so the renderer choice would have to change for the 2.5D map.
+  - The shader has to ship precompiled (SPIR-V for Vulkan on Android).
+- **The 6-triangle hex mesh is about perspective, not lighting.** Lighting happens per pixel in the shader, so the mesh doesn't change.
+- **Cost on the ground:** `front_` is built from many layered tiles and blended transitions. Normal-mapped ground needs a matching normal buffer drawn alongside it, which roughly doubles the ground drawing, and every tile and transition needs a normal map (Phase 4 art).
+- **Cutouts:** normal maps on sprites give little on flat cardstock, apart from torch and spell glints.
+- **Cheaper fallbacks:**
+  - Per-vertex light colour on the mesh: free, gives time-of-day and distance shading.
+  - Lit tile variants baked offline from the normal maps: no runtime shader.
+- **Open decision (Phase 4 art spec):** whether ground tiles get a normal map file each (for example `name_n.png`).
+
 ---
 
 ## Phase 7: Playthrough and music

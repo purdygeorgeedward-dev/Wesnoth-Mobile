@@ -143,3 +143,11 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - `DEVELOPMENT_JOURNAL.md`: entry.
 
 **Status:** not compiled or run yet (no build server).
+
+## 2026-11-01 12:56 MST — 2.5D normal map notes
+
+**Files**
+- `ROADMAP.md`: "Normal maps (investigated 2026-11-01)" under Phase 6.
+- `DEVELOPMENT_JOURNAL.md`: entry.
+
+**Status:** notes only, no code.

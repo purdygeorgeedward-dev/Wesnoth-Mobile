@@ -273,3 +273,8 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
   - `src/mouse_handler_base.cpp`: touch down calls `pan_cancel`; touch release calls `pan_release`.
   - `src/controller_base.cpp`: `handle_scroll` adds the fling each frame; reaching the map edge cancels it (original line kept as a comment).
 - Next: smooth pinch zoom.
+
+### 2.5D map: hex mesh and normal maps (12:56 MST)
+- George asked whether notes exist on the 2.5D map (yes: Phase 6 and the 2.5D design entry above; hex = 6 triangles, centre plus 6 corners, about 1,800 triangles on screen) and whether normal maps can be used.
+- Findings added to `ROADMAP.md` Phase 6, "Normal maps (investigated 2026-11-01)": needs SDL 3.4's custom GPU render state and the SDL GPU renderer; the current renderer setup in `src/sdl/window.cpp` would need to change; ground needs a parallel normal buffer and a normal map per tile; cheaper fallbacks are per-vertex light colour and baked lit tile variants.
+- Not decided: whether Phase 4 art includes normal maps.
