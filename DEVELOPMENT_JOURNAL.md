@@ -293,3 +293,6 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 
 ### Core unit portraits in progress (13:24 MST)
 - George is making the core unit portraits and has reached the undead units.
+
+### Next after core portraits (13:24 MST)
+- George: after the core unit portraits, he will scan for other graphics to update.
