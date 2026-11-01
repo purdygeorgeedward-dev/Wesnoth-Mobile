@@ -106,3 +106,9 @@ Dated record of every push. Times are Mountain Time (El Paso).
 
 **Status:** wmllint clean; not compiled or run yet (no build server).
 
+
+## 2026-10-31 18:25 MDT — History cleanup (force push)
+
+- Private planning notes removed from `DEVELOPMENT_JOURNAL.md`, `ROADMAP.md`, `DEVELOPER_LOG.md` and from commit messages, across commits from 2026-10-24 13:50 onward. History on `master` was rewritten and force-pushed.
+- Any other clone of this repo made before this push needs a fresh clone.
+- Some commit hashes quoted in the journal from Oct 24 onward refer to the pre-cleanup commits.
