@@ -188,3 +188,10 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - `DEVELOPMENT_JOURNAL.md`: entry.
 
 **Status:** notes only, no code.
+
+## 2026-11-01 15:40 MST — Backdrop crop method decision
+
+**Files**
+- `DEVELOPMENT_JOURNAL.md`: entry.
+
+**Status:** notes only, no code.

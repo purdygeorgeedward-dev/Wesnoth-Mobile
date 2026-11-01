@@ -296,3 +296,11 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 
 ### Next after core portraits (13:24 MST)
 - George: after the core unit portraits, he will scan for other graphics to update.
+
+### Title screen backdrop: crop method (15:40 MST)
+- George is developing a castle, grass and sky backdrop behind the logo, to work at any resolution and in both orientations.
+- Candidates: generated in Perchance at 512 px, then upscaled (images 1 to 9 are 2048×2048; 10 to 14 are the 512 px originals). Not picked yet.
+- Crop-tested six at 2340×1080 and 1080×2340. Held up in both: 5, 6, 7, 4 (4 needs the landscape position raised). 3 and 9 clip the castle in one crop.
+- **Decision (George):** custom horizontal and vertical crop positions per orientation, since a single fixed crop is what breaks across resolutions.
+- Method: in `data/gui/themes/mobile/dialogs/title_screen.cfg`, scale the image to cover the screen using `width`, `height`, `image_original_width` and `image_original_height`, then shift it by two numbers (0 to 1) per orientation. No C++ change. Portrait and landscape blocks each get their own pair.
+- Tuning is done on the phone in testing.
