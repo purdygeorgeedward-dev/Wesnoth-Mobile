@@ -163,6 +163,7 @@ The spec is set before any tile or sprite is drawn, so nothing is made twice.
 - **Standing cutouts:** units, trees, mountains, castles and villages drawn from the front, with the ground contact point at bottom-centre.
 - **Shadows:** separate soft blobs, not painted in.
 - **Team color:** keep the magenta palette so `~TC()` still recolors.
+- **Clouds (added 2026-11-01):** tileable cloud textures with alpha, 2 to 3 layers (high and thin, low and dense). One soft cloud-shadow mask for the ground. Painted to match the style reference, not photographic.
 - **Resolution:** fixed, crisp at the closest zoom.
 - **Style reference:** `images/maps/wesnoth_map_1920x1080.jpg`.
 
@@ -228,6 +229,9 @@ The spec is set before any tile or sprite is drawn, so nothing is made twice.
    - Distance fog: mesh vertex colours fade the far rows.
    - Sky gradient tinted by time of day.
    - Drifting cloud layer with alpha, densest at the horizon.
+     - Drawn after the cutouts, over the far rows only, so distant units sit inside the haze. Never over the near rows.
+     - Scrolls slower than the ground, which gives depth when the camera pans.
+     - Cloud shadows darken the ground. With terrain normal maps this goes through the shader as a shadow mask. Without it, as vertex colour.
    - Optional cloud shadows.
    - 2–3 scenery hex rings beyond the map border, continuing the edge terrain, with clouds over them. The play area is never covered.
 7. **Classic flat view toggle.** The map editor stays flat.

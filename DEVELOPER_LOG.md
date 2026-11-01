@@ -159,3 +159,11 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - `DEVELOPMENT_JOURNAL.md`: entry.
 
 **Status:** notes only, no code.
+
+## 2026-11-01 13:20 MST — Cloud layer in art spec
+
+**Files**
+- `ROADMAP.md`: clouds added to Phase 4 spec; draw order and shadow notes in Phase 6.
+- `DEVELOPMENT_JOURNAL.md`: entry.
+
+**Status:** notes only, no code.

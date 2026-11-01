@@ -282,3 +282,7 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 ### Decision: normal maps on terrain only (13:19 MST)
 - George: terrain will have normal maps; sprites and cutouts will not.
 - `ROADMAP.md` Phase 6 updated: Phase 4 art spec includes a normal map per ground tile and transition piece; units and standing terrain stay plain.
+
+### Cloud layer: added to art spec (13:20 MST)
+- George: don't forget the cloud layer. It was already in Phase 6 (drifting layer, shadows, clouds over the scenery rings) but missing from the Phase 4 art spec.
+- `ROADMAP.md`: Phase 4 spec now lists cloud textures (2 to 3 tileable alpha layers, one shadow mask). Phase 6 notes draw order (after cutouts, far rows only), slower scroll than the ground, and how shadows reach the ground.
