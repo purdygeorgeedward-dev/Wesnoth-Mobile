@@ -252,11 +252,11 @@ The spec is set before any tile or sprite is drawn, so nothing is made twice.
   - The shader has to ship precompiled (SPIR-V for Vulkan on Android).
 - **The 6-triangle hex mesh is about perspective, not lighting.** Lighting happens per pixel in the shader, so the mesh doesn't change.
 - **Cost on the ground:** `front_` is built from many layered tiles and blended transitions. Normal-mapped ground needs a matching normal buffer drawn alongside it, which roughly doubles the ground drawing, and every tile and transition needs a normal map (Phase 4 art).
-- **Cutouts:** normal maps on sprites give little on flat cardstock, apart from torch and spell glints.
+- **Cutouts:** no normal maps (decided). They can still pick up simple tinting and fog by row.
 - **Cheaper fallbacks:**
   - Per-vertex light colour on the mesh: free, gives time-of-day and distance shading.
   - Lit tile variants baked offline from the normal maps: no runtime shader.
-- **Open decision (Phase 4 art spec):** whether ground tiles get a normal map file each (for example `name_n.png`).
+- **Decided 2026-11-01 (George):** terrain gets normal maps. Sprites and cutouts do not. Phase 4 art spec: each ground tile and transition piece gets a normal map file (for example `name_n.png`). Units, trees, mountains and castles stay plain.
 
 ---
 

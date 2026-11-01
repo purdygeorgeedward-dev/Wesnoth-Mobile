@@ -151,3 +151,11 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - `DEVELOPMENT_JOURNAL.md`: entry.
 
 **Status:** notes only, no code.
+
+## 2026-11-01 13:19 MST — Decision: terrain-only normal maps
+
+**Files**
+- `ROADMAP.md`: normal map decision recorded in Phase 6.
+- `DEVELOPMENT_JOURNAL.md`: entry.
+
+**Status:** notes only, no code.
