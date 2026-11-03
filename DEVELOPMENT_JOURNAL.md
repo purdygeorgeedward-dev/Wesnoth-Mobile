@@ -304,3 +304,8 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - **Decision (George):** custom horizontal and vertical crop positions per orientation, since a single fixed crop is what breaks across resolutions.
 - Method: in `data/gui/themes/mobile/dialogs/title_screen.cfg`, scale the image to cover the screen using `width`, `height`, `image_original_width` and `image_original_height`, then shift it by two numbers (0 to 1) per orientation. No C++ change. Portrait and landscape blocks each get their own pair.
 - Tuning is done on the phone in testing.
+
+### Portrait file names: typos found and fixed (2026-11-02 22:28 MST)
+- Scan against stock Wesnoth showed 40 stock portraits unchanged. Several of George's new files had spelling or dash/underscore differences, so the WML still loaded the stock file.
+- George: the stock names are the ones in use; the new files must match them exactly. Stock names mix dashes and underscores, so there is no single convention.
+- 11 files renamed to the stock names (see DEVELOPER_LOG.md). Still to check: extension mismatches (old_orcish_shaman, orcish_shaman, shan_taum are .png; troll and ancient-wose new files are .webp over stock .png), sun-singer, sun-sylph, naga-ringcast, skeleton-2, and files in images/characters.

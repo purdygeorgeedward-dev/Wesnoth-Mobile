@@ -195,3 +195,11 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - `DEVELOPMENT_JOURNAL.md`: entry.
 
 **Status:** notes only, no code.
+
+## 2026-11-02 22:28 MST — Portrait renames to match stock file names
+
+**Files**
+- 11 new portraits renamed over the stock file of the same portrait so the WML loads them: Liberty/dommel, Son_Of_The_Black_Eye/kapoue-angry, The_Deceivers_Gambit/lionel-old and methor-old, The_Rise_Of_Wesnoth/addroran, core humans/javelineer, nagas/naga-mace_warrior1-3, undead/bone-shooter, undead/skeletal_rider.
+- Old misspelled names removed (drommel, kapoue_angry, lionel_old, methor_old, addoran, javelinier, naga-mace-warrior1-3, bone-shoiter, skeletal-rider).
+
+**Status:** file renames only, no code. Not built or run.
