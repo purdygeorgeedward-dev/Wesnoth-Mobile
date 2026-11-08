@@ -308,3 +308,12 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - `ROADMAP.md`: new list of additional dialogs with what is written, what needed no change (surrender_quit, game_save_overwrite, game_delete) and what is still to do.
 
 **Status:** written, not built or run. wmllint reports nothing; tag balance checked by script. The size-cap changes assume maximum_width and maximum_height accept formulas, as they do in the dialogs written earlier today.
+
+## 2026-11-08 12:36 MST — Mobile dialogs, second batch (statistics and Tier 2)
+
+**Files (all in `data/gui/themes/mobile/dialogs/`)**
+- `statistics_dialog.cfg`, `game_stats.cfg`: copies of the default dialogs. The window fills the screen (the defaults are centered with height caps of 500 and about 750) and the middle part (the statistics lists; the game status pager) is inside a scrollbar_panel so it scrolls instead of being cut off. The title row, tab bar and buttons stay in view. One layout serves both orientations.
+- `achievements_dialog.cfg`, `game_version.cfg`, `label_settings.cfg`, `theme_list.cfg`, `simple_item_selector.cfg`: copies with the size caps (up to 1200 wide, 600 to 750 tall) replaced by the screen size minus 20, at most 900 wide.
+- `ROADMAP.md`: additional dialog list updated. end_credits, loading_screen and outro need no change (already full screen).
+
+**Status:** written, not built or run. wmllint reports nothing; tag balance checked by script. Risks: the engine looks up the pager in game_stats inside a scroll panel (expected to work: find_widget recurses); text in game_version may wrap more at 900 wide than at the default 1200.

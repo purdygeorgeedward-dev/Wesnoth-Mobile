@@ -370,3 +370,7 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - Scanned all 98 default dialog files for fixed sizes and size caps, then ordered the unfinished ones by how likely a campaign player is to reach them. The assessment is in the roadmap.
 - Written now: the popup menu, level-up choice, text entry prompts and three dialogs with oversized caps. The small yes/no prompts already fit.
 - Largest remaining pieces: in-game layout (2c) and startup (2d), then statistics, credits, loading screen and outro.
+
+### Second batch of dialogs (2026-11-08 12:36 MST)
+- Statistics and game status now scroll in their middle section. The full-screen dialogs (credits, loading screen, outro) were checked and need nothing.
+- Tooltips are the last dialog item; the larger pieces left are the in-game layout (2c) and startup (2d).
