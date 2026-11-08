@@ -355,3 +355,8 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 ### Help browser written (2026-11-08 11:19 MST)
 - Screen 16 of 20. The default help window is a fixed size, so landscape only needed to fill the screen; portrait needed a stacked arrangement. The tree panel can only be shown or hidden by the engine (Contents toggle), so portrait starts with the tree visible.
 - Not tested. Remaining screens: 9 (prediction), 10, 12, 17, 18 and 20.
+
+### Damage calculations written; four screens turned out to be covered (2026-11-08 11:20 MST)
+- Screen 9 is now complete. Checked the engine for 10, 12, 17 and 18: unit details open the help browser; the scenario end report (victory and defeat) is shown with the transient message dialog; the in-game menu belongs to the in-game theme. So those four need no new dialog beyond the ones already written.
+- Remaining: screen 20 (skirmish map settings, the multiplayer create-game dialog, about 1500 lines in three size variants) and the in-game layout (2c).
+- Not tested.

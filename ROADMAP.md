@@ -104,16 +104,16 @@ Dialogs choose a layout by window size with `[resolution]` blocks. Planned set:
 6. Objectives: written 2026-11-08 as the transient message dialog (portrait and landscape; not yet built or run)
 7. Recruit: written 2026-11-08 as the shared units dialog (portrait and landscape; not yet built or run)
 8. Recall: written 2026-11-08 as the shared units dialog (portrait and landscape; not yet built or run)
-9. Attack selection and prediction: attack selection written 2026-11-08 (portrait and landscape; not yet built or run); the damage prediction dialog is not done
-10. Unit details
+9. Attack selection and prediction: both written 2026-11-08 (portrait and landscape; not yet built or run)
+10. Unit details: covered by the help browser (screen 16). The engine opens the help browser for a unit description (help::show_unit_description), so there is no separate dialog. Checked 2026-11-08.
 11. Unit list: written 2026-11-08 as the shared units dialog (portrait and landscape; not yet built or run)
-12. Game menu
+12. Game menu: not a GUI2 dialog. The in-game menu is built by the in-game theme, so it belongs to 2c below. Checked 2026-11-08.
 13. Load game: written 2026-11-08 (portrait and landscape; not yet built or run)
 14. Save game: written 2026-11-08 (portrait and landscape; not yet built or run)
 15. Preferences: written 2026-11-08 (portrait and landscape; not yet built or run)
 16. Help: written 2026-11-08 (portrait and landscape; not yet built or run)
-17. End of scenario and victory
-18. Defeat
+17. End of scenario and victory: covered by the transient message dialog written for screen 6. The scenario end report is shown with show_transient_message (data/lua/carryover_gold.lua, show_popup_dialog). Checked 2026-11-08.
+18. Defeat: covered by the transient message dialog written for screen 6, as for 17. Checked 2026-11-08.
 19. Confirmations: written 2026-11-08 as the message dialog (portrait and landscape; not yet built or run)
 20. Map settings for skirmish
 

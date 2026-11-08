@@ -281,3 +281,11 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - `ROADMAP.md`: screen 16 marked written.
 
 **Status:** written, not built or run. wmllint reports nothing; tag balance checked by script. Risk: in portrait the tree and the text share the height equally until Contents is pressed.
+
+## 2026-11-08 11:20 MST — Damage calculations dialog; roadmap checks for screens 10, 12, 17, 18
+
+**Files**
+- `data/gui/themes/mobile/dialogs/attack_predictions.cfg`: new. Fills the screen in both orientations. The two data columns (attacker, defender) are inside a scrollbar_panel so they scroll when too tall for the screen. Landscape: attacker and defender side by side as in the default theme. Portrait: attacker above defender (two columns would get only about 250 px each). Close is a full-width button in portrait, at the right in landscape. The column macros are copied unchanged from the default theme.
+- `ROADMAP.md`: screen 9 both halves written. Screens 10, 12, 17 and 18 re-examined in the source: 10 is the help browser (screen 16); 12 is not a GUI2 dialog (it belongs to the in-game theme, 2c); 17 and 18 are the transient message dialog (screen 6). Notes in the roadmap explain each.
+
+**Status:** written, not built or run. wmllint reports nothing; tag balance checked by script.
