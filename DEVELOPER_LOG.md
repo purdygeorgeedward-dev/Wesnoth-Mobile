@@ -203,3 +203,11 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - Old misspelled names removed (drommel, kapoue_angry, lionel_old, methor_old, addoran, javelinier, naga-mace-warrior1-3, bone-shoiter, skeletal-rider).
 
 **Status:** file renames only, no code. Not built or run.
+
+## 2026-11-08 10:53 MST — Difficulty selection screen (mobile theme)
+
+**Files**
+- `data/gui/themes/mobile/dialogs/campaign_difficulty.cfg`: new. Portrait (base resolution): title, message, tall difficulty rows, Play and Cancel side by side. Landscape (800x400 and up): title, message and buttons left, rows right. Widget ids kept from the default theme (title, message, listbox, icon, victory, label, ok, cancel). Row padding raised from 5 to 10 for touch.
+- `ROADMAP.md`: screen 3 marked written.
+
+**Status:** written, not built or run. Tag balance and widget ids checked by script only.

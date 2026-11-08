@@ -309,3 +309,9 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - Scan against stock Wesnoth showed 40 stock portraits unchanged. Several of George's new files had spelling or dash/underscore differences, so the WML still loaded the stock file.
 - George: the stock names are the ones in use; the new files must match them exactly. Stock names mix dashes and underscores, so there is no single convention.
 - 11 files renamed to the stock names (see DEVELOPER_LOG.md). Still to check: extension mismatches (old_orcish_shaman, orcish_shaman, shan_taum are .png; troll and ancient-wose new files are .webp over stock .png), sun-singer, sun-sylph, naga-ringcast, skeleton-2, and files in images/characters.
+
+### Difficulty selection screen written (2026-11-08 10:53 MST)
+- Screen 3 of the 20 hand-built screens. Built the same way as campaign selection: the base resolution is portrait and a second resolution block (window 800x400 and up) is landscape.
+- Rows copied from the default theme with larger padding. Buttons use the mobile button definition, so their touch size comes from the theme.
+- George's decision (Nov 8): UI screens come before getting a build working, since a build with the old UI is pointless.
+- Not tested. Remaining screens: 4 to 20.

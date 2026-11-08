@@ -98,7 +98,7 @@ Dialogs choose a layout by window size with `[resolution]` blocks. Planned set:
 
 1. Title screen: done 2026-11-01 (portrait and landscape)
 2. Campaign selection: written 2026-11-01 (portrait and landscape; not yet built or run)
-3. Difficulty selection
+3. Difficulty selection: written 2026-11-08 (portrait and landscape; not yet built or run)
 4. Story screen (1920×1080 story art)
 5. Character dialogue (large portraits)
 6. Objectives
