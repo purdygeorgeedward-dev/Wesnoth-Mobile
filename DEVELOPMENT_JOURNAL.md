@@ -331,3 +331,8 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - Screens 6 and 19 of 20. Neither has its own dialog: objectives go through transient_message and confirmations through message, which many other prompts also use, so these two changes reach more than just those screens.
 - Open question for later: objectives for long campaigns may be taller than the screen. transient_message cannot scroll because its message is a label, so the text would be cut. Fixing that needs a C++ change (or a different dialog for objectives).
 - Not tested. Remaining screens: 7 to 18 and 20.
+
+### Units dialog written (2026-11-08 11:11 MST)
+- Screens 7, 8 and 11 of 20 share one dialog (units_dialog), so one file covers recruit, recall and the unit list.
+- Considered dropping list columns in portrait. Not done: the engine sets up sorting for every header column and a missing id would probably break it. Wide rows scroll sideways instead.
+- Not tested. Remaining screens: 9, 10, 12 to 18 and 20.

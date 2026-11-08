@@ -102,11 +102,11 @@ Dialogs choose a layout by window size with `[resolution]` blocks. Planned set:
 4. Story screen (1920×1080 story art): written 2026-11-08 (portrait and landscape; not yet built or run)
 5. Character dialogue (large portraits): written 2026-11-08 (portrait and landscape, left/right/double; not yet built or run)
 6. Objectives: written 2026-11-08 as the transient message dialog (portrait and landscape; not yet built or run)
-7. Recruit
-8. Recall
+7. Recruit: written 2026-11-08 as the shared units dialog (portrait and landscape; not yet built or run)
+8. Recall: written 2026-11-08 as the shared units dialog (portrait and landscape; not yet built or run)
 9. Attack selection and prediction
 10. Unit details
-11. Unit list
+11. Unit list: written 2026-11-08 as the shared units dialog (portrait and landscape; not yet built or run)
 12. Game menu
 13. Load game
 14. Save game

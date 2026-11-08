@@ -238,3 +238,13 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - `ROADMAP.md`: screens 6 and 19 marked written.
 
 **Status:** written, not built or run. wmllint reports nothing; tag balance checked by script. The macro for the buttons passes an empty argument `()` for the two buttons that have no fixed label.
+
+## 2026-11-08 11:11 MST — Units dialog: recruit, recall and unit list (mobile theme)
+
+**Files**
+- `data/gui/themes/mobile/dialogs/units_dialog.cfg`: new. One window (units_dialog) serves recruit, recall, the unit list and debug unit creation. Portrait: fills the screen; title, search, the list (all spare height), the preview pane under it, the gender/variation row, then two rows of full-width buttons. Landscape: fills the screen; title and search on one row, preview pane left and list right, then one row of buttons (help at left; dismiss, rename, favorite, ok, cancel at right). The default theme window can be 750 tall and does not fit a 540 tall landscape screen.
+- `ROADMAP.md`: screens 7, 8 and 11 marked written.
+
+**Kept on purpose:** the list (header, sort toggles and row template, macro _GUI_RECALL_LIST) is copied unchanged from the default theme, because units_dialog.cpp registers a sort option for every header column id. Only the row padding changed (8 instead of 5). Wide rows scroll sideways in portrait.
+
+**Status:** written, not built or run. wmllint reports nothing; tag balance checked by script. Risk: the preview pane has a natural size that may be tall; in portrait it is placed under the list, and if it is too tall the list gets squeezed.
