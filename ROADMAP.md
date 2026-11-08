@@ -110,7 +110,7 @@ Dialogs choose a layout by window size with `[resolution]` blocks. Planned set:
 12. Game menu
 13. Load game: written 2026-11-08 (portrait and landscape; not yet built or run)
 14. Save game: written 2026-11-08 (portrait and landscape; not yet built or run)
-15. Preferences
+15. Preferences: written 2026-11-08 (portrait and landscape; not yet built or run)
 16. Help
 17. End of scenario and victory
 18. Defeat

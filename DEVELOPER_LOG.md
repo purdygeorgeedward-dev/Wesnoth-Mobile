@@ -265,3 +265,11 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - `ROADMAP.md`: screens 13 and 14 marked written.
 
 **Status:** written, not built or run. wmllint reports nothing; tag balance checked by script. Not covered: the game_save_message and game_save_oos windows (small prompts) still use the default theme.
+
+## 2026-11-08 11:18 MST — Preferences dialog (mobile theme)
+
+**Files**
+- `data/gui/themes/mobile/dialogs/preferences.cfg`: new. The six pages are the default theme's, included unchanged from `data/gui/themes/default/dialogs/preferences/`. The default window is up to 650 tall and its pages do not scroll, so on a 540 tall landscape screen the lower part of each page would be cut off. Now: the window fills the screen in both orientations; the tab container sits inside a scrollbar_panel so a page taller than the screen scrolls; portrait uses the existing "horizontal" tab container (page tabs in a row across the top) so the page gets the full width; landscape keeps the vertical tab list on the left. Bottom buttons have 10 px borders. The macros the pages use were copied from the top of the default preferences.cfg (it removes them at its end) and removed again at the end of this file.
+- `ROADMAP.md`: screen 15 marked written.
+
+**Status:** written, not built or run. wmllint reports nothing; tag balance checked by script. Risks: (1) the engine finds the tab container by id "pager" inside a scroll panel, which I expect to work (find_widget recurses) but have not confirmed in tab_container.cpp; (2) pages are wider than 540 in portrait and will scroll sideways.

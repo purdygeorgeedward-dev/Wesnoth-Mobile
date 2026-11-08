@@ -346,3 +346,8 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - Screens 13 and 14 of 20. Load needed every widget kept (the engine requires them all), so the window was rebuilt around widget blocks copied out of the default theme by script rather than retyped.
 - Save is placed at the top because of the on-screen keyboard. If the Android keyboard resizes the window instead of covering it, this can go back to centered.
 - Not tested. Remaining screens: 9 (prediction), 10, 12, 15 to 18 and 20.
+
+### Preferences written (2026-11-08 11:18 MST)
+- Screen 15 of 20, the biggest dialog (about 2000 lines of pages). Not rewritten: the pages are reused, and only the window around them changed.
+- The pages have no scrolling of their own, which is the real problem on a 540 tall screen. A scroll panel around the whole tab container fixes that without editing the pages.
+- Not tested. Remaining screens: 9 (prediction), 10, 12, 16 to 18 and 20.
