@@ -297,3 +297,14 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - `ROADMAP.md`: screen 20 marked written.
 
 **Status:** written, not built or run. wmllint reports nothing; tag balance checked by script. Risk: the engine looks up the pager inside a scroll panel; I expect find_widget to recurse but have not confirmed it in mp_create_game.cpp.
+
+## 2026-11-08 11:39 MST — Additional mobile dialogs from the full dialog scan
+
+**Files (all in `data/gui/themes/mobile/dialogs/`)**
+- `drop_down_list.cfg`: drop-down menu popup. Same as the default, with taller rows (9 px padding instead of 5) for touch. Its height formula already adapts to the free space above or below the button.
+- `unit_advance.cfg`: level-up choice. Portrait: choice list on top (spare height), preview below, full-width OK. Landscape: fills the screen with the default arrangement (preview left, list right). The default window can be 700 tall.
+- `edit_text.cfg`, `edit_label.cfg`, `prompt.cfg`: copies of the default dialogs placed at the top of the screen because the on-screen keyboard covers the lower half; width capped to the screen (at most 900).
+- `wml_error.cfg`, `language_selection.cfg`, `sp_options_configure.cfg`: copies with the 600 to 900 wide and 600 to 800 tall caps replaced by the screen size minus 20.
+- `ROADMAP.md`: new list of additional dialogs with what is written, what needed no change (surrender_quit, game_save_overwrite, game_delete) and what is still to do.
+
+**Status:** written, not built or run. wmllint reports nothing; tag balance checked by script. The size-cap changes assume maximum_width and maximum_height accept formulas, as they do in the dialogs written earlier today.

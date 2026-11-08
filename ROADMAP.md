@@ -117,6 +117,13 @@ Dialogs choose a layout by window size with `[resolution]` blocks. Planned set:
 19. Confirmations: written 2026-11-08 as the message dialog (portrait and landscape; not yet built or run)
 20. Map settings for skirmish: written 2026-11-08 as the multiplayer create game dialog (portrait and landscape; not yet built or run)
 
+Additional dialogs found by scanning all 98 default dialog files (2026-11-08). Beyond the 20, these appear in a normal campaign and have size caps larger than a phone screen:
+- Written 2026-11-08 (not yet built or run): drop_down_list (drop-down menu popup, taller rows), unit_advance (level-up choice, portrait and landscape), edit_text, edit_label and prompt (placed at the top because of the on-screen keyboard), wml_error, language_selection, sp_options_configure (size caps changed to the screen size).
+- Looked at, no change needed: surrender_quit, game_save_overwrite, game_delete (small prompts, centered, narrower than the screen).
+- Still to do, in this order: statistics_dialog and game_stats (in-game statistics), end_credits, loading_screen and outro; then achievements_dialog, game_version (About), label_settings, theme_list, simple_item_selector and the tooltips.
+- Not planned unless they become part of the product: add-on dialogs (about 10), multiplayer (about 17), map editor (about 15), debug and log dialogs (about 8).
+- Larger than all of these: the in-game layout (2c) and startup (2d).
+
 ### 2c. In-game layout
 - New in-game theme in `data/themes/` (alongside `default.cfg`) with landscape and portrait versions.
 - Compact top bar.

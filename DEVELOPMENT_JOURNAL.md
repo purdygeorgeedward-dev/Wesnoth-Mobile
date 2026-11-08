@@ -365,3 +365,8 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - Written as new dialog files: 2 to 9, 11, 13 to 16, 19, 20 plus the title screen (1). Covered by an existing one: 10 (help browser), 17 and 18 (transient message). Not a dialog: 12 (game menu, part of the in-game theme, 2c).
 - Nothing has been built or run. The first build will show which of these load; a dialog with a WML error should fail with a message naming the file and line.
 - Remaining UI work from the roadmap: the in-game layout (2c) and startup (2d).
+
+### Additional dialogs, prioritized (2026-11-08 11:39 MST)
+- Scanned all 98 default dialog files for fixed sizes and size caps, then ordered the unfinished ones by how likely a campaign player is to reach them. The assessment is in the roadmap.
+- Written now: the popup menu, level-up choice, text entry prompts and three dialogs with oversized caps. The small yes/no prompts already fit.
+- Largest remaining pieces: in-game layout (2c) and startup (2d), then statistics, credits, loading screen and outro.
