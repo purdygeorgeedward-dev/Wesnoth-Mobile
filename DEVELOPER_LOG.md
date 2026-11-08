@@ -248,3 +248,11 @@ Dated record of every push. Times are Mountain Time (El Paso).
 **Kept on purpose:** the list (header, sort toggles and row template, macro _GUI_RECALL_LIST) is copied unchanged from the default theme, because units_dialog.cpp registers a sort option for every header column id. Only the row padding changed (8 instead of 5). Wide rows scroll sideways in portrait.
 
 **Status:** written, not built or run. wmllint reports nothing; tag balance checked by script. Risk: the preview pane has a natural size that may be tall; in portrait it is placed under the list, and if it is too tall the list gets squeezed.
+
+## 2026-11-08 11:12 MST — Attack selection dialog (mobile theme)
+
+**Files**
+- `data/gui/themes/mobile/dialogs/unit_attack.cfg`: new. Portrait: fills the screen; attacker panel above defender panel, weapon list takes the spare height, Attack and Cancel side by side, Damage Calculation as a full-width row under them. Landscape: fills the screen; panels side by side as in the default theme, weapon list under them, one row of buttons (Damage Calculation at the left, Attack and Cancel at the right) so it fits 540 tall.
+- `ROADMAP.md`: screen 9 noted: attack selection written, the damage prediction dialog is not done.
+
+**Status:** written, not built or run. wmllint reports nothing; tag balance checked by script. The weapon list is the default theme's with 8 px borders. Widget ids match unit_attack.cpp.

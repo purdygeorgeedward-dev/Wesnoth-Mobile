@@ -336,3 +336,8 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - Screens 7, 8 and 11 of 20 share one dialog (units_dialog), so one file covers recruit, recall and the unit list.
 - Considered dropping list columns in portrait. Not done: the engine sets up sorting for every header column and a missing id would probably break it. Wide rows scroll sideways instead.
 - Not tested. Remaining screens: 9, 10, 12 to 18 and 20.
+
+### Attack selection written (2026-11-08 11:12 MST)
+- Half of screen 9. The damage calculation (prediction) dialog is a separate window and still uses the default theme.
+- The default dialog is centered and sizes itself, and with two unit panels, a weapon list and two button rows it is too tall for 540. Both layouts now fill the screen and give the weapon list the spare height.
+- Not tested. Remaining screens: 9 (prediction), 10, 12 to 18 and 20.
