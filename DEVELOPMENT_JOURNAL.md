@@ -374,3 +374,9 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 ### Second batch of dialogs (2026-11-08 12:36 MST)
 - Statistics and game status now scroll in their middle section. The full-screen dialogs (credits, loading screen, outro) were checked and need nothing.
 - Tooltips are the last dialog item; the larger pieces left are the in-game layout (2c) and startup (2d).
+
+### In-game theme written (2026-11-08 13:57 MST)
+- 2c of the roadmap. Read theme.cpp to learn how resolutions and anchors work, then wrote the theme with absolute coordinates instead of the default theme's chained references (the default positions each element from the last one, which is hard to change safely without running the game).
+- Decisions: the top bar shows only what a campaign player needs; the unit panel is a strip in the bottom bar instead of a sidebar; End Turn is the largest button and sits at the bottom right.
+- Known gaps: no minimap, no hide/show for the unit panel, no replay or timer controls.
+- Not tested.

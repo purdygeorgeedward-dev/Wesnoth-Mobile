@@ -326,3 +326,14 @@ Dated record of every push. Times are Mountain Time (El Paso).
 **Findings:** tooltip_floating and tooltip_large place themselves from the screen size and the pointer position (formulas choose Above, Below or TooBig and keep the tooltip on screen), so no layout change is needed for the phone screen. Unknown without running the game: whether a tap or long press on Android makes the tooltips appear (they depend on pointer hover). Text for keyboard shortcuts will not be useful on a phone.
 
 **Status:** notes only, no code.
+
+## 2026-11-08 13:57 MST — In-game theme (2c)
+
+**Files**
+- `data/themes/mobile.cfg`: new theme "Wesnoth Mobile" (id Mobile). Two resolutions, landscape first because the engine takes the first one that fits the screen (theme.cpp, theme::set_resolution): landscape 1000x480 and up, portrait 480x1000 and up. Top bar 48 high; bottom bar 60 high (portrait: two bottom bars). Elements use plain coordinates and anchors: a left or top anchored one stretches with the extra screen size, a right or bottom anchored one moves with it (theme.cpp, theme::object::location), so the same file fits the A26 at about 1170x540 and 540x1170 logical pixels.
+- `images/buttons/mobile/button-96*.png`, `button-112*.png` (normal, pressed, active, active-pressed, touched): the stock large button (168x44) cut into a 9-slice and resized by script. Buttons draw at their image size (button.cpp, calculate_size), so a 44 high image is the touch target (88 px on the A26).
+- `data/core/images/themes/mobile/top-bar.png`, `bottom-bar.png`: flat placeholder panel tiles (dark brown with a thin gold edge line).
+- `src/preferences/preferences.cpp`: on Android, prefs::theme() returns "Mobile" instead of "Default" when no theme has been chosen. The old line is kept inside the #else branch.
+- `ROADMAP.md`: 2c updated with what is written and what is not.
+
+**Status:** written, not built or run. wmllint reports nothing; tag balance and duplicate ids checked by script. Risks: (1) the theme parser has never seen this file, so a typo shows up as a theme load error when the game starts; (2) the logical screen size reported by Android may be a little smaller than 1170x540, so the 1000x480 minimum was chosen with room to spare; (3) a phone that already saved a theme choice keeps the old one.

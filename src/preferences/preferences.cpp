@@ -1361,7 +1361,12 @@ std::string prefs::theme()
 
 	std::string res = preferences_[prefs_list::theme];
 	if(res.empty()) {
+#ifdef __ANDROID__
+		// Wesnoth Mobile (2026-11-08): phones start with the Wesnoth Mobile in-game theme (data/themes/mobile.cfg).
+		return "Mobile";
+#else
 		return "Default";
+#endif
 	}
 
 	return res;

@@ -127,11 +127,11 @@ Additional dialogs found by scanning all 98 default dialog files (2026-11-08). B
 - Larger than all of these: the in-game layout (2c) and startup (2d).
 
 ### 2c. In-game layout
-- New in-game theme in `data/themes/` (alongside `default.cfg`) with landscape and portrait versions.
-- Compact top bar.
-- Unit info panel that can be hidden.
-- Bottom action bar: end turn, undo, recruit, menu.
-- Minimap on demand.
+- Written 2026-11-08, not yet built or run: the Wesnoth Mobile in-game theme, `data/themes/mobile.cfg`, with landscape (1000x480 and up) and portrait (480x1000 and up) layouts. Android now starts with it (`prefs::theme()` in `src/preferences/preferences.cpp`); a phone that already saved a theme choice keeps it until changed in preferences.
+- Compact top bar: menu, turn, gold, villages, units, upkeep, income, battery and time of day (portrait leaves out upkeep, income and battery).
+- Bottom bar: the selected unit's image, name, type, level, HP, XP and moves on the left, and Undo, Recruit, Actions and End Turn on the right. Portrait uses two bars: unit info, then the four buttons.
+- Buttons are 96, 112 and 168 wide and 44 high (88 px on the A26), made from the stock large button (`images/buttons/mobile/`).
+- Not done: minimap on demand (no minimap element in the theme yet), hiding the unit panel (a theme cannot toggle it; needs C++), replay controls and the countdown timer, terrain and position readouts, and final art for the bars (placeholder flat tiles in `data/core/images/themes/mobile/`).
 
 ### 2d. Startup
 - Animated logo (written, untested).
