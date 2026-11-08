@@ -273,3 +273,11 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - `ROADMAP.md`: screen 15 marked written.
 
 **Status:** written, not built or run. wmllint reports nothing; tag balance checked by script. Risks: (1) the engine finds the tab container by id "pager" inside a scroll panel, which I expect to work (find_widget recurses) but have not confirmed in tab_container.cpp; (2) pages are wider than 540 in portrait and will scroll sideways.
+
+## 2026-11-08 11:19 MST — Help browser (mobile theme)
+
+**Files**
+- `data/gui/themes/mobile/dialogs/help_browser.cfg`: new. The default window is a fixed 1350x800 centered, larger than a phone in either orientation. Landscape: fills the screen; topic tree at the left; at the right the title/contents/back/next/search row, the scrollable text and Close. Portrait: fills the screen, stacked: the top row, the topic tree, the scrollable text, Close as a full-width button. The Contents toggle hides the tree (the engine toggles the tree panel) so the text can use the whole screen. The tree, top row, text panel and Close button were copied from the default theme by script; ids unchanged.
+- `ROADMAP.md`: screen 16 marked written.
+
+**Status:** written, not built or run. wmllint reports nothing; tag balance checked by script. Risk: in portrait the tree and the text share the height equally until Contents is pressed.

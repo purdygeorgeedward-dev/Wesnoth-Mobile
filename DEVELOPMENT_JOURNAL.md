@@ -351,3 +351,7 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - Screen 15 of 20, the biggest dialog (about 2000 lines of pages). Not rewritten: the pages are reused, and only the window around them changed.
 - The pages have no scrolling of their own, which is the real problem on a 540 tall screen. A scroll panel around the whole tab container fixes that without editing the pages.
 - Not tested. Remaining screens: 9 (prediction), 10, 12, 16 to 18 and 20.
+
+### Help browser written (2026-11-08 11:19 MST)
+- Screen 16 of 20. The default help window is a fixed size, so landscape only needed to fill the screen; portrait needed a stacked arrangement. The tree panel can only be shown or hidden by the engine (Contents toggle), so portrait starts with the tree visible.
+- Not tested. Remaining screens: 9 (prediction), 10, 12, 17, 18 and 20.
