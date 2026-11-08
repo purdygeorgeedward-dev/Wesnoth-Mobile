@@ -359,3 +359,13 @@ Dated record of every push. Times are Mountain Time (El Paso).
 **Not used:** `logo-icon-1024` (PNG and WebP, 1024x1024): it is the shield and swords with the title text and a soft shadow, so the launcher icon built from the shield-only logo (`images/logos/logo-bg.png`) was left as it is. The splash images with the logo baked in are kept for the Android start-up screen, not wired yet.
 
 **Status:** written, not built or run. wmllint reports nothing. The image name is a formula (an if chain), which the canvas accepts (canvas.cpp evaluates names in parentheses as formulas), but I have not seen it load. The menu, tips and animated logo are drawn over the faces; the layout may need changes once seen on the phone.
+
+## 2026-11-08 16:36 MST — Title screen background: cover instead of stretch
+
+**Files**
+- `data/gui/themes/mobile/dialogs/title_screen.cfg`: the splash background is no longer stretched to the window. It keeps its shape, is scaled by the larger of (window height / image height) and (window width / image width), and is centered, so what does not fit spills off the edges (new macro _GUI_COVER_RATIO, modeled on the default theme's _GUI_BG_RATIO). The previous stretched image block is kept as a comment.
+- `ROADMAP.md`: 2d background line updated.
+
+**Check by arithmetic:** window 1170x540 (landscape) draws the image 1200x540 at x -15, so 15 logical px are cut off each side; window 540x1170 (portrait) draws 540x1200 at y -15; square images are used for near-square windows. A window of the exact image shape is not cropped at all.
+
+**Status:** written, not built or run. wmllint reports nothing. Risk: the image x and y are negative; the canvas passes them straight to the blit, which clips to the window, but I have not seen it draw.

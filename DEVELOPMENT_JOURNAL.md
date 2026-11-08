@@ -390,3 +390,6 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - George sent the three logo-free splash images (PNG and WebP of each; the square only as WebP, one lossless 8 MB and one heavily compressed 0.8 MB). Used the lossless square and the two PNGs as sources and re-encoded at quality 90 so all three match.
 - George also sent a 1024 logo icon with the title text and a soft shadow. Not used for the launcher icon (text unreadable at small sizes); kept for later.
 - Open: how the menu and logo should sit over the faces, and the Android start-up screen.
+
+### Background no longer stretched (2026-11-08 16:36 MST)
+- George: no stretching, let the images spill off the edges. Changed to cover-and-center. On his phone the crop is about 2.5% of the width or height, split between the two edges.
