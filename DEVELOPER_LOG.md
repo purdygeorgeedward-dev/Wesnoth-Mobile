@@ -337,3 +337,14 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - `ROADMAP.md`: 2c updated with what is written and what is not.
 
 **Status:** written, not built or run. wmllint reports nothing; tag balance and duplicate ids checked by script. Risks: (1) the theme parser has never seen this file, so a typo shows up as a theme load error when the game starts; (2) the logical screen size reported by Android may be a little smaller than 1170x540, so the 1000x480 minimum was chosen with room to spare; (3) a phone that already saved a theme choice keeps the old one.
+
+## 2026-11-08 15:53 MST — Android launcher icon from the transparent logo
+
+**Files (all under `packaging/android/app/src/main/res/`)**
+- `mipmap-mdpi`, `-hdpi`, `-xhdpi`, `-xxhdpi`, `-xxxhdpi`/`wesnoth_icon.png` (48, 72, 96, 144, 192 px): the stock Wesnoth icon replaced by the shield-and-swords art (`images/logos/logo-bg.png`, alpha trimmed) at 80% of the square, on the dark blue #343D4D.
+- `drawable/wesnoth_logo.png`: adaptive-icon foreground, now 432x432 (was 108x108), art at 60% of the square so it sits inside the 66% safe zone that Android keeps when it crops to a circle or squircle.
+- `drawable/wesnoth_logo_bw.png`: monochrome version for themed icons, 432x432, black from the logo's alpha.
+- `mipmap-anydpi-v26/wesnoth_icon.xml`: adaptive background changed from colorAccent (tan #DFBE7E) to colorPrimary (dark blue); the old line is kept as a comment.
+- `ROADMAP.md`: 2d app icon line updated.
+
+**Status:** images generated and viewed on a contact sheet; not built or run. Not covered: `drawable/wesnoth_icon.png` (441x198, the old static logo, only referenced from a commented-out block) and the in-game window icon (`data/core/images/wesnoth-icon.png`, already George's 128x128 icon).

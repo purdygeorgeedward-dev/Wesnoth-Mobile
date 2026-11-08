@@ -137,7 +137,7 @@ Additional dialogs found by scanning all 98 default dialog files (2026-11-08). B
 - Animated logo (written, untested).
 - Full-screen background art (3840×3840, key content in the centre ~1650 px).
 - George's symphonic theme song at startup.
-- New app icon (made in Krimble).
+- New app icon: written 2026-11-08 from George's transparent shield-and-swords logo (`images/logos/logo-bg.png`): legacy launcher icons in all five densities, a 432 px adaptive-icon foreground inside the 66% safe zone, a monochrome version for themed icons, and a dark blue adaptive background (was tan). Not yet seen on a phone.
 - Wesnoth Mobile logo.
 
 **Done when:** every screen a player meets in a campaign looks designed for the phone in both orientations.

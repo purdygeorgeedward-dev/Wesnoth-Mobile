@@ -380,3 +380,8 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - Decisions: the top bar shows only what a campaign player needs; the unit panel is a strip in the bottom bar instead of a sidebar; End Turn is the largest button and sits at the bottom right.
 - Known gaps: no minimap, no hide/show for the unit panel, no replay or timer controls.
 - Not tested.
+
+### App icon applied (2026-11-08 15:53 MST)
+- George pointed out the icon art already existed with transparency. Found it: `images/logos/logo-bg.png` (shield and swords without the title text). The launcher icons were still the stock Wesnoth ones, so they were rebuilt from it.
+- Dark blue adaptive background chosen over the tan accent because gold on tan has little contrast.
+- Open for 2d: logo-free splash art for the in-game title screen (George is exporting it) and the symphonic theme song.
