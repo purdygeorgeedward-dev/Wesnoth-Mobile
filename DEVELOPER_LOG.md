@@ -348,3 +348,14 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - `ROADMAP.md`: 2d app icon line updated.
 
 **Status:** images generated and viewed on a contact sheet; not built or run. Not covered: `drawable/wesnoth_icon.png` (441x198, the old static logo, only referenced from a commented-out block) and the in-game window icon (`data/core/images/wesnoth-icon.png`, already George's 128x128 icon).
+
+## 2026-11-08 16:26 MST — Logo-free splash backgrounds on the title screen
+
+**Files**
+- `data/core/images/maps/splash-landscape.webp` (2400x1080), `splash-portrait.webp` (1080x2400), `splash-square.webp` (2400x2400): George's logo-free splash art, converted to WebP at quality 90 (0.6, 0.65 and 1.27 MB) from his landscape PNG, portrait PNG and the lossless square WebP.
+- `data/gui/themes/mobile/dialogs/title_screen.cfg`: the title screen window definition now draws one splash image stretched to the window, chosen by the window shape (wider than 1.25x the height: landscape; taller than 1.25x the width: portrait; otherwise square). The two stock images it used before (`maps/background.webp` and `maps/titlescreen.webp`) are kept as comments.
+- `ROADMAP.md`: 2d background line updated.
+
+**Not used:** `logo-icon-1024` (PNG and WebP, 1024x1024): it is the shield and swords with the title text and a soft shadow, so the launcher icon built from the shield-only logo (`images/logos/logo-bg.png`) was left as it is. The splash images with the logo baked in are kept for the Android start-up screen, not wired yet.
+
+**Status:** written, not built or run. wmllint reports nothing. The image name is a formula (an if chain), which the canvas accepts (canvas.cpp evaluates names in parentheses as formulas), but I have not seen it load. The menu, tips and animated logo are drawn over the faces; the layout may need changes once seen on the phone.

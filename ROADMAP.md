@@ -135,7 +135,7 @@ Additional dialogs found by scanning all 98 default dialog files (2026-11-08). B
 
 ### 2d. Startup
 - Animated logo (written, untested).
-- Full-screen background art (3840×3840, key content in the centre ~1650 px).
+- Title screen background: written 2026-11-08 from George's logo-free splash set (landscape 2400x1080, portrait 1080x2400, square 2400x2400), `data/core/images/maps/splash-landscape.webp`, `splash-portrait.webp`, `splash-square.webp`; the title screen picks one by the window shape and stretches it to the window (up to about 2.5% on the A26). Not yet seen on a phone: the menu and the animated logo are drawn over the faces. The splash with the logo is kept for the Android start-up screen (not wired yet).
 - George's symphonic theme song at startup.
 - New app icon: written 2026-11-08 from George's transparent shield-and-swords logo (`images/logos/logo-bg.png`): legacy launcher icons in all five densities, a 432 px adaptive-icon foreground inside the 66% safe zone, a monochrome version for themed icons, and a dark blue adaptive background (was tan). Not yet seen on a phone.
 - Wesnoth Mobile logo.

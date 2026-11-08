@@ -385,3 +385,8 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - George pointed out the icon art already existed with transparency. Found it: `images/logos/logo-bg.png` (shield and swords without the title text). The launcher icons were still the stock Wesnoth ones, so they were rebuilt from it.
 - Dark blue adaptive background chosen over the tan accent because gold on tan has little contrast.
 - Open for 2d: logo-free splash art for the in-game title screen (George is exporting it) and the symphonic theme song.
+
+### Title screen background art (2026-11-08 16:26 MST)
+- George sent the three logo-free splash images (PNG and WebP of each; the square only as WebP, one lossless 8 MB and one heavily compressed 0.8 MB). Used the lossless square and the two PNGs as sources and re-encoded at quality 90 so all three match.
+- George also sent a 1024 logo icon with the title text and a soft shadow. Not used for the launcher icon (text unreadable at small sizes); kept for later.
+- Open: how the menu and logo should sit over the faces, and the Android start-up screen.
