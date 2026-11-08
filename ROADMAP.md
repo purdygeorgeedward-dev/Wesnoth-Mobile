@@ -115,7 +115,7 @@ Dialogs choose a layout by window size with `[resolution]` blocks. Planned set:
 17. End of scenario and victory: covered by the transient message dialog written for screen 6. The scenario end report is shown with show_transient_message (data/lua/carryover_gold.lua, show_popup_dialog). Checked 2026-11-08.
 18. Defeat: covered by the transient message dialog written for screen 6, as for 17. Checked 2026-11-08.
 19. Confirmations: written 2026-11-08 as the message dialog (portrait and landscape; not yet built or run)
-20. Map settings for skirmish
+20. Map settings for skirmish: written 2026-11-08 as the multiplayer create game dialog (portrait and landscape; not yet built or run)
 
 ### 2c. In-game layout
 - New in-game theme in `data/themes/` (alongside `default.cfg`) with landscape and portrait versions.

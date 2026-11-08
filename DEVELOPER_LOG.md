@@ -289,3 +289,11 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - `ROADMAP.md`: screen 9 both halves written. Screens 10, 12, 17 and 18 re-examined in the source: 10 is the help browser (screen 16); 12 is not a GUI2 dialog (it belongs to the in-game theme, 2c); 17 and 18 are the transient message dialog (screen 6). Notes in the roadmap explain each.
 
 **Status:** written, not built or run. wmllint reports nothing; tag balance checked by script.
+
+## 2026-11-08 11:31 MST — Create game / map settings dialog (mobile theme), last of the 20 screens
+
+**Files**
+- `data/gui/themes/mobile/dialogs/mp_create_game.cfg`: new. The default theme has three size variants (1200x700, 900x700 switched off, 800x600), all at least 600 tall, so on a 540 tall landscape screen the engine falls back to the 800x600 one (it picks the closest variant when none fits: gui_definition.cpp, get_best_resolution). That variant is full screen and tabbed but cannot show a whole page. This file is based on it with two changes: the pages (stacked_widget "pager") are inside a scrollbar_panel so a page taller than the screen scrolls; landscape (window 800x400 and up) keeps the header as one row, portrait (base resolution) puts the tab bar on its own row under the title. Widget ids and all macros are unchanged (macros copied from the default file, removed again at the end of this one). The window definition "mp_create" comes from the default theme.
+- `ROADMAP.md`: screen 20 marked written.
+
+**Status:** written, not built or run. wmllint reports nothing; tag balance checked by script. Risk: the engine looks up the pager inside a scroll panel; I expect find_widget to recurse but have not confirmed it in mp_create_game.cpp.

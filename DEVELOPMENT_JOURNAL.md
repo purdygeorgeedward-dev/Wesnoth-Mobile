@@ -360,3 +360,8 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - Screen 9 is now complete. Checked the engine for 10, 12, 17 and 18: unit details open the help browser; the scenario end report (victory and defeat) is shown with the transient message dialog; the in-game menu belongs to the in-game theme. So those four need no new dialog beyond the ones already written.
 - Remaining: screen 20 (skirmish map settings, the multiplayer create-game dialog, about 1500 lines in three size variants) and the in-game layout (2c).
 - Not tested.
+
+### Screen 20 written; all 20 screens accounted for (2026-11-08 11:31 MST)
+- Written as new dialog files: 2 to 9, 11, 13 to 16, 19, 20 plus the title screen (1). Covered by an existing one: 10 (help browser), 17 and 18 (transient message). Not a dialog: 12 (game menu, part of the in-game theme, 2c).
+- Nothing has been built or run. The first build will show which of these load; a dialog with a WML error should fail with a message naming the file and line.
+- Remaining UI work from the roadmap: the in-game layout (2c) and startup (2d).
