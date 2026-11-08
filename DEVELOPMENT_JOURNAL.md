@@ -341,3 +341,8 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - Half of screen 9. The damage calculation (prediction) dialog is a separate window and still uses the default theme.
 - The default dialog is centered and sizes itself, and with two unit panels, a weapon list and two button rows it is too tall for 540. Both layouts now fill the screen and give the weapon list the spare height.
 - Not tested. Remaining screens: 9 (prediction), 10, 12 to 18 and 20.
+
+### Load and save written (2026-11-08 11:16 MST)
+- Screens 13 and 14 of 20. Load needed every widget kept (the engine requires them all), so the window was rebuilt around widget blocks copied out of the default theme by script rather than retyped.
+- Save is placed at the top because of the on-screen keyboard. If the Android keyboard resizes the window instead of covering it, this can go back to centered.
+- Not tested. Remaining screens: 9 (prediction), 10, 12, 15 to 18 and 20.

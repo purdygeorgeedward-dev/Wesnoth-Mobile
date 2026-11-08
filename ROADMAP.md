@@ -108,8 +108,8 @@ Dialogs choose a layout by window size with `[resolution]` blocks. Planned set:
 10. Unit details
 11. Unit list: written 2026-11-08 as the shared units dialog (portrait and landscape; not yet built or run)
 12. Game menu
-13. Load game
-14. Save game
+13. Load game: written 2026-11-08 (portrait and landscape; not yet built or run)
+14. Save game: written 2026-11-08 (portrait and landscape; not yet built or run)
 15. Preferences
 16. Help
 17. End of scenario and victory

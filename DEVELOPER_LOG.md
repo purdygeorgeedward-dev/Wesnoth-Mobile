@@ -256,3 +256,12 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - `ROADMAP.md`: screen 9 noted: attack selection written, the damage prediction dialog is not done.
 
 **Status:** written, not built or run. wmllint reports nothing; tag balance checked by script. The weapon list is the default theme's with 8 px borders. Widget ids match unit_attack.cpp.
+
+## 2026-11-08 11:16 MST — Load game and save game dialogs (mobile theme)
+
+**Files**
+- `data/gui/themes/mobile/dialogs/game_load.cfg`: new. Portrait: fills the screen; title, saves folder row, search box, saved games list and details pane share the spare height, then toggles with Delete, then Load and Cancel as full-width buttons. Landscape: fills the screen; left column title, saved games list and folder row; right column search box, details pane and option toggles; one bottom row with Delete at the left and Load and Cancel at the right. The default window is two columns and up to 850 tall, which does not fit a phone. All widget ids the engine requires are kept. The widget blocks (list, folder row, details pane, toggles, buttons) were copied from the default theme by script; the saved games list has 8 px row padding instead of 5.
+- `data/gui/themes/mobile/dialogs/game_save.cfg`: new. Placed at the TOP of the screen because the on-screen keyboard covers the lower half; the default theme centers it, which puts the name box under the keyboard. Portrait: nearly full width, Save and Cancel as equal buttons side by side. Landscape: up to 900 wide, buttons at the right.
+- `ROADMAP.md`: screens 13 and 14 marked written.
+
+**Status:** written, not built or run. wmllint reports nothing; tag balance checked by script. Not covered: the game_save_message and game_save_oos windows (small prompts) still use the default theme.
