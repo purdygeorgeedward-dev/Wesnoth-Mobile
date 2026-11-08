@@ -369,3 +369,15 @@ Dated record of every push. Times are Mountain Time (El Paso).
 **Check by arithmetic:** window 1170x540 (landscape) draws the image 1200x540 at x -15, so 15 logical px are cut off each side; window 540x1170 (portrait) draws 540x1200 at y -15; square images are used for near-square windows. A window of the exact image shape is not cropped at all.
 
 **Status:** written, not built or run. wmllint reports nothing. Risk: the image x and y are negative; the canvas passes them straight to the blit, which clips to the window, but I have not seen it draw.
+
+## 2026-11-08 16:38 MST — Splash backgrounds restored to George's own files
+
+**Files**
+- `data/core/images/maps/splash-landscape.webp`, `splash-portrait.webp`, `splash-square.webp`: replaced my re-encoded quality-90 copies with byte-for-byte copies of the files George uploaded (`splash-horizontal-background.webp`, `splash-vertical-background.webp` and the lossless `splash-square-background.webp`, 3.1, 3.4 and 8.3 MB). The files are only renamed, not altered; md5 checked against the uploads.
+- `ROADMAP.md`: note added.
+
+**Why:** the earlier commit converted George's images without being asked. His assets are not to be re-saved, resized or converted.
+
+**Still derived from his art (his originals untouched):** the Android launcher icons (resized and composited from `images/logos/logo-bg.png`). Android needs fixed sizes, so those are generated, but only on request.
+
+**Status:** files copied; not built or run.
