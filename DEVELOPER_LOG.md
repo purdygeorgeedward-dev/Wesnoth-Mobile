@@ -215,7 +215,17 @@ Dated record of every push. Times are Mountain Time (El Paso).
 ## 2026-11-08 10:57 MST — Story screen (mobile theme)
 
 **Files**
-- `data/gui/themes/mobile/dialogs/story_viewer.cfg`: new. Portrait: tall text panel at the bottom (at least 260 logical px, a third of the screen), with Back / Skip / Next as a row of touch-size buttons under the text (the default theme's two 128 px arrows would take 256 of 540 px of width). Landscape: default layout (arrows at the sides, Skip under the text), text panel at least 170 px and a 3.5th of the screen height.
+- `data/gui/themes/mobile/dialogs/story_viewer.cfg`: new. Portrait: tall text panel at the bottom (at least 260 logical px, a third of the screen), with Back / Skip / Next as a row of touch-size buttons under the text (the default theme's two 128 px arrows would take 256 of 540 px of width). Landscape: default layout (arrows at the sides, Skip under the text), text panel at least 170 px and 2/7 of the screen height.
 - `ROADMAP.md`: screen 4 marked written.
 
 **Status:** written, not built or run. Tag balance and widget ids checked by script only. The stacked_widget layer order (spacer, panel, controls) is kept because story_viewer.cpp reads text_panel from the background layer.
+
+## 2026-11-08 11:08 MST — Character dialogue screens (mobile theme)
+
+**Files**
+- `data/gui/themes/mobile/dialogs/wml_message.cfg`: new. Replaces the windows wml_message_left, wml_message_right and wml_message_double, each with a landscape and a portrait layout. Six new window definitions (mobile_wml_message_{left,right,double}_{landscape,portrait}).
+- `ROADMAP.md`: screen 5 marked written. `DEVELOPER_LOG.md`: corrected a wording slip in the story screen entry ("3.5th" should read 2/7).
+
+**What changed from the default theme:** the default scales a portrait by width/500, assuming ~400 px stock portraits. The replacement portraits are about 1000 to 1500 px, which would draw far too large. Each portrait is now fitted (aspect kept) into a fixed box: landscape 34% of the game width by 88% of the window height (27% wide each for two portraits); portrait 62% of the width by 38% of the screen height (46% by 30% for two). The dialog cannot know the image size, so it reserves the box and the window definition draws the image inside it using image_original_width and image_original_height. Portrait layout: window fills the lower 74% of the screen, portrait box on top inside the text panel, message, input list and OK underneath. Message and input widgets are copies of the default ones with 10 px borders.
+
+**Status:** written, not built or run. wmllint reports nothing; tag balance checked by script. Risk: macros with arguments inside quoted formulas were written from the default theme's patterns but have not been through the real WML preprocessor.

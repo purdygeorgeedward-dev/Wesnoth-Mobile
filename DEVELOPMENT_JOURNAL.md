@@ -320,3 +320,9 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - Screen 4 of 20. The default story viewer is already full-screen and adaptive. The problem on a narrow phone was the two fixed 128 px arrow buttons, so portrait gets text buttons in a row under the text; landscape keeps the arrows.
 - Back and Next labels are plain English strings in the wesnoth-lib textdomain (not checked against existing translations).
 - Not tested. Remaining screens: 5 to 20.
+
+### Character dialogue screens written (2026-11-08 11:08 MST)
+- Screen 5 of 20. Found that the default portrait sizing assumes about 400 px portraits and scales by width/500, so the new 1000 to 1500 px art needed a different method: fit into a fixed box, keep aspect ratio.
+- The dialog cannot read the image size (image_original_* only exist inside the window definition's image shape), so the box is reserved in the dialog and the image drawn into it by the window definition.
+- Portrait orientation puts the portrait box above the text inside the same panel; landscape keeps the default arrangement (portrait at the side, text up to 675 wide).
+- Not tested. Remaining screens: 6 to 20.
