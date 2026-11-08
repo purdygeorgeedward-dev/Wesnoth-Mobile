@@ -326,3 +326,8 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - The dialog cannot read the image size (image_original_* only exist inside the window definition's image shape), so the box is reserved in the dialog and the image drawn into it by the window definition.
 - Portrait orientation puts the portrait box above the text inside the same panel; landscape keeps the default arrangement (portrait at the side, text up to 675 wide).
 - Not tested. Remaining screens: 6 to 20.
+
+### Objectives and confirmations written (2026-11-08 11:10 MST)
+- Screens 6 and 19 of 20. Neither has its own dialog: objectives go through transient_message and confirmations through message, which many other prompts also use, so these two changes reach more than just those screens.
+- Open question for later: objectives for long campaigns may be taller than the screen. transient_message cannot scroll because its message is a label, so the text would be cut. Fixing that needs a C++ change (or a different dialog for objectives).
+- Not tested. Remaining screens: 7 to 18 and 20.

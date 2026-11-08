@@ -101,7 +101,7 @@ Dialogs choose a layout by window size with `[resolution]` blocks. Planned set:
 3. Difficulty selection: written 2026-11-08 (portrait and landscape; not yet built or run)
 4. Story screen (1920×1080 story art): written 2026-11-08 (portrait and landscape; not yet built or run)
 5. Character dialogue (large portraits): written 2026-11-08 (portrait and landscape, left/right/double; not yet built or run)
-6. Objectives
+6. Objectives: written 2026-11-08 as the transient message dialog (portrait and landscape; not yet built or run)
 7. Recruit
 8. Recall
 9. Attack selection and prediction
@@ -114,7 +114,7 @@ Dialogs choose a layout by window size with `[resolution]` blocks. Planned set:
 16. Help
 17. End of scenario and victory
 18. Defeat
-19. Confirmations
+19. Confirmations: written 2026-11-08 as the message dialog (portrait and landscape; not yet built or run)
 20. Map settings for skirmish
 
 ### 2c. In-game layout

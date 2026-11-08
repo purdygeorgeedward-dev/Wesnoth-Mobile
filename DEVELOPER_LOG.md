@@ -229,3 +229,12 @@ Dated record of every push. Times are Mountain Time (El Paso).
 **What changed from the default theme:** the default scales a portrait by width/500, assuming ~400 px stock portraits. The replacement portraits are about 1000 to 1500 px, which would draw far too large. Each portrait is now fitted (aspect kept) into a fixed box: landscape 34% of the game width by 88% of the window height (27% wide each for two portraits); portrait 62% of the width by 38% of the screen height (46% by 30% for two). The dialog cannot know the image size, so it reserves the box and the window definition draws the image inside it using image_original_width and image_original_height. Portrait layout: window fills the lower 74% of the screen, portrait box on top inside the text panel, message, input list and OK underneath. Message and input widgets are copies of the default ones with 10 px borders.
 
 **Status:** written, not built or run. wmllint reports nothing; tag balance checked by script. Risk: macros with arguments inside quoted formulas were written from the default theme's patterns but have not been through the real WML preprocessor.
+
+## 2026-11-08 11:10 MST — Objectives and confirmation dialogs (mobile theme)
+
+**Files**
+- `data/gui/themes/mobile/dialogs/transient_message.cfg`: new. Scenario objectives are shown with this dialog (play_controller::show_objectives), as are many short notices. Portrait and landscape resolutions; width is the screen width minus 20 (at most 900 in landscape) instead of a fixed 800, 10 px borders, height capped to the screen. Click anywhere to close, as before. The message must stay a label (the engine registers it as one), so a very long message is cut off rather than scrolled.
+- `data/gui/themes/mobile/dialogs/message.cfg`: new. Confirmation and notice dialog with up to four buttons (left_side, ok, cancel, right_side). Portrait: nearly full width, buttons stacked and full width. Landscape: buttons in one row at the right, 10 px borders.
+- `ROADMAP.md`: screens 6 and 19 marked written.
+
+**Status:** written, not built or run. wmllint reports nothing; tag balance checked by script. The macro for the buttons passes an empty argument `()` for the two buttons that have no fixed label.
