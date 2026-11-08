@@ -122,7 +122,7 @@ Additional dialogs found by scanning all 98 default dialog files (2026-11-08). B
 - Looked at, no change needed: surrender_quit, game_save_overwrite, game_delete (small prompts, centered, narrower than the screen).
 - Written 2026-11-08 (second batch, not yet built or run): statistics_dialog and game_stats (full screen, the middle part scrolls), achievements_dialog, game_version (About), label_settings, theme_list and simple_item_selector (size caps changed to the screen size).
 - Looked at, no change needed: end_credits, loading_screen and outro are already full screen ({GUI_WINDOW_FULLSCREEN}). Their art (loading screen logo and decoration) belongs to 2d.
-- Still to do: the tooltips (tooltip_floating, tooltip_large: touch has no hover).
+- Tooltips (tooltip_floating, tooltip_large), checked 2026-11-08, no layout change written: the placement formulas already work from the screen size and the pointer position (they choose above, below or "too big" and keep the tooltip on screen), so they fit any size. What is not known without running it is whether a tap or long press on Android produces the pointer-hover that makes a tooltip appear; to be checked on the phone. Tooltip text for keyboard shortcuts will not mean much on a phone.
 - Not planned unless they become part of the product: add-on dialogs (about 10), multiplayer (about 17), map editor (about 15), debug and log dialogs (about 8).
 - Larger than all of these: the in-game layout (2c) and startup (2d).
 

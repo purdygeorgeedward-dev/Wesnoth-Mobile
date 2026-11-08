@@ -317,3 +317,12 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - `ROADMAP.md`: additional dialog list updated. end_credits, loading_screen and outro need no change (already full screen).
 
 **Status:** written, not built or run. wmllint reports nothing; tag balance checked by script. Risks: the engine looks up the pager in game_stats inside a scroll panel (expected to work: find_widget recurses); text in game_version may wrap more at 900 wide than at the default 1200.
+
+## 2026-11-08 13:51 MST — Tooltips checked, no change written
+
+**Files**
+- `ROADMAP.md`: tooltip entry updated.
+
+**Findings:** tooltip_floating and tooltip_large place themselves from the screen size and the pointer position (formulas choose Above, Below or TooBig and keep the tooltip on screen), so no layout change is needed for the phone screen. Unknown without running the game: whether a tap or long press on Android makes the tooltips appear (they depend on pointer hover). Text for keyboard shortcuts will not be useful on a phone.
+
+**Status:** notes only, no code.
