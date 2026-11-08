@@ -315,3 +315,8 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - Rows copied from the default theme with larger padding. Buttons use the mobile button definition, so their touch size comes from the theme.
 - George's decision (Nov 8): UI screens come before getting a build working, since a build with the old UI is pointless.
 - Not tested. Remaining screens: 4 to 20.
+
+### Story screen written (2026-11-08 10:57 MST)
+- Screen 4 of 20. The default story viewer is already full-screen and adaptive. The problem on a narrow phone was the two fixed 128 px arrow buttons, so portrait gets text buttons in a row under the text; landscape keeps the arrows.
+- Back and Next labels are plain English strings in the wesnoth-lib textdomain (not checked against existing translations).
+- Not tested. Remaining screens: 5 to 20.

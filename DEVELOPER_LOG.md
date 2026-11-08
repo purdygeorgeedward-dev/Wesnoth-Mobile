@@ -211,3 +211,11 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - `ROADMAP.md`: screen 3 marked written.
 
 **Status:** written, not built or run. Tag balance and widget ids checked by script only.
+
+## 2026-11-08 10:57 MST — Story screen (mobile theme)
+
+**Files**
+- `data/gui/themes/mobile/dialogs/story_viewer.cfg`: new. Portrait: tall text panel at the bottom (at least 260 logical px, a third of the screen), with Back / Skip / Next as a row of touch-size buttons under the text (the default theme's two 128 px arrows would take 256 of 540 px of width). Landscape: default layout (arrows at the sides, Skip under the text), text panel at least 170 px and a 3.5th of the screen height.
+- `ROADMAP.md`: screen 4 marked written.
+
+**Status:** written, not built or run. Tag balance and widget ids checked by script only. The stacked_widget layer order (spacer, panel, controls) is kept because story_viewer.cpp reads text_panel from the background layer.
