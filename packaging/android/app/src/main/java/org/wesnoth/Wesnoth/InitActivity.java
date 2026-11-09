@@ -400,7 +400,7 @@ public class InitActivity extends Activity {
 
 		Executors.newSingleThreadExecutor().execute(() -> {
 			//TODO Update mechanism when patch is available.
-			if (!Boolean.parseBoolean(status.getProperty("manual_install", "false"))) {
+			if (false) {
 				HashMap<String, String> excluded = new HashMap<String, String>();
 				
 				for (PackageInfo info : readManifest()) {
