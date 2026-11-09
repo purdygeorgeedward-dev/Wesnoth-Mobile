@@ -404,3 +404,11 @@ Dated record of every push. Times are Mountain Time (El Paso).
 **Still mine:** the adaptive icon background (dark blue colorPrimary, set in `mipmap-anydpi-v26/wesnoth_icon.xml`) until George gives the color he wants. No generated icon images remain in the launcher set.
 
 **Status:** files copied; not built or run.
+
+## 2026-11-08 18:26 MST — Adaptive icon background set to black
+
+**Files**
+- `packaging/android/app/src/main/res/mipmap-anydpi-v26/wesnoth_icon.xml`: the adaptive icon background is now `@color/black` (#000000, already defined in values/colors.xml) instead of colorPrimary (dark blue, my earlier choice). The old lines are kept as comments. Foreground is still George's `drawable/wesnoth_logo.png` and the themed-icon layer his `drawable/wesnoth_logo_bw.png`.
+- No image files changed. George's `adaptive.png` and `adaptive.webp` (432x432, shield already on opaque black) were not added to the repo: the background is a color, the shield layer stays transparent.
+
+**Status:** XML edited and parsed; not built or run, so the icon has not been seen on a phone.

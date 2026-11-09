@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Wesnoth Mobile (2026-11-08): was <background android:drawable="@color/colorAccent"/> (tan). Dark blue gives the gold shield contrast. -->
-    <background android:drawable="@color/colorPrimary"/>
+    <!-- Wesnoth Mobile: the stock background was <background android:drawable="@color/colorAccent"/> (tan). -->
+    <!-- 2026-11-08: a first change to dark blue, <background android:drawable="@color/colorPrimary"/>, was replaced the same day at George's choice. -->
+    <!-- 2026-11-08: solid black behind George's transparent shield (his adaptive.png preview shows the shield on #000000). -->
+    <background android:drawable="@color/black"/>
     <foreground android:drawable="@drawable/wesnoth_logo"/>
     <monochrome android:drawable="@drawable/wesnoth_logo_bw"/>
 </adaptive-icon>
