@@ -392,105 +392,110 @@ public class InitActivity extends Activity {
 		});
 	}
 
+	private static final String[] BUNDLED_GAME_DIRS = {
+		"data", "fonts", "images", "sounds", "translations"
+	};
+
+	private boolean hasGameData() {
+		return new File(dataDir, "data").isDirectory()
+			&& new File(dataDir, "fonts").isDirectory()
+			&& new File(dataDir, "sounds").isDirectory()
+			&& new File(dataDir, "images").isDirectory();
+	}
+
+	/** Install data packaged from this fork, never the upstream SourceForge data. */
+	private void installBundledGameData() throws IOException {
+		String bundledVersion;
+		try (BufferedReader reader = new BufferedReader(new java.io.InputStreamReader(
+			getAssets().open("gamedata.version"), "UTF-8"))) {
+			bundledVersion = reader.readLine();
+		}
+		if (bundledVersion == null || bundledVersion.isEmpty()) {
+			throw new IOException("Bundled game-data version is missing");
+		}
+		if (bundledVersion.equals(status.getProperty("bundled.version")) && hasGameData()) {
+			return;
+		}
+
+		// Replace previously downloaded upstream data on first installation,
+		// and remove obsolete graphics when a new fork build is installed.
+		for (String dir : BUNDLED_GAME_DIRS) {
+			deleteGameDataTree(new File(dataDir, dir));
+		}
+		final String root = dataDir.getCanonicalPath() + File.separator;
+		int count = 0;
+		try (ZipInputStream zip = new ZipInputStream(getAssets().open("gamedata.zip"))) {
+			ZipEntry entry;
+			while ((entry = zip.getNextEntry()) != null) {
+				String name = entry.getName();
+				boolean allowed = false;
+				for (String dir : BUNDLED_GAME_DIRS) {
+					if (name.startsWith(dir + "/")) {
+						allowed = true;
+						break;
+					}
+				}
+				if (!allowed) throw new IOException("Unexpected bundled asset: " + name);
+				File dest = new File(dataDir, name);
+				if (!dest.getCanonicalPath().startsWith(root)) {
+					throw new IOException("Invalid bundled asset path: " + name);
+				}
+				if (entry.isDirectory()) {
+					if (!dest.isDirectory() && !dest.mkdirs())
+						throw new IOException("Cannot create " + dest);
+				} else {
+					File parent = dest.getParentFile();
+					if (!parent.isDirectory() && !parent.mkdirs())
+						throw new IOException("Cannot create " + parent);
+					try (FileOutputStream out = new FileOutputStream(dest)) {
+						IOUtils.copyStreamNoClose(zip, out);
+					}
+					count++;
+					if (count % 500 == 0) {
+						final int installed = count;
+						runOnUiThread(() -> updateProgress(
+							"Installing bundled game assets: " + installed, -1));
+					}
+				}
+				zip.closeEntry();
+			}
+		}
+		if (!hasGameData()) throw new IOException("Bundled archive is missing required game directories");
+		status.setProperty("bundled.version", bundledVersion);
+		status.setProperty("manual_install", "true");
+		storeStatus(status);
+		Log.i("InitActivity", "Installed " + count + " fork game-data files for " + bundledVersion);
+	}
+
+	private void deleteGameDataTree(File file) throws IOException {
+		if (!file.exists()) return;
+		if (file.isDirectory()) {
+			File[] children = file.listFiles();
+			if (children == null) throw new IOException("Cannot list " + file);
+			for (File child : children) deleteGameDataTree(child);
+		}
+		if (!file.delete()) throw new IOException("Cannot remove old game data: " + file);
+	}
+
 	private void initializeAssets() {
 		findViewById(R.id.screen).setOnClickListener(null);
 		showProgressScreen();
-		TextView progressText = findViewById(R.id.download_msg);
-		progressText.setText("Connecting...");
-
+		updateProgress("Installing bundled game data...", -1);
 		Executors.newSingleThreadExecutor().execute(() -> {
-			//TODO Update mechanism when patch is available.
-			if (false) {
-				HashMap<String, String> excluded = new HashMap<String, String>();
-				
-				for (PackageInfo info : readManifest()) {
-					String id = info.getId();
-					if (excluded.containsKey(id) && excluded.get(id).equals(info.getVersion())) {
-						Log.d("InitActivity", "Not downloading excluded package " + id);
-						continue;
-					}
-					
-					String url = info.getURL();
-					long lastModified = Long.parseLong(status.getProperty(id + ".modified", "0"));
-					int oldVersion = PackageInfo.getPatchVersion(status.getProperty(id + ".version", "0"));
-					int newVersion = info.getPatchVersion();
-					boolean downloadPkg = newVersion > oldVersion;
-					
-					// Check if dependencies for this package exist, only download if all satisfied
-					for (Map.Entry<String, String> dep : info.getDependencies().entrySet()) {
-						int depOldVersion = PackageInfo.getPatchVersion(status.getProperty(dep.getKey() + ".version", "0"));
-						int depNewVersion = PackageInfo.getPatchVersion(dep.getValue());
-						if (depNewVersion != depOldVersion) {
-							Log.d("InitActivity", "Dependency " + dep.getKey() + "for " + id + " not found");
-							downloadPkg = false;
-						}
-					}
-					
-					Log.d("InitActivity", id + " version: " + oldVersion + " (local), " + newVersion + " (remote)");
-					
-					if (downloadPkg) {
-						
-						File packageFile = new File(dataDir, id + ".zip");
-						
-						// Download package
-						Log.d("InitActivity", "Starting to download " + id + " from " + url);
-						
-						try {
-							lastModified = downloadFile(
-								url, packageFile, lastModified, info.getUIName(), false);
-							
-							status.setProperty(id + ".modified", "" + lastModified);
-						} catch (Exception e) {
-							Log.e("Download", "security error", e);
-						}
-	
-						// Unpack archive
-						// TODO Checksum verification?
-						if (packageFile.exists()) {
-							Log.d("InitActivity", "Start unpacking " + id);
-							
-							if (unpackArchive(packageFile, dataDir, info.getUIName())) {
-								status.setProperty(id + ".version", "" + info.getVersion());
-								// this package is already supplying what it excludes,
-								// so mark excluded packages as installed
-								for (Map.Entry<String, String> entry : info.getExcluded().entrySet()) {
-									status.setProperty(entry.getKey() + ".version", entry.getValue().toString());
-								}
-								excluded.putAll(info.getExcluded());
-								packageFile.delete();
-							}
-						}
-					} else {
-						Log.d("InitActivity", "No new version/dependency unmet for " + id + " found in server, skipping.");
-					}
-				}
-			} else {
-				Log.d("InitActivity", "Manually installed data, automatic updates will not be performed.");
-			}
-
-			extractNetworkCertificate();
-
-			storeStatus(status);
-
-			Log.d("InitActivity", "Stop unpack");
-
-			if (new File(dataDir, "data").exists()
-				&& new File(dataDir, "fonts").exists()
-				&& new File(dataDir, "sounds").exists()
-				&& new File(dataDir, "images").exists())
-			{
-				// Launch Wesnoth
+			try {
+				installBundledGameData();
+				extractNetworkCertificate();
 				runOnUiThread(() -> launchWesnoth());
-			} else {
-				runOnUiThread(() -> {
-					new AlertDialog.Builder(this)
-						.setTitle("Data missing!")
-						.setMessage("Gamedata is missing, please download it to proceed (requires network).")
-						.setPositiveButton("OK", (d, res) -> initialize())
-						.setNegativeButton("Exit", (d, res) -> System.exit(0))
-						.setCancelable(false)
-						.show();
-				});
+			} catch (Exception e) {
+				Log.e("InitActivity", "Bundled game-data installation failed", e);
+				runOnUiThread(() -> new AlertDialog.Builder(this)
+					.setTitle("Game data installation failed")
+					.setMessage("Could not install the game data included with this APK: "
+						+ e.getMessage())
+					.setPositiveButton("Retry", (dialog, which) -> initializeAssets())
+					.setNegativeButton("Exit", (dialog, which) -> finish())
+					.setCancelable(false)
+					.show());
 			}
 		});
 	}
