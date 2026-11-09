@@ -393,3 +393,14 @@ Dated record of every push. Times are Mountain Time (El Paso).
 **Not placed:** a 432x432 colour shield that fills most of the square; George has not said what it is for.
 
 **Status:** files copied; not built or run.
+
+## 2026-11-08 18:18 MST — 192 launcher icon from George's own file
+
+**Files**
+- `packaging/android/app/src/main/res/mipmap-xxxhdpi/wesnoth_icon.png` (192x192): exact copy of George's `shield-192.png`, replacing the one I had generated. md5 checked.
+- Already in place and byte-identical to George's new uploads (names now known): `shield-48.png` (mdpi), `shield-72.png` (hdpi), `shield-96.png` (xhdpi), `shield-144.png` (xxhdpi), `shield432b.png` (drawable/wesnoth_logo.png, the 432 foreground scaled into the 66% area), `shield432b-gold.png` (drawable/wesnoth_logo_bw.png, single color).
+- Not placed: `shield432.png` (432x432, the larger version he made first).
+
+**Still mine:** the adaptive icon background (dark blue colorPrimary, set in `mipmap-anydpi-v26/wesnoth_icon.xml`) until George gives the color he wants. No generated icon images remain in the launcher set.
+
+**Status:** files copied; not built or run.
