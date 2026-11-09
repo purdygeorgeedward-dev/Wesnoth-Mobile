@@ -381,3 +381,15 @@ Dated record of every push. Times are Mountain Time (El Paso).
 **Still derived from his art (his originals untouched):** the Android launcher icons (resized and composited from `images/logos/logo-bg.png`). Android needs fixed sizes, so those are generated, but only on request.
 
 **Status:** files copied; not built or run.
+
+## 2026-11-08 18:14 MST — Launcher icons replaced with George's own files
+
+**Files (all under `packaging/android/app/src/main/res/`; exact copies of the files George uploaded, only renamed, md5 checked)**
+- `mipmap-mdpi/wesnoth_icon.png` (48x48), `mipmap-hdpi` (72x72), `mipmap-xhdpi` (96x96), `mipmap-xxhdpi` (144x144).
+- `drawable/wesnoth_logo.png` (432x432, adaptive icon foreground) and `drawable/wesnoth_logo_bw.png` (432x432, single-color version for themed icons).
+
+**Still mine, to be replaced:** `mipmap-xxxhdpi/wesnoth_icon.png` (192x192, generated from `images/logos/logo-bg.png`) until George supplies his 192x192. The adaptive icon background in `mipmap-anydpi-v26/wesnoth_icon.xml` is still the dark blue I chose (colorPrimary), until George gives the color he wants.
+
+**Not placed:** a 432x432 colour shield that fills most of the square; George has not said what it is for.
+
+**Status:** files copied; not built or run.
