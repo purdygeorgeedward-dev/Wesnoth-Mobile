@@ -16,6 +16,9 @@ jobs:
     steps:
       - { uses: actions/checkout@v6, with: { submodules: "recursive" } }
 
+      - name: Trust checked-out repository
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
       - name: Bundle Wesnoth-Mobile game data into APK
         run: python3 packaging/android/package-game-assets.py
 
