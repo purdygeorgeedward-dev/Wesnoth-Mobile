@@ -419,3 +419,11 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - George: controls should work the Android way. First change: long-press is inspect, not the right-click context menu.
 - `src/controller_base.cpp`, `controller_base::long_touch_callback`: under `__ANDROID__`, a long press runs the unit description command if a unit is under the finger, else the terrain description command. Other platforms still open the context menu (old line kept, in the `#else` branch).
 - Not compiled or run. Needs a look on the device: whether the mouse hex is current when the timer fires, and the delay (`gui2::settings::popup_show_delay`).
+
+### Touch replacements for keyboard-only commands, step 1 (2026-11-11 14:28 MST)
+- George: replace all keyboard controls (except name entry) and mouse clicks with touch controls.
+- Audit: the engine already turns taps into left clicks, and tapping a selected unit deselects it on Android. Keyboard-only commands with no touch route in `data/themes/mobile.cfg`: cancel, previous unit, end unit turn, hold position, scroll to leader, repeat recruit, continue move, zoom in/out/default, accelerated speed, mute, search, labels.
+- `data/themes/mobile.cfg`: `actions-menu` (landscape and portrait) now lists them. Old items line kept as a comment.
+- `src/mouse_handler_base.cpp`: on Android the long-touch release no longer fires a right-click. Without this the context menu would open after the new long-press inspect. Old code kept inside `#ifndef __ANDROID__`.
+- Not compiled or run. Menu is a list under Actions, not one-tap buttons yet.
+- Still open: pinch zoom (zoom menu items are the stopgap), skipping unit animations by touch, replay controls, Esc/Enter-only dialog paths not yet audited.

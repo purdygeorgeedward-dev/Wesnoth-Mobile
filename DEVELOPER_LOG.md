@@ -448,3 +448,12 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - `DEVELOPMENT_JOURNAL.md`: entry added.
 
 **Status:** edited only; not compiled or run.
+
+## 2026-11-11 14:28 MST: touch replacements, step 1
+
+**Files**
+- `data/themes/mobile.cfg`: `actions-menu` items extended (both resolutions); old line commented.
+- `src/mouse_handler_base.cpp`: no right-click on long-touch release on Android (`#ifndef __ANDROID__`).
+- `DEVELOPMENT_JOURNAL.md`: entry added.
+
+**Status:** edited only; not compiled or run.

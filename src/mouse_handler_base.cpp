@@ -178,12 +178,16 @@ void mouse_handler_base::mouse_press(const SDL_MouseButtonEvent& event, const bo
 
 			if (!dragging_started_ && touch_timestamp != std::chrono::steady_clock::time_point{}) {
 				auto dt = now - touch_timestamp;
+#ifndef __ANDROID__
+				// 2026-11-11: on Android a long press inspects (controller_base::long_touch_callback);
+				// no right-click on release, so no context menu follows it.
 				if (dt > touch_time) {
 					if (!mouse_button_event(event, SDL_BUTTON_RIGHT, loc, true)) {
 						// BUG: This function won't do anything in the game, need right_mouse_up()
 						right_click(event.x, event.y, browse); // show_menu_ = true;
 					}
 				}
+#endif
 			} else {
 				touch_timestamp = {};
 			}
