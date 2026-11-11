@@ -483,3 +483,13 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - `DEVELOPMENT_JOURNAL.md`: entry added.
 
 **Status:** edited only; not compiled or run.
+
+## 2026-11-11 14:40 MST: mip map system
+
+**Files**
+- `src/sdl/texture.hpp`, `src/sdl/texture.cpp`: mip chain built from the surface, `choose_mip()`, new third constructor argument.
+- `src/draw.cpp`: `blit(tex, dst)` and `flipped(tex, dst, ...)` use the mip level; old code commented out.
+- `src/picture.cpp`: image textures request mips.
+- `DEVELOPMENT_JOURNAL.md`: entry added.
+
+**Status:** edited only; not compiled or run.

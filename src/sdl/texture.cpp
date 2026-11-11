@@ -20,6 +20,10 @@
 #include "sdl/surface.hpp"
 #include "video.hpp"
 
+#include <algorithm>
+#include <cmath>
+#include <vector>
+
 static lg::log_domain log_sdl("SDL");
 #define ERR_SDL LOG_STREAM(err, log_sdl)
 
@@ -35,7 +39,119 @@ void cleanup_texture(SDL_Texture* t)
 	}
 }
 
+// Mip maps (2026-11-11). SDL's renderer cannot make them, so the chain is built on the CPU
+// when a texture is created from a surface. Each level is the previous one halved with a box
+// filter that weights colour by alpha, so transparent edges do not bleed dark or light fringes.
+constexpr int mip_min_source = 32;  // textures smaller than this (either side) get no chain
+constexpr int mip_min_size = 16;    // no level is smaller than this on its short side
+constexpr std::size_t mip_max_levels = 4;
+
 } // namespace
+
+struct texture::mip_chain
+{
+	point base_size{0, 0};
+	std::vector<std::shared_ptr<SDL_Texture>> levels; // levels[0] is half size, levels[1] a quarter...
+	std::vector<point> sizes;
+};
+
+namespace
+{
+std::shared_ptr<texture::mip_chain> build_mip_chain(SDL_Renderer* renderer, SDL_Surface* src)
+{
+	if(!src || std::min(src->w, src->h) < mip_min_source) {
+		return nullptr;
+	}
+
+	SDL_Surface* cur = SDL_ConvertSurface(src, SDL_PIXELFORMAT_ARGB8888);
+	if(!cur) {
+		return nullptr;
+	}
+
+	auto chain = std::make_shared<texture::mip_chain>();
+	chain->base_size = {src->w, src->h};
+
+	while(chain->levels.size() < mip_max_levels) {
+		const int nw = cur->w / 2;
+		const int nh = cur->h / 2;
+		if(std::min(nw, nh) < mip_min_size) {
+			break;
+		}
+
+		SDL_Surface* next = SDL_CreateSurface(nw, nh, SDL_PIXELFORMAT_ARGB8888);
+		if(!next) {
+			break;
+		}
+
+		const auto* sp = static_cast<const uint8_t*>(cur->pixels);
+		auto* dp = static_cast<uint8_t*>(next->pixels);
+		for(int y = 0; y < nh; ++y) {
+			const auto* r0 = reinterpret_cast<const uint32_t*>(sp + (2 * y) * cur->pitch);
+			const auto* r1 = reinterpret_cast<const uint32_t*>(sp + (2 * y + 1) * cur->pitch);
+			auto* out = reinterpret_cast<uint32_t*>(dp + y * next->pitch);
+			for(int x = 0; x < nw; ++x) {
+				const uint32_t px[4] = { r0[2 * x], r0[2 * x + 1], r1[2 * x], r1[2 * x + 1] };
+				uint32_t a_sum = 0, r_sum = 0, g_sum = 0, b_sum = 0;
+				for(const uint32_t p : px) {
+					const uint32_t a = (p >> 24) & 0xFF;
+					a_sum += a;
+					r_sum += ((p >> 16) & 0xFF) * a;
+					g_sum += ((p >> 8) & 0xFF) * a;
+					b_sum += (p & 0xFF) * a;
+				}
+				if(a_sum == 0) {
+					out[x] = 0;
+				} else {
+					const uint32_t a = (a_sum + 2) / 4;
+					const uint32_t r = (r_sum + a_sum / 2) / a_sum;
+					const uint32_t g = (g_sum + a_sum / 2) / a_sum;
+					const uint32_t b = (b_sum + a_sum / 2) / a_sum;
+					out[x] = (a << 24) | (r << 16) | (g << 8) | b;
+				}
+			}
+		}
+
+		SDL_Texture* t = SDL_CreateTextureFromSurface(renderer, next);
+		if(!t) {
+			SDL_DestroySurface(next);
+			break;
+		}
+		SDL_SetTextureScaleMode(t, SDL_SCALEMODE_LINEAR);
+		SDL_SetTextureBlendMode(t, SDL_BLENDMODE_BLEND);
+		chain->levels.emplace_back(t, &cleanup_texture);
+		chain->sizes.push_back({nw, nh});
+
+		SDL_DestroySurface(cur);
+		cur = next;
+	}
+
+	SDL_DestroySurface(cur);
+	return chain->levels.empty() ? nullptr : chain;
+}
+} // namespace
+
+texture::mip_choice texture::choose_mip(const point& src_size, const point& dst_size) const
+{
+	mip_choice res;
+	if(!mips_ || src_size.x <= 0 || src_size.y <= 0 || dst_size.x <= 0 || dst_size.y <= 0) {
+		return res;
+	}
+
+	const double ratio = std::min(static_cast<double>(src_size.x) / dst_size.x, static_cast<double>(src_size.y) / dst_size.y);
+	if(ratio < 2.0) {
+		return res;
+	}
+
+	const std::size_t level = std::min<std::size_t>(static_cast<std::size_t>(std::floor(std::log2(ratio))), mips_->levels.size());
+	if(level == 0) {
+		return res;
+	}
+
+	res.tex = mips_->levels[level - 1].get();
+	res.sx = static_cast<double>(mips_->sizes[level - 1].x) / mips_->base_size.x;
+	res.sy = static_cast<double>(mips_->sizes[level - 1].y) / mips_->base_size.y;
+	return res;
+}
 
 texture::texture(SDL_Texture* txt)
 	: texture_(txt, &cleanup_texture)
@@ -48,7 +164,9 @@ texture::texture(SDL_Texture* txt)
 	}
 }
 
-texture::texture(const surface& surf, bool linear_interpolation)
+// 2026-11-11: mipmaps parameter added.
+// texture::texture(const surface& surf, bool linear_interpolation)
+texture::texture(const surface& surf, bool linear_interpolation, bool mipmaps)
 	: texture()
 {
 	if (!surf) {
@@ -73,6 +191,10 @@ texture::texture(const surface& surf, bool linear_interpolation)
 	size_ = {surf->w, surf->h};
 
 	finalize();
+
+	if(mipmaps && texture_) {
+		mips_ = build_mip_chain(renderer, surf);
+	}
 }
 
 texture::texture(int width, int height, SDL_TextureAccess access)
@@ -201,6 +323,7 @@ SDL_BlendMode texture::get_blend_mode() const
 
 void texture::reset()
 {
+	mips_.reset();
 	if(texture_) {
 		texture_.reset();
 	}
@@ -232,6 +355,7 @@ void texture::reset(int width, int height, SDL_TextureAccess access)
 
 void texture::assign(SDL_Texture* t)
 {
+	mips_.reset();
 	texture_.reset(t, &cleanup_texture);
 	size_ = get_raw_size();
 	has_src_ = false;

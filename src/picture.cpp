@@ -801,7 +801,8 @@ texture get_lighted_texture(const image::locator& i_locator, const std::vector<l
 	// not cached yet, generate it
 	// 2026-11-11: lit textures now use linear filtering (was nearest).
 	// texture tex(get_lighted_image(i_locator, ls));
-	texture tex(get_lighted_image(i_locator, ls), true);
+	// texture tex(get_lighted_image(i_locator, ls), true);
+	texture tex(get_lighted_image(i_locator, ls), true, true); // third argument: mipmaps
 
 	// record the lighted texture in the corresponding variants cache
 	lvar[ls] = tex;
@@ -1009,9 +1010,12 @@ texture get_texture(const image::locator& i_locator, scale_quality quality, TYPE
 	const bool linear_scaling = quality == scale_quality::linear ? true : false;
 	if(i_locator.get_modifications().empty()) {
 		// skip cache if we're loading plain files with no modifications
-		res = texture(get_surface(i_locator, type, true), linear_scaling);
+		// 2026-11-11: mipmaps on (third argument).
+		// res = texture(get_surface(i_locator, type, true), linear_scaling);
+		res = texture(get_surface(i_locator, type, true), linear_scaling, true);
 	} else {
-		res = texture(get_surface(i_locator, type, skip_cache), linear_scaling);
+		// res = texture(get_surface(i_locator, type, skip_cache), linear_scaling);
+		res = texture(get_surface(i_locator, type, skip_cache), linear_scaling, true);
 	}
 
 	// Cache the texture.

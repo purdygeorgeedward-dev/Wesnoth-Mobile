@@ -406,6 +406,59 @@ void draw::cairo_disc(int cx, int cy, int r, const color_t& c)
 /*******************/
 
 
+namespace
+{
+/**
+ * 2026-11-11: mip map selection. When a texture with a mip chain is drawn at less than half its
+ * size, a smaller copy (half, quarter, ...) is used, so the renderer never shrinks by more than 2x.
+ * The mip copy takes over the alpha, colour and blend mods of the full-size texture, and the source
+ * rect is scaled to match.
+ */
+struct tex_choice
+{
+	SDL_Texture* tex;
+	SDL_FRect src;
+	bool has_src;
+};
+
+tex_choice choose_draw_texture(const texture& tex, const ::rect& dst)
+{
+	const SDL_Rect* rect = tex.src();
+	tex_choice res{tex.get(), SDL_FRect{0, 0, 0, 0}, false};
+	if(rect) {
+		res.src = rect_to_frect(*rect);
+		res.has_src = true;
+	}
+
+	if(!tex.has_mips()) {
+		return res;
+	}
+
+	const point src_size = rect ? point{rect->w, rect->h} : tex.get_raw_size();
+	const texture::mip_choice mip = tex.choose_mip(src_size, point{dst.w, dst.h});
+	if(!mip.tex) {
+		return res;
+	}
+
+	uint8_t a = 255, r = 255, g = 255, b = 255;
+	SDL_BlendMode blend = SDL_BLENDMODE_BLEND;
+	SDL_GetTextureAlphaMod(tex.get(), &a);
+	SDL_GetTextureColorMod(tex.get(), &r, &g, &b);
+	SDL_GetTextureBlendMode(tex.get(), &blend);
+	SDL_SetTextureAlphaMod(mip.tex, a);
+	SDL_SetTextureColorMod(mip.tex, r, g, b);
+	SDL_SetTextureBlendMode(mip.tex, blend);
+
+	res.tex = mip.tex;
+	if(rect) {
+		res.src = SDL_FRect{
+			static_cast<float>(rect->x * mip.sx), static_cast<float>(rect->y * mip.sy),
+			static_cast<float>(rect->w * mip.sx), static_cast<float>(rect->h * mip.sy)};
+	}
+	return res;
+}
+} // namespace
+
 void draw::blit(const texture& tex, const ::rect& dst)
 {
 	if (dst == sdl::empty_rect) {
@@ -415,14 +468,13 @@ void draw::blit(const texture& tex, const ::rect& dst)
 	if (!tex) { DBG_D << "null blit"; return; }
 	DBG_D << "blit " << dst;
 
-	const SDL_Rect* rect = tex.src();
 	SDL_FRect fdst = rect_to_frect(dst);
-	if(rect) {
-		SDL_FRect frect = rect_to_frect(*rect);
-		SDL_RenderTexture(renderer(), tex, &frect, &fdst);
-	} else {
-		SDL_RenderTexture(renderer(), tex, nullptr, &fdst);
-	}
+	// 2026-11-11: old code replaced by mip map selection:
+	// const SDL_Rect* rect = tex.src();
+	// if(rect) { SDL_FRect frect = rect_to_frect(*rect); SDL_RenderTexture(renderer(), tex, &frect, &fdst); }
+	// else { SDL_RenderTexture(renderer(), tex, nullptr, &fdst); }
+	const tex_choice c = choose_draw_texture(tex, dst);
+	SDL_RenderTexture(renderer(), c.tex, c.has_src ? &c.src : nullptr, &fdst);
 }
 
 void draw::blit(const texture& tex)
@@ -464,14 +516,13 @@ void draw::flipped(
 	      << ") to " << dst;
 
 	SDL_FlipMode flip = get_flip(flip_h, flip_v);
-	const SDL_Rect* rect = tex.src();
 	SDL_FRect fdst = rect_to_frect(dst);
-	if(rect) {
-		SDL_FRect frect = rect_to_frect(*rect);
-		SDL_RenderTextureRotated(renderer(), tex, &frect, &fdst, 0.0, nullptr, flip);
-	} else {
-		SDL_RenderTextureRotated(renderer(), tex, nullptr, &fdst, 0.0, nullptr, flip);
-	}
+	// 2026-11-11: old code replaced by mip map selection:
+	// const SDL_Rect* rect = tex.src();
+	// if(rect) { SDL_FRect frect = rect_to_frect(*rect); SDL_RenderTextureRotated(renderer(), tex, &frect, &fdst, 0.0, nullptr, flip); }
+	// else { SDL_RenderTextureRotated(renderer(), tex, nullptr, &fdst, 0.0, nullptr, flip); }
+	const tex_choice c = choose_draw_texture(tex, dst);
+	SDL_RenderTextureRotated(renderer(), c.tex, c.has_src ? &c.src : nullptr, &fdst, 0.0, nullptr, flip);
 }
 
 void draw::flipped(const texture& tex, bool flip_h, bool flip_v)

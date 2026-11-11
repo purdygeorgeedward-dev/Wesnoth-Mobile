@@ -446,3 +446,12 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - Found and fixed: unit info items in the unrun theme had `yanchor=fixed`, so on a taller screen than 480 (the A26 is about 540) they would sit in the map area, not in the bottom bar. They are now `yanchor=bottom`.
 - Not changed: status text sizes (font_size 12 to 15 logical), and the scaled button images are stretched placeholders.
 - Not compiled or run. Needs a look on the device.
+
+### Mip map system (2026-11-11 14:40 MST)
+- George: add a mip map system. SDL's renderer cannot make mip maps, so they are built in code.
+- `src/sdl/texture.hpp`, `src/sdl/texture.cpp`: `texture(surface, linear, mipmaps)` has a new third argument (default false; old signature commented). When true, a chain of half-size copies is built on the CPU from the surface: 2x2 box filter weighted by alpha (no dark or light fringes on transparent edges), each level at least 16 px on its short side, at most 4 levels, none for textures under 32 px. Copies of a texture share the chain. `choose_mip()` picks the smallest level that is still at least as large as the destination, and only when the source is at least 2x the destination, so the renderer never shrinks more than 2x.
+- `src/draw.cpp`: `draw::blit(tex, dst)` and `draw::flipped(tex, dst, ...)` pick the level. The mip copy takes the alpha, colour and blend mods of the full texture and the source rect is scaled. Old code commented out. Not changed: `blit(tex)` with no destination, `tiled`, `tiled_highres`, `smooth_shaded` (they draw full-size).
+- `src/picture.cpp`: image textures (both `get_texture` paths and lit textures) ask for mip chains. Text and other surface textures do not.
+- Cost: about 33% more texture memory per image, and extra CPU time when each image first loads. Odd source sizes lose one pixel row or column per level (126 wide gives 63, then 31).
+- Levels are chosen from the draw-space destination size, before the pixel-scale upscale.
+- Not compiled or run. Needs a look on the device: load time, memory, and whether zoomed-out terrain is cleaner.

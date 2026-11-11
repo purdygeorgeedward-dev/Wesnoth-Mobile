@@ -53,7 +53,9 @@ public:
 	 *                              This does not affect texture creation,
 	 *                              only later application.
 	 */
-	explicit texture(const surface& surf, bool linear_interpolation = false);
+	// 2026-11-11: mipmaps parameter added (old signature kept above as a comment).
+	// explicit texture(const surface& surf, bool linear_interpolation = false);
+	explicit texture(const surface& surf, bool linear_interpolation = false, bool mipmaps = false);
 
 	/** Construct a texture of the specified size and access type. */
 	texture(int w, int h, SDL_TextureAccess access);
@@ -62,6 +64,34 @@ public:
 	/********************/
 	/* raw texture info */
 	/********************/
+
+	/*************/
+	/* mip maps  */
+	/*************/
+
+	/** Opaque chain of half-size copies of the texture (built by the surface constructor). */
+	struct mip_chain;
+
+	/** True if smaller copies of this texture exist. */
+	bool has_mips() const { return mips_ != nullptr; }
+
+	/** A smaller copy chosen by choose_mip(), and the factors that map source coordinates onto it. */
+	struct mip_choice
+	{
+		SDL_Texture* tex = nullptr; /**< null means: use the full-size texture. */
+		double sx = 1.0;
+		double sy = 1.0;
+	};
+
+	/**
+	 * Picks the smallest copy that is still at least as large as the destination.
+	 * The result is null (use the full-size texture) unless the source is at least
+	 * twice the destination size, so drawing never needs to shrink by more than 2x.
+	 *
+	 * @param src_size  Size in texture pixels of the region being drawn.
+	 * @param dst_size  Size in draw-space of the place it is drawn to.
+	 */
+	mip_choice choose_mip(const point& src_size, const point& dst_size) const;
 
 	/** Small wrapper that queries metadata about the provided texture. */
 	struct info
@@ -210,6 +240,7 @@ private:
 	void finalize();
 
 	std::shared_ptr<SDL_Texture> texture_ = nullptr;
+	std::shared_ptr<mip_chain> mips_; /**< Shared by copies of this texture. Null if none. */
 	point size_{0, 0};
 	bool has_src_ = false; /**< true iff the source rect is valid */
 	rect src_; /**< uninitialized by default. */
