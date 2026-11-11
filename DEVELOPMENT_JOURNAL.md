@@ -427,3 +427,8 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - `src/mouse_handler_base.cpp`: on Android the long-touch release no longer fires a right-click. Without this the context menu would open after the new long-press inspect. Old code kept inside `#ifndef __ANDROID__`.
 - Not compiled or run. Menu is a list under Actions, not one-tap buttons yet.
 - Still open: pinch zoom (zoom menu items are the stopgap), skipping unit animations by touch, replay controls, Esc/Enter-only dialog paths not yet audited.
+
+### Android always uses the Mobile in-game theme (2026-11-11 14:31 MST)
+- George's screenshot showed the stock sidebar theme in a build made from this repo. Cause: the 2026-11-11 07:08 forcing was in `gui2::switch_theme` (the GUI2 widget theme), not the in-game theme. `prefs::theme()` only returned "Mobile" when no theme was saved, so a saved "Default" from an earlier build kept the stock theme.
+- `src/preferences/preferences.cpp`, `prefs::theme()`: under `__ANDROID__` it now always returns "Mobile". Old code kept below it for other platforms.
+- Not compiled or run.

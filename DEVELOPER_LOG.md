@@ -457,3 +457,11 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - `DEVELOPMENT_JOURNAL.md`: entry added.
 
 **Status:** edited only; not compiled or run.
+
+## 2026-11-11 14:31 MST: Android always uses Mobile in-game theme
+
+**Files**
+- `src/preferences/preferences.cpp`: `prefs::theme()` returns "Mobile" on Android whatever is saved.
+- `DEVELOPMENT_JOURNAL.md`: entry added.
+
+**Status:** edited only; not compiled or run.

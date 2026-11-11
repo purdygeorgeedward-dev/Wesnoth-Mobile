@@ -1359,6 +1359,12 @@ std::string prefs::theme()
 		return null_theme;
 	}
 
+#ifdef __ANDROID__
+	// 2026-11-11: Android always uses the Wesnoth Mobile in-game theme. A saved choice (for example
+	// "Default" stored by an earlier build) is ignored. The old code below still runs on other platforms.
+	return "Mobile";
+#endif
+
 	std::string res = preferences_[prefs_list::theme];
 	if(res.empty()) {
 #ifdef __ANDROID__
