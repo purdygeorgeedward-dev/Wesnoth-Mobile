@@ -88,11 +88,16 @@ void controller_base::long_touch_callback(int x, int y)
 			hotkey::command_executor* executor = get_hotkey_command_executor();
 			if(executor) {
 				const hotkey::ui_command unit_cmd(hotkey::HOTKEY_UNIT_DESCRIPTION, "describeunit");
-				const hotkey::ui_command terrain_cmd(hotkey::HOTKEY_TERRAIN_DESCRIPTION, "describeterrain");
+				// const hotkey::ui_command terrain_cmd(hotkey::HOTKEY_TERRAIN_DESCRIPTION, "describeterrain");
 				if(executor->can_execute_command(unit_cmd)) {
 					executor->do_execute_command(unit_cmd);
-				} else if(executor->can_execute_command(terrain_cmd)) {
-					executor->do_execute_command(terrain_cmd);
+				} else {
+					// No unit: the long-press menu (the context menu: recruit on a castle hex,
+					// terrain details, zoom, labels). Old terrain-description-only code kept below.
+					// } else if(executor->can_execute_command(terrain_cmd)) {
+					// 	executor->do_execute_command(terrain_cmd);
+					// }
+					show_menu(get_display().get_theme().context_menu(), { static_cast<int>(x_now), static_cast<int>(y_now) }, true);
 				}
 			}
 #else

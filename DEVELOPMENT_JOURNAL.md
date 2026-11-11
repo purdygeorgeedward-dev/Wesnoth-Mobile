@@ -432,3 +432,8 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - George's screenshot showed the stock sidebar theme in a build made from this repo. Cause: the 2026-11-11 07:08 forcing was in `gui2::switch_theme` (the GUI2 widget theme), not the in-game theme. `prefs::theme()` only returned "Mobile" when no theme was saved, so a saved "Default" from an earlier build kept the stock theme.
 - `src/preferences/preferences.cpp`, `prefs::theme()`: under `__ANDROID__` it now always returns "Mobile". Old code kept below it for other platforms.
 - Not compiled or run.
+
+### Long-press menu on empty ground (2026-11-11 14:32 MST)
+- George: where necessary, create long-press activated menus.
+- `src/controller_base.cpp`, `long_touch_callback` (Android): long-press on a unit still opens unit details; long-press with no unit now opens the context menu (recruit on a castle hex, terrain details, zoom, labels, and the rest of the context menu items that apply). Before, it opened terrain details only. Old lines commented out.
+- Not compiled or run.

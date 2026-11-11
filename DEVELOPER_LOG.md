@@ -465,3 +465,11 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - `DEVELOPMENT_JOURNAL.md`: entry added.
 
 **Status:** edited only; not compiled or run.
+
+## 2026-11-11 14:32 MST: long-press menu on empty ground
+
+**Files**
+- `src/controller_base.cpp`: Android long-press with no unit opens the context menu. Old code commented out.
+- `DEVELOPMENT_JOURNAL.md`: entry added.
+
+**Status:** edited only; not compiled or run.
