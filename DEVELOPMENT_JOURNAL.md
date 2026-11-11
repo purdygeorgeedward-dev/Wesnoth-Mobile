@@ -399,3 +399,11 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - Cause found in source: `prefs::set_initial_gui2_theme()` (the Android default) is only called from `migrate_version_selection`, and that only runs when the user-data folder has no `logs` directory (`src/filesystem.cpp`, `setup_user_data_dir`). If the app ever ran on the phone before, no theme is saved, and the game uses the stock Default theme.
 - George: force the mobile theme. `gui2::switch_theme` now ignores the requested theme on Android and always loads `mobile`. Other platforms unchanged. If `mobile` is missing, the existing fallback to Default still applies.
 - Not compiled or run. Next: the next Android CI build is the first test.
+
+### Default fonts: Quattrocento (2026-11-11 10:58 MST)
+- George: Quattrocento, in both weights (Regular and Bold), is the default font for Wesnoth.
+- Added `fonts/Quattrocento-Regular.ttf` and `fonts/Quattrocento-Bold.ttf` (from google/fonts, OFL) plus `fonts/Quattrocento-OFL.txt`; license entry added to `fonts/COPYING`.
+- `data/hardwired/fonts.cfg`: `family_order` now `Quattrocento`. The Lato line is commented out, not deleted. Monospace and script families unchanged.
+- Lato files stay in `fonts/` (still the fallback if a glyph is missing).
+- Side effect: the old per-language translations of "Lato" (e.g. Arabic) no longer match, so all languages use Quattrocento first and fall back to other installed fonts for glyphs it lacks.
+- Not compiled or run. Quattrocento has no italic; italic text will be synthesized.

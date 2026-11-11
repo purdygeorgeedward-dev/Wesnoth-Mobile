@@ -421,3 +421,13 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - `DEVELOPMENT_JOURNAL.md`: entry added.
 
 **Status:** edited only; not compiled or run.
+
+## 2026-11-11 10:58 MST — Quattrocento default font
+
+**Files**
+- `fonts/Quattrocento-Regular.ttf`, `fonts/Quattrocento-Bold.ttf`, `fonts/Quattrocento-OFL.txt`: added.
+- `fonts/COPYING`: Quattrocento license entry added.
+- `data/hardwired/fonts.cfg`: `family_order` set to Quattrocento; Lato line commented out. Nothing deleted.
+- `DEVELOPMENT_JOURNAL.md`: entry added.
+
+**Status:** edited only; not compiled or run.
