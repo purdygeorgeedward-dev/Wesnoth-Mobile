@@ -437,3 +437,12 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - George: where necessary, create long-press activated menus.
 - `src/controller_base.cpp`, `long_touch_callback` (Android): long-press on a unit still opens unit details; long-press with no unit now opens the context menu (recruit on a castle hex, terrain details, zoom, labels, and the rest of the context menu items that apply). Before, it opened terrain details only. Old lines commented out.
 - Not compiled or run.
+
+### Touch-size buttons and bars (2026-11-11 14:35 MST)
+- George: make buttons big enough to see and tap. Target: 64 logical px high (about 128 px, 48 dp, on the A26). No new images: theme buttons are drawn into their theme rectangle, so the existing 44-high placeholder images scale up.
+- `src/display.cpp` `display::layout_buttons`: on Android the theme rectangle is re-applied after `set_label`/`set_image` (those shrank the button to its image). `create_buttons`: button text is `font::SIZE_BUTTON` on Android (was `SIZE_BUTTON_SMALL`).
+- `src/widgets/button.cpp`: on Android the label is centred in the button, not in the image.
+- `data/themes/mobile.cfg` (landscape and portrait; old rects kept as comments): top bar 48 to 64 high; bottom bar 60 to 72; Menu, Undo, Recruit, Actions, End Turn are 64 high (Undo 100 wide, Recruit and Actions 120, End Turn 168 landscape or 120 portrait); map area adjusted; top bar items moved down 8; unit info moved to match the taller bars.
+- Found and fixed: unit info items in the unrun theme had `yanchor=fixed`, so on a taller screen than 480 (the A26 is about 540) they would sit in the map area, not in the bottom bar. They are now `yanchor=bottom`.
+- Not changed: status text sizes (font_size 12 to 15 logical), and the scaled button images are stretched placeholders.
+- Not compiled or run. Needs a look on the device.

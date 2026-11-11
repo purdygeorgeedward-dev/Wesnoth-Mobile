@@ -795,6 +795,10 @@ void display::layout_buttons()
 			b->set_measurements(0,0);
 			b->set_label(menu.title());
 			b->set_image(menu.image());
+#ifdef __ANDROID__
+			// 2026-11-11: keep the theme rectangle (touch-size buttons); the image is scaled to fit it.
+			b->set_location(loc);
+#endif
 		}
 	}
 
@@ -806,6 +810,10 @@ void display::layout_buttons()
 			b->set_measurements(0,0);
 			b->set_label(action.title());
 			b->set_image(action.image());
+#ifdef __ANDROID__
+			// 2026-11-11: keep the theme rectangle (touch-size buttons); the image is scaled to fit it.
+			b->set_location(loc);
+#endif
 		}
 	}
 }
@@ -839,13 +847,19 @@ void display::create_buttons()
 	std::vector<std::shared_ptr<gui::button>> action_work;
 
 	DBG_DP << "creating menu buttons...";
+#ifdef __ANDROID__
+	// 2026-11-11: larger button text on phones (was font::SIZE_BUTTON_SMALL everywhere).
+	const int button_font_size = font::SIZE_BUTTON;
+#else
+	const int button_font_size = font::SIZE_BUTTON_SMALL;
+#endif
 	for(const auto& menu : theme_.menus()) {
 		if(!menu.is_button()) {
 			continue;
 		}
 
 		auto b = std::make_shared<gui::button>(menu.title(), gui::button::TYPE_PRESS, menu.image(),
-			gui::button::DEFAULT_SPACE, true, menu.overlay(), font::SIZE_BUTTON_SMALL);
+			gui::button::DEFAULT_SPACE, true, menu.overlay(), button_font_size /* was font::SIZE_BUTTON_SMALL */);
 
 		DBG_DP << "drawing button " << menu.get_id();
 		b->set_id(menu.get_id());
@@ -863,7 +877,7 @@ void display::create_buttons()
 	DBG_DP << "creating action buttons...";
 	for(const auto& action : theme_.actions()) {
 		auto b = std::make_shared<gui::button>(action.title(), string_to_button_type(action.type()),
-			action.image(), gui::button::DEFAULT_SPACE, true, action.overlay(), font::SIZE_BUTTON_SMALL);
+			action.image(), gui::button::DEFAULT_SPACE, true, action.overlay(), button_font_size /* was font::SIZE_BUTTON_SMALL */);
 
 		DBG_DP << "drawing button " << action.get_id();
 		b->set_id(action.get_id());

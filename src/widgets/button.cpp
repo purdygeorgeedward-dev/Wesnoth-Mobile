@@ -315,7 +315,12 @@ void button::draw_contents()
 	int textx;
 
 	if (type_ != TYPE_CHECK && type_ != TYPE_RADIO && type_ != TYPE_IMAGE) {
+#ifdef __ANDROID__
+		// 2026-11-11: the button can be larger than its image (touch size): centre in the button.
+		textx = loc.x + loc.w / 2 - textRect_.w / 2 + offset;
+#else
 		textx = loc.x + image.w() / 2 - textRect_.w / 2 + offset;
+#endif
 	} else {
 		clipArea.w += image.w() + checkbox_horizontal_padding_;
 		textx = loc.x + image.w() + checkbox_horizontal_padding_ / 2;

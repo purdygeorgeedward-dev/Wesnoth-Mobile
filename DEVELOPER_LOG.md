@@ -473,3 +473,13 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - `DEVELOPMENT_JOURNAL.md`: entry added.
 
 **Status:** edited only; not compiled or run.
+
+## 2026-11-11 14:35 MST: touch-size buttons and bars
+
+**Files**
+- `src/display.cpp`: Android keeps theme rect for buttons; larger button font.
+- `src/widgets/button.cpp`: label centred in the button on Android.
+- `data/themes/mobile.cfg`: bars and buttons enlarged (64 high buttons); unit info bottom-anchored. Old rects commented.
+- `DEVELOPMENT_JOURNAL.md`: entry added.
+
+**Status:** edited only; not compiled or run.
