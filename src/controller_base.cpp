@@ -82,7 +82,22 @@ void controller_base::long_touch_callback(int x, int y)
 		if(!yes_actually_dragging
 		   && (mouse_state & SDL_BUTTON_MASK(SDL_BUTTON_LEFT)) != 0)
 		{
+#ifdef __ANDROID__
+			// 2026-11-11: on Android a long press inspects what is under the finger
+			// (unit details, else terrain details) instead of opening the right-click menu.
+			hotkey::command_executor* executor = get_hotkey_command_executor();
+			if(executor) {
+				const hotkey::ui_command unit_cmd(hotkey::HOTKEY_UNIT_DESCRIPTION, "describeunit");
+				const hotkey::ui_command terrain_cmd(hotkey::HOTKEY_TERRAIN_DESCRIPTION, "describeterrain");
+				if(executor->can_execute_command(unit_cmd)) {
+					executor->do_execute_command(unit_cmd);
+				} else if(executor->can_execute_command(terrain_cmd)) {
+					executor->do_execute_command(terrain_cmd);
+				}
+			}
+#else
 			show_menu(get_display().get_theme().context_menu(), { static_cast<int>(x_now), static_cast<int>(y_now) }, true);
+#endif
 		}
 	}
 

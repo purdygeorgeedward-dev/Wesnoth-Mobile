@@ -440,3 +440,11 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - `DEVELOPMENT_JOURNAL.md`: entry added.
 
 **Status:** edited only; not compiled or run.
+
+## 2026-11-11 14:27 MST: long-press inspect
+
+**Files**
+- `src/controller_base.cpp`: Android long press runs unit description (else terrain description) instead of the context menu. Old line kept in `#else`.
+- `DEVELOPMENT_JOURNAL.md`: entry added.
+
+**Status:** edited only; not compiled or run.

@@ -414,3 +414,8 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - `src/gui/core/canvas.cpp`: GUI images always use linear filtering; before, only `stretch` and `scale` resize modes did. Old block commented out.
 - Textures have no mipmaps. Shrinking more than about 2x still gets noisy, so the pre-built tiers (sharpen, then halve) are still needed.
 - Not compiled or run. Pixel-art-style images (minimap, grid overlays) now also blur slightly when scaled. Needs a look on the device.
+
+### Long-press inspects on Android (2026-11-11 14:27 MST)
+- George: controls should work the Android way. First change: long-press is inspect, not the right-click context menu.
+- `src/controller_base.cpp`, `controller_base::long_touch_callback`: under `__ANDROID__`, a long press runs the unit description command if a unit is under the finger, else the terrain description command. Other platforms still open the context menu (old line kept, in the `#else` branch).
+- Not compiled or run. Needs a look on the device: whether the mouse hex is current when the timer fires, and the delay (`gui2::settings::popup_show_delay`).
