@@ -412,3 +412,12 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - No image files changed. George's `adaptive.png` and `adaptive.webp` (432x432, shield already on opaque black) were not added to the repo: the background is a color, the shield layer stays transparent.
 
 **Status:** XML edited and parsed; not built or run, so the icon has not been seen on a phone.
+
+## 2026-11-11 07:08 MST — Force Mobile theme on Android
+
+**Files**
+- `src/gui/gui.cpp`: `switch_theme` parameter renamed `requested_theme_id`; under `__ANDROID__` the theme id is always `"mobile"` (requested id ignored); other platforms use the requested id as before. Nothing deleted.
+- `ROADMAP.md`: note added to the in-game theme item (2c).
+- `DEVELOPMENT_JOURNAL.md`: entry added.
+
+**Status:** edited only; not compiled or run.

@@ -146,8 +146,18 @@ void init()
 	}
 }
 
-void switch_theme(const std::string& theme_id)
+void switch_theme(const std::string& requested_theme_id)
 {
+#ifdef __ANDROID__
+	// Wesnoth Mobile (2026-11-11): Android always uses the Wesnoth Mobile theme. The saved theme
+	// preference is ignored, because the fresh-install default never runs when the user-data
+	// folder already exists, which left phones on the stock Default theme.
+	const std::string theme_id = "mobile";
+	(void)requested_theme_id;
+#else
+	const std::string& theme_id = requested_theme_id;
+#endif
+
 	if(theme_id.empty() || theme_id == "default") {
 		current_gui = default_gui;
 	} else {

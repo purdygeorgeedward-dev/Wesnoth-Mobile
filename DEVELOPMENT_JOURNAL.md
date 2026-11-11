@@ -393,3 +393,9 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 
 ### Background no longer stretched (2026-11-08 16:36 MST)
 - George: no stretching, let the images spill off the edges. Changed to cover-and-center. On his phone the crop is about 2.5% of the width or height, split between the two edges.
+
+### Forced Wesnoth Mobile theme on Android (07:08 MST)
+- George: portraits and campaign logos are far too big on the phone. The APK came from commit `d3ec967` (Android CI #9, Nov 10), which already contains the Mobile theme and the portrait fitting in `data/gui/themes/mobile/dialogs/wml_message.cfg`. The only later commit, `46c9140`, changed two logo images.
+- Cause found in source: `prefs::set_initial_gui2_theme()` (the Android default) is only called from `migrate_version_selection`, and that only runs when the user-data folder has no `logs` directory (`src/filesystem.cpp`, `setup_user_data_dir`). If the app ever ran on the phone before, no theme is saved, and the game uses the stock Default theme.
+- George: force the mobile theme. `gui2::switch_theme` now ignores the requested theme on Android and always loads `mobile`. Other platforms unchanged. If `mobile` is missing, the existing fallback to Default still applies.
+- Not compiled or run. Next: the next Android CI build is the first test.
