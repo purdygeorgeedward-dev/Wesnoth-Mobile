@@ -799,7 +799,9 @@ texture get_lighted_texture(const image::locator& i_locator, const std::vector<l
 	}
 
 	// not cached yet, generate it
-	texture tex(get_lighted_image(i_locator, ls));
+	// 2026-11-11: lit textures now use linear filtering (was nearest).
+	// texture tex(get_lighted_image(i_locator, ls));
+	texture tex(get_lighted_image(i_locator, ls), true);
 
 	// record the lighted texture in the corresponding variants cache
 	lvar[ls] = tex;
@@ -954,7 +956,10 @@ save_result save_image(const surface& surf, const std::string& filename)
 
 texture get_texture(const image::locator& i_locator, TYPE type, bool skip_cache)
 {
-	return get_texture(i_locator, scale_quality::nearest, type, skip_cache);
+	// 2026-11-11: default changed from nearest to linear. Nearest-neighbor looks jagged
+	// when the high-resolution art is drawn smaller than native size.
+	// return get_texture(i_locator, scale_quality::nearest, type, skip_cache);
+	return get_texture(i_locator, scale_quality::linear, type, skip_cache);
 }
 
 /** Returns a texture for the corresponding image. */

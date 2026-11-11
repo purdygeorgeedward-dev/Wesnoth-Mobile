@@ -310,12 +310,15 @@ void image_shape::draw(wfl::map_formula_callable& variables)
 
 	// Texture filtering mode must be set on texture creation,
 	// so check whether we need smooth scaling or not here.
-	image::scale_quality scale_quality = image::scale_quality::nearest;
-	if (resize_mode_ == resize_mode::stretch
-		|| resize_mode_ == resize_mode::scale)
-	{
-		scale_quality = image::scale_quality::linear;
-	}
+	// 2026-11-11: always linear. Previously only stretch/scale used linear and
+	// every other resize mode used nearest-neighbor.
+	// image::scale_quality scale_quality = image::scale_quality::nearest;
+	// if (resize_mode_ == resize_mode::stretch
+	// 	|| resize_mode_ == resize_mode::scale)
+	// {
+	// 	scale_quality = image::scale_quality::linear;
+	// }
+	image::scale_quality scale_quality = image::scale_quality::linear;
 	texture tex = image::get_texture(image::locator(name), scale_quality);
 
 	if(!tex) {

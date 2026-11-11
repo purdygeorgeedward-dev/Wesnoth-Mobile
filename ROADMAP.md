@@ -160,6 +160,8 @@ Runs in parallel from now on.
 - Match each existing filename exactly.
 - Filenames are case-sensitive on Android.
 - Art is checked against upstream by content hash to catch anything still original.
+- High-resolution masters (3840 max). Smaller tiers are built from them: sharpen gently first, then halve, sizes tied to real device screens. The engine has no mipmaps, so the tiers are pre-built. (Decided 2026-11-11.)
+- Every texture uses linear filtering, not nearest-neighbor (changed 2026-11-11; not yet compiled or run).
 
 ---
 

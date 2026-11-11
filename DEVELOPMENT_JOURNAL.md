@@ -407,3 +407,10 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - Lato files stay in `fonts/` (still the fallback if a glyph is missing).
 - Side effect: the old per-language translations of "Lato" (e.g. Arabic) no longer match, so all languages use Quattrocento first and fall back to other installed fonts for glyphs it lacks.
 - Not compiled or run. Quattrocento has no italic; italic text will be synthesized.
+
+### Linear filtering for all images (2026-11-11 14:20 MST)
+- George: nearest-neighbor filtering is unacceptable for the high-resolution art.
+- `src/picture.cpp`: `image::get_texture(locator, type, skip_cache)` (the overload without a quality argument) now uses `scale_quality::linear`; it was `nearest`. Lit (time-of-day) textures are now created with linear filtering too. Old lines commented out, not deleted.
+- `src/gui/core/canvas.cpp`: GUI images always use linear filtering; before, only `stretch` and `scale` resize modes did. Old block commented out.
+- Textures have no mipmaps. Shrinking more than about 2x still gets noisy, so the pre-built tiers (sharpen, then halve) are still needed.
+- Not compiled or run. Pixel-art-style images (minimap, grid overlays) now also blur slightly when scaled. Needs a look on the device.

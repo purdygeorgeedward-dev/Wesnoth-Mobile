@@ -431,3 +431,12 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - `DEVELOPMENT_JOURNAL.md`: entry added.
 
 **Status:** edited only; not compiled or run.
+
+## 2026-11-11 14:20 MST: linear texture filtering
+
+**Files**
+- `src/picture.cpp`: default `get_texture` quality changed to linear; lit textures created with linear. Old lines commented out.
+- `src/gui/core/canvas.cpp`: GUI image scale quality always linear. Old block commented out.
+- `DEVELOPMENT_JOURNAL.md`: entry added.
+
+**Status:** edited only; not compiled or run.
