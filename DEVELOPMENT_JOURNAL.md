@@ -476,3 +476,12 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - 18 of them have the wrong extension for their real format (e.g. `.webp` that is a PNG, `.jpg` that is WebP, such as `The_South_Guard/images/story/black-forest2.webp`, `core/images/story/swamp-02.jpg`, `swamp-03.jpg`). Stamped through temp copies with the right extension; file names unchanged.
 - Stock Wesnoth images without tags (about 11,000) left untouched.
 - Pushed 2026-11-14, see git log.
+
+### Fixed 18 images whose extension didn't match their format (2026-11-14 15:30 MST)
+- Renamed to the real format and updated every reference (11 .cfg files, 17 lines), no other references found:
+  - 10 `.png` that were WebP -> `.webp`: The_Deceivers_Gambit story `alduin-wp`, `bride-wp`, `burning-wp`, `farmer-wp`, `fog-wp`, `fort-wp`, `graves-wp`, `knight-wp`, `mountains-wp`, `river-wp`.
+  - 6 `.jpg` that were WebP -> `.webp`: The_Rise_Of_Wesnoth `trow_intro_10`, `trow_story_02-The_Fall`, `trow_story_04-Fall_of_Eldaric`, `trow_story_04a-The_Swamp_of_Esten`; core `swamp-02`, `swamp-03`.
+  - 2 `.webp` that were PNG -> `.png`: The_South_Guard `black-forest`, `black-forest2`.
+- Image data not changed; the Artist/Copyright tags stay.
+- Not compiled or run. Needs a check on the device that these story screens still load.
+- Pushed 2026-11-14, see git log.
