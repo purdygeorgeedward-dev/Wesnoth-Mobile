@@ -469,3 +469,10 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - Workflow `on:` triggers commented out (not deleted); it now runs only by manual dispatch (`workflow_dispatch`).
 - Any new image will need the same two tags if the workflow is turned back on.
 - Pushed: see git log, 2026-11-14.
+
+### Metadata stamped on all earlier uploads (2026-11-14 15:10 MST)
+- Searched full history (commits by George, `purdygeorgeedward-dev` and Claude since 2026-10-19) for images added or changed: 996 paths, 948 still exist, 888 lacked the tags.
+- Stamped all 888 with Artist = George Edward Purdy, Copyright = GNU GPL v2+ (exiftool). Verified: 0 left unstamped.
+- 18 of them have the wrong extension for their real format (e.g. `.webp` that is a PNG, `.jpg` that is WebP, such as `The_South_Guard/images/story/black-forest2.webp`, `core/images/story/swamp-02.jpg`, `swamp-03.jpg`). Stamped through temp copies with the right extension; file names unchanged.
+- Stock Wesnoth images without tags (about 11,000) left untouched.
+- Pushed 2026-11-14, see git log.
