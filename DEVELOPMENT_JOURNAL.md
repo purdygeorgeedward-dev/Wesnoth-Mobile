@@ -455,3 +455,10 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - Cost: about 33% more texture memory per image, and extra CPU time when each image first loads. Odd source sizes lose one pixel row or column per level (126 wide gives 63, then 31).
 - Levels are chosen from the draw-space destination size, before the pixel-scale upscale.
 - Not compiled or run. Needs a look on the device: load time, memory, and whether zoomed-out terrain is cleaner.
+
+### Theme status icons keep their aspect ratio (2026-11-14 12:20 MST)
+- George replaced the top-bar status icons (`data/core/images/themes/`: gold, villages, units, upkeep, income, sand-clock, battery, and their `-bw` versions, plus `battery-lightning-bolt.png` and `battery-bw-lightning-bolt.png`) with high-resolution art, about 150 to 300 px, not square, all with alpha. Pushed at 12:15 MST (`8b5945a6`).
+- Problem: `display::draw_label` blitted each icon stretched into the theme rectangle (17x17 logical for gold, for example), which squashed non-square icons. George: keep original aspect ratios.
+- `src/display.cpp`, `display::draw_label` (Android only): the icon is scaled to fit inside the theme rectangle at its own aspect ratio and centred. Old line kept as a comment and in the `#else` branch. Icon files are not touched.
+- Noted: the old misspelled `battery-lighting-bolt.png` and `battery-bw-lighting-bolt.png` (16x16) are still in the folder. Nothing in the repo references them. Left in place.
+- Not compiled or run. Not pushed yet. Needs a look on the device.

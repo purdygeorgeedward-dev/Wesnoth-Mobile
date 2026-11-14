@@ -1326,7 +1326,24 @@ void display::draw_label(const theme::label& label)
 	DBG_DP << "drawing label " << label.get_id() << ' ' << loc;
 
 	if(icon.empty() == false) {
+#ifdef __ANDROID__
+		// 2026-11-14: keep the icon's own aspect ratio, fit inside the theme rectangle, centred.
+		texture icon_tex = image::get_texture(icon);
+		rect icon_dst = loc;
+		if(icon_tex && icon_tex.w() > 0 && icon_tex.h() > 0) {
+			const double fit = std::min(
+				static_cast<double>(loc.w) / icon_tex.w(),
+				static_cast<double>(loc.h) / icon_tex.h());
+			icon_dst.w = std::max(1, static_cast<int>(icon_tex.w() * fit + 0.5));
+			icon_dst.h = std::max(1, static_cast<int>(icon_tex.h() * fit + 0.5));
+			icon_dst.x = loc.x + (loc.w - icon_dst.w) / 2;
+			icon_dst.y = loc.y + (loc.h - icon_dst.h) / 2;
+		}
+		draw::blit(icon_tex, icon_dst);
+#else
 		draw::blit(image::get_texture(icon), loc);
+#endif
+		// draw::blit(image::get_texture(icon), loc);  (2026-11-14 old line)
 
 		if(text.empty() == false) {
 			tooltips::add_tooltip(loc,text);
