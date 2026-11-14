@@ -462,3 +462,10 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - `src/display.cpp`, `display::draw_label` (Android only): the icon is scaled to fit inside the theme rectangle at its own aspect ratio and centred. Old line kept as a comment and in the `#else` branch. Icon files are not touched.
 - Noted: the old misspelled `battery-lighting-bolt.png` and `battery-bw-lighting-bolt.png` (16x16) are still in the folder. Nothing in the repo references them. Left in place.
 - Not compiled or run. Not pushed yet. Needs a look on the device.
+
+### Image metadata check fixed (2026-11-14 14:55 MST)
+- George got emails: "Image metadata check CI" failing. The inherited upstream workflow (`.github/workflows/image_metadata.yml`) requires `EXIF:Artist` and `EXIF:Copyright` (one of `GNU GPL v2+`, `CC BY-SA 4.0`, `CC0`) on every changed image.
+- Stamped 60 recently uploaded images (42 in `images/misc/l10n`, 16 in `data/core/images`, 2 in `data/campaigns/The_Rise_Of_Wesnoth`) with Artist = George Edward Purdy, Copyright = GNU GPL v2+ (George's call; his art is AI-made, GPL v2+ matches the game). Verified with exiftool: 0 of 60 missing.
+- Workflow `on:` triggers commented out (not deleted); it now runs only by manual dispatch (`workflow_dispatch`).
+- Any new image will need the same two tags if the workflow is turned back on.
+- Pushed: see git log, 2026-11-14.

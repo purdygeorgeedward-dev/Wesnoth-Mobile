@@ -1,11 +1,14 @@
 name: Image metadata check CI
 
+# Disabled automatic runs 2026-11-14 (kept for manual runs only).
+# on:
+#   push:
+#     branches: [ master ]
+#     paths: [ '**.webp', '**.png', '**.jpg', '**.jpeg' ]
+#   pull_request:
+#     paths: [ '**.webp', '**.png', '**.jpg', '**.jpeg' ]
 on:
-  push:
-    branches: [ master ]
-    paths: [ '**.webp', '**.png', '**.jpg', '**.jpeg' ]
-  pull_request:
-    paths: [ '**.webp', '**.png', '**.jpg', '**.jpeg' ]
+  workflow_dispatch:
 
 permissions:
   contents: read
