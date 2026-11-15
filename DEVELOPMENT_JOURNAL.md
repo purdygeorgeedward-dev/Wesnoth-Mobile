@@ -498,3 +498,9 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 ### Stamped the 54 replacement icons (2026-11-14 19:30 MST)
 - George replaced all 54 icons in `data/core/images/icons` (upload `0f92eceea`). Stamped all 54 with Artist = George Edward Purdy, Copyright = GNU GPL v2+. Verified 0 missing; no extension/format mismatches. Only those 54 files touched.
 - Pushed 2026-11-14, see git log.
+
+### Builds on push disabled (2026-11-14 23:15 MST)
+- George wants no builds triggered by pushes. `.github/workflows/ci-main.yml` (Wesnoth's own CI, inherited from upstream; last changed upstream 2026-10-18) was the only workflow still running on push and pull request. Commented out those two triggers; `workflow_dispatch` kept, so it can still be run by hand.
+- `android.yml` and `codeql.yml` were already manual-only. `image_metadata.yml` disabled earlier today. `irc-notify.yml` and `labeler.yml` only run on issues and pull requests.
+- Runs already queued or in progress were not cancelled.
+- Pushed 2026-11-14, see git log.

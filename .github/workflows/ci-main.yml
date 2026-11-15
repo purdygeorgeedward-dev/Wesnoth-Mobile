@@ -1,10 +1,11 @@
 name: CI
 
+# Automatic runs disabled 2026-11-14 (George's request: no builds on push). Manual runs only.
 on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+#  push:
+#    branches: [ master ]
+#  pull_request:
+#    branches: [ master ]
   workflow_dispatch:
 
 jobs:
