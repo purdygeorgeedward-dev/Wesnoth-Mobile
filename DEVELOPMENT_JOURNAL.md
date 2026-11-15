@@ -494,3 +494,7 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - The new icon was uploaded as `cloak_leather_bro.png` (typo). George had deleted the old `cloak_leather_brown.png` (commit `795146cd3`, 16:37). Renamed the new file to `cloak_leather_brown.png`; still referenced by `data/campaigns/Of_Pearls_and_Pirates/achievements.cfg`. Tags kept.
 - Why I missed it: the new icon showed as a new file next to 53 modified ones, and I took the name for a real new icon. That was my miss.
 - Pushed 2026-11-14, see git log.
+
+### Stamped the 54 replacement icons (2026-11-14 19:30 MST)
+- George replaced all 54 icons in `data/core/images/icons` (upload `0f92eceea`). Stamped all 54 with Artist = George Edward Purdy, Copyright = GNU GPL v2+. Verified 0 missing; no extension/format mismatches. Only those 54 files touched.
+- Pushed 2026-11-14, see git log.
