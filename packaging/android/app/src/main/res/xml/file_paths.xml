@@ -1,4 +1,5 @@
 <!-- Needed for FileProvider in WesnothActivity. Only files under this folder can be viewed/edited. -->
 <paths xmlns:android="http://schemas.android.com/apk/res/android">
-    <external-path name="external" path="Android/data/org.wesnoth.Wesnoth/files/" />
+    <!-- 2026-11-16: path no longer hard-codes the app ID. Old: <external-path name="external" path="Android/data/org.wesnoth.Wesnoth/files/" /> -->
+    <external-files-path name="external" path="." />
 </paths>

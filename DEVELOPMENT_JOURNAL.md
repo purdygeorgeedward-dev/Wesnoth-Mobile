@@ -518,3 +518,8 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 
 ### Fixed the three noted Java items (2026-11-16 04:10 MST)
 - `InitActivity.java`: removed the API 26 calls (`Files.walk`, `Files.newBufferedReader`) that would crash on Android 6-7; `initStatusFile` no longer throws on first run. Left `applicationId` alone (your call, roadmap Phase 0). Not compiled. Branch `fix/mip-pixel-scale`.
+
+### App ID set to com.essoth.game (2026-11-16 04:12 MST)
+- George chose `com.essoth.game` (he owns essoth.com; fine to have it in the public repo). Installs separately from official Wesnoth; existing installs of this fork under the old ID are a different app, so their data does not carry over.
+- Also fixed two spots that hard-coded the old ID (FileProvider authority, file_paths.xml), which would have broken opening files from the game.
+- Branch `fix/mip-pixel-scale`. Not compiled.

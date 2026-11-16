@@ -509,3 +509,13 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - `DEVELOPMENT_JOURNAL.md`: entry added.
 
 **Status:** edited only; not compiled or run. Branch only.
+
+## 2026-11-16 04:12 MST: app ID com.essoth.game (branch `fix/mip-pixel-scale`)
+
+**Files**
+- `packaging/android/app/build.gradle`: `applicationId` changed from `org.wesnoth.Wesnoth` to `com.essoth.game`. `namespace` (Java package) unchanged.
+- `packaging/android/app/src/main/AndroidManifest.xml`: FileProvider authority is `${applicationId}.fileprovider` (was hard-coded to the old ID; the Java code already builds it from the package name).
+- `packaging/android/app/src/main/res/xml/file_paths.xml`: `external-files-path` instead of a path naming the old ID.
+- Old lines commented out. `DEVELOPMENT_JOURNAL.md`: entry added.
+
+**Status:** edited only; not compiled or run. Branch only.
