@@ -25,6 +25,9 @@
 #include "utils/ranges.hpp"
 #include "utils/general.hpp"
 #include "video.hpp"
+#ifdef __ANDROID__
+#include "picture.hpp"
+#endif
 
 #ifdef _WIN32
 #include "desktop/windows_tray_notification.hpp"
@@ -674,6 +677,16 @@ void pump()
 			quit_confirmation::quit_to_desktop();
 			continue; // this event is already handled.
 		}
+
+#ifdef __ANDROID__
+		// 2026-11-16: Android warns before it closes apps to free memory. Drop the image
+		// caches; images reload from disk the next time they are drawn.
+		case SDL_EVENT_LOW_MEMORY: {
+			LOG_DP << "low memory warning: flushing image caches";
+			image::flush_cache();
+			break;
+		}
+#endif
 		}
 
 		for(auto global_handler : event_contexts.front().handlers) {

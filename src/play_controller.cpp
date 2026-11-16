@@ -34,6 +34,9 @@
 #include "game_events/pump.hpp"
 #include "game_state.hpp"
 #include "gettext.hpp"
+#ifdef __ANDROID__
+#include <SDL3/SDL_events.h>
+#endif
 #include "gui/dialogs/loading_screen.hpp"
 #include "gui/dialogs/message.hpp"      // for show_error_message
 #include "gui/dialogs/transient_message.hpp"
@@ -185,10 +188,36 @@ play_controller::play_controller(const config& level, saved_game& state_of_game)
 		clear_resources();
 		throw;
 	}
+
+#ifdef __ANDROID__
+	SDL_AddEventWatch(background_save_watch, this);
+#endif
 }
+
+#ifdef __ANDROID__
+namespace
+{
+/**
+ * 2026-11-16: called by SDL the moment an event is queued. On Android, SDL sends
+ * SDL_EVENT_WILL_ENTER_BACKGROUND from the game's own thread just before it pauses that
+ * thread, so this is the last chance to save; a normal event handler would only see the
+ * event after the player comes back (or never, if Android closes the app).
+ */
+bool SDLCALL background_save_watch(void* userdata, SDL_Event* event)
+{
+	if(event->type == SDL_EVENT_WILL_ENTER_BACKGROUND) {
+		static_cast<play_controller*>(userdata)->do_background_save();
+	}
+	return true;
+}
+} // namespace
+#endif
 
 play_controller::~play_controller()
 {
+#ifdef __ANDROID__
+	SDL_RemoveEventWatch(background_save_watch, this);
+#endif
 	unit_types.remove_scenario_fixes();
 	clear_resources();
 }
@@ -1096,6 +1125,33 @@ void play_controller::do_consolesave(const std::string& filename)
 	savegame::ingame_savegame save(saved_game_, prefs::get().save_compression_format());
 	save.save_game_automatic(true, filename);
 }
+
+#ifdef __ANDROID__
+bool play_controller::do_background_save()
+{
+	// Same test the game uses for "player may act now" (see can_move above): not during
+	// animations, AI turns, WML events or a move in progress, so the save is consistent.
+	if(events::commands_disabled || !synced_context::is_unsynced()
+		|| gamestate().gamedata_.phase() != game_data::TURN_PLAYING)
+	{
+		LOG_NG << "background save skipped: game is busy";
+		return false;
+	}
+
+	try {
+		scoped_savegame_snapshot snapshot(*this);
+		savegame::ingame_savegame save(saved_game_, prefs::get().save_compression_format());
+		// One fixed name per campaign, overwritten each time, so these do not pile up.
+		const std::string& label = saved_game_.classification().label;
+		const std::string name = (label.empty() ? std::string() : label + "-") + _("Background-Save");
+		// false: never ask about overwriting (no dialog can show while the app is leaving).
+		return save.save_game_automatic(false, name);
+	} catch(...) {
+		ERR_NG << "background save failed: " << utils::get_unknown_exception_type();
+		return false;
+	}
+}
+#endif
 
 void play_controller::update_savegame_snapshot() const
 {

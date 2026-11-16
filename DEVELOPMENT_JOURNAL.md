@@ -536,3 +536,10 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - Added space around every tappable control (6 dp each side) in `grid.cpp`, and made list rows at least 48 dp tall. With the 48 dp minimum size, every screen gets finger-size, separated targets without hand edits.
 - Per-screen redesign (layout, what shows in portrait vs landscape) needs screenshots from a build; can't be judged blind.
 - Not compiled. Branch `mobile-ui`.
+
+### Improvement #1: Android app lifecycle (2026-11-16 14:58 MST)
+- George asked for suggestions from modern practice; agreed to #1 (app lifecycle) first. Ranked list given: 1 lifecycle, 2 image cache limits, 3 GPU texture compression, 4 faster startup, 5 smaller data (WebP, stock files only), 6 real touch/pinch input, 7 C++20/Boost cleanup (low value).
+- Done: quiet save when the app goes to the background; image caches flushed on Android's low-memory warning.
+- Limit: if the app is backgrounded mid-animation or during the AI turn, no save is written then (the state is not consistent). If a save fails, the game's own error box may show on return.
+- To test: start a campaign, move a unit, press Home, swipe the app away, reopen, Load Game: "Background-Save" should be there with the move.
+- Not compiled. Branch `android-lifecycle`.

@@ -218,6 +218,15 @@ public:
 
 	void do_consolesave(const std::string& filename);
 
+#ifdef __ANDROID__
+	/**
+	 * 2026-11-16: quiet save when Android sends the app to the background (home button,
+	 * phone call, app switch), because Android may close a background app without warning.
+	 * Only saves between player actions. No dialogs. Returns true if a save was written.
+	 */
+	bool do_background_save();
+#endif
+
 	events::mouse_handler& get_mouse_handler_base() override;
 	events::menu_handler& get_menu_handler() { return menu_handler_; }
 

@@ -551,3 +551,13 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - No builds run on push.
 
 **Status:** not compiled or run.
+
+## 2026-11-16 14:58 MST: Android app lifecycle, background save and low memory (branch `android-lifecycle`)
+
+**Files**
+- `src/play_controller.hpp`, `src/play_controller.cpp`: Android only. New `do_background_save()`. An SDL event watch catches `SDL_EVENT_WILL_ENTER_BACKGROUND` (home button, call, app switch) and writes a quiet save named "<campaign>-Background-Save" (one file, overwritten). Only saves when the player could act (no animation, AI turn, WML event or move in progress); otherwise skips. Never asks to overwrite.
+- `src/events.cpp`: Android only. `SDL_EVENT_LOW_MEMORY` flushes the image caches.
+- Music: SDL 3.4 already pauses audio in the background, so no change.
+- `DEVELOPMENT_JOURNAL.md`: entry added.
+
+**Status:** edited only; not compiled or run. Branch only.
