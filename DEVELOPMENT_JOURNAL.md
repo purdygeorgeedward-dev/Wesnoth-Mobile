@@ -515,3 +515,6 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - Reviewed the uncompiled Android and mip map changes. One real bug: `choose_draw_texture()` in `src/draw.cpp` compared the source size to the draw-space destination size. Draw space is logical pixels; the screen shows `pixel_scale` times more (2 on the A26). A 288 px image drawn at 72 logical (144 real) px chose the quarter-size mip (72 px), then the GPU stretched it 2x: blurry. Now the destination is multiplied by the pixel scale first, so that case uses the half-size mip (144 px).
 - Pushed to branch `fix/mip-pixel-scale` only. master untouched. Not compiled.
 - Noted, not changed: `InitActivity` uses `java.nio.file.Files.walk` (API 26) with minSdk 23; `initStatusFile` logs a harmless exception on first run; `applicationId` still `org.wesnoth.Wesnoth`.
+
+### Fixed the three noted Java items (2026-11-16 04:10 MST)
+- `InitActivity.java`: removed the API 26 calls (`Files.walk`, `Files.newBufferedReader`) that would crash on Android 6-7; `initStatusFile` no longer throws on first run. Left `applicationId` alone (your call, roadmap Phase 0). Not compiled. Branch `fix/mip-pixel-scale`.

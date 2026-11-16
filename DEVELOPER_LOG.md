@@ -501,3 +501,11 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - `DEVELOPMENT_JOURNAL.md`: entry added.
 
 **Status:** edited only; not compiled or run. Branch only, not merged to master.
+
+## 2026-11-16 04:10 MST: API 23 safe file code, status file (branch `fix/mip-pixel-scale`)
+
+**Files**
+- `packaging/android/app/src/main/java/org/wesnoth/Wesnoth/InitActivity.java`: Clear data uses `deleteGameDataTree()` instead of `Files.walk`; delete list read with `FileInputStream` instead of `Files.newBufferedReader` (both API 26, minSdk is 23); `initStatusFile` checks the file exists before opening it. Old code commented out.
+- `DEVELOPMENT_JOURNAL.md`: entry added.
+
+**Status:** edited only; not compiled or run. Branch only.

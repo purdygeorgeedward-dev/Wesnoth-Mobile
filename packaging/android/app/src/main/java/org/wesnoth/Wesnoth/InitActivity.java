@@ -513,9 +513,16 @@ public class InitActivity extends Activity {
 
 	private Properties initStatusFile(File statusFile) {
 		Properties status = new Properties();
-		try (FileInputStream statusStream = new FileInputStream(statusFile)) {
+		// 2026-11-16: check first; opening a missing file threw on every first run and
+		// the file was never created. Old code:
+		// try (FileInputStream statusStream = new FileInputStream(statusFile)) {
+		// 	if (statusFile.exists()) { status.load(statusStream); } else { statusFile.createNewFile(); }
+		// } catch
+		try {
 			if (statusFile.exists()) {
-				status.load(statusStream);
+				try (FileInputStream statusStream = new FileInputStream(statusFile)) {
+					status.load(statusStream);
+				}
 			} else {
 				statusFile.createNewFile();
 			}
@@ -587,10 +594,12 @@ public class InitActivity extends Activity {
 			.setPositiveButton("Yes", (dialog, which) -> {
 				Toast.makeText(this, "Clearing data...", Toast.LENGTH_SHORT).show();
 				try {
-					Files.walk(dataDir.toPath())
-						.sorted(Comparator.reverseOrder())
-						.map(Path::toFile)
-						.forEach(File::delete);
+					// 2026-11-16: Files.walk needs API 26 but minSdk is 23; old code:
+					// Files.walk(dataDir.toPath())
+					// 	.sorted(Comparator.reverseOrder())
+					// 	.map(Path::toFile)
+					// 	.forEach(File::delete);
+					deleteGameDataTree(dataDir);
 					Toast.makeText(this, "Cleared!", Toast.LENGTH_SHORT).show();
 					recreate();
 				} catch (IOException ioe) {
@@ -888,7 +897,10 @@ public class InitActivity extends Activity {
 		AtomicInteger progress = new AtomicInteger(1);
 		runOnUiThread(() -> updateProgress("Patching", -1));
 		String line = "";
-		try (BufferedReader reader = Files.newBufferedReader(deleteList.toPath())) {
+		// 2026-11-16: Files.newBufferedReader needs API 26 (minSdk is 23); old line:
+		// try (BufferedReader reader = Files.newBufferedReader(deleteList.toPath())) {
+		try (BufferedReader reader = new BufferedReader(new java.io.InputStreamReader(
+			new FileInputStream(deleteList), "UTF-8"))) {
 			Log.d("Unpack", "Reading deletelist");
 			while ((line = reader.readLine()) != null) {
 				File toDelete = new File(dataDir, line);
