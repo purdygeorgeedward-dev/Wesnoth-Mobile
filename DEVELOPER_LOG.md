@@ -526,3 +526,12 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - No builds run on push (only manual workflows remain).
 
 **Status:** not compiled or run.
+
+## 2026-11-16 04:23 MST: touch target sizes; story text background removed (branch `mobile-ui`)
+
+**Files**
+- `src/gui/widgets/styled_widget.cpp`: Android only. Buttons, menu buttons and repeating buttons get at least a 48 dp square; toggle buttons, text boxes, comboboxes and sliders at least 48 dp tall. Worked out from screen density and pixel scale (about 63 logical px on the A26), clamped 44 to 96. Applied to the theme's minimum, default and (non-zero) maximum sizes.
+- `data/gui/themes/mobile/dialogs/story_viewer.cfg`: text panel uses the empty `default` panel instead of `story_viewer_panel`, so no dark background over the story art. Old line commented out.
+- `DEVELOPMENT_JOURNAL.md`: entry added.
+
+**Status:** edited only; not compiled or run. Size helper tested standalone (A26 values: 63x63 button). Branch only.

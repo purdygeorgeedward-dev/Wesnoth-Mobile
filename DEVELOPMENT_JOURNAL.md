@@ -523,3 +523,10 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - George chose `com.essoth.game` (he owns essoth.com; fine to have it in the public repo). Installs separately from official Wesnoth; existing installs of this fork under the old ID are a different app, so their data does not carry over.
 - Also fixed two spots that hard-coded the old ID (FileProvider authority, file_paths.xml), which would have broken opening files from the game.
 - Branch `fix/mip-pixel-scale`. Not compiled.
+
+### Touch targets and story text background (2026-11-16 04:23 MST)
+- George asked for code that adapts button target sizes to the phone, and for the subtitle background on story slides to go (it covered half the art on mobile).
+- Touch size: done in C++ (`styled_widget.cpp`) instead of editing every screen, so all 30 mobile screens and any stock screen get it. Target is Android's 48 dp, converted with the screen's density and the pixel scale.
+- Story slides: the dark translucent panel behind the text is gone on mobile. Text now sits straight on the art; if it is hard to read on bright images, a text outline is the next fix.
+- Risk: dialogs packed tight in landscape (540 high) may now overflow and scroll. Needs a build and screenshots.
+- Not compiled. Branch `mobile-ui`.

@@ -30,6 +30,10 @@
 #include "hotkey/hotkey_item.hpp"
 #include "sdl/rect.hpp"
 #include "wml_exception.hpp"
+#ifdef __ANDROID__
+#include "video.hpp"
+#include <cmath>
+#endif
 #include <functional>
 
 #include <algorithm>
@@ -126,11 +130,74 @@ iteration::walker_ptr styled_widget::create_walker()
 	return std::make_unique<iteration::walker::widget>(*this);
 }
 
+#ifdef __ANDROID__
+namespace
+{
+/**
+ * 2026-11-16: touch target size for phones, in logical (draw-space) pixels.
+ * Android's guideline is 48 dp; one dp is `density` real pixels and one logical pixel is
+ * `pixel_scale` real pixels, so the target is 48 * density / pixel_scale. On the Galaxy A26
+ * (density about 2.6, pixel scale 2) that is about 63. Worked out each time, so it follows
+ * the screen, the pixel scale setting and rotation.
+ */
+int touch_target_size()
+{
+	if(video::headless() || video::testing()) {
+		return 0;
+	}
+	float density = video::content_scaling();
+	if(!(density > 0.5f && density < 8.0f)) {
+		density = 2.5f; // unknown: a typical phone
+	}
+	const int scale = std::max(1, video::get_pixel_scale());
+	const int size = static_cast<int>(std::ceil(48.0f * density / scale));
+	return std::clamp(size, 44, 96);
+}
+
+enum class touch_grow { none, height, both };
+
+/** Which widgets are tapped, and whether their width grows too (icon and short text buttons). */
+touch_grow touch_rule(const std::string& type)
+{
+	if(type == "button" || type == "repeating_button" || type == "menu_button") {
+		return touch_grow::both;
+	}
+	if(type == "toggle_button" || type == "text_box" || type == "combobox" || type == "slider") {
+		return touch_grow::height;
+	}
+	return touch_grow::none;
+}
+
+/** Raises a size from the theme to at least the touch target. A zero (no limit) stays zero. */
+point apply_touch_size(point size, const std::string& type, bool keep_zero)
+{
+	const touch_grow rule = touch_rule(type);
+	if(rule == touch_grow::none) {
+		return size;
+	}
+	const int t = touch_target_size();
+	if(t <= 0) {
+		return size;
+	}
+	if(!(keep_zero && size.y == 0)) {
+		size.y = std::max(size.y, t);
+	}
+	if(rule == touch_grow::both && !(keep_zero && size.x == 0)) {
+		size.x = std::max(size.x, t);
+	}
+	return size;
+}
+} // namespace
+#endif
+
 point styled_widget::get_config_minimum_size() const
 {
 	assert(config_);
 
 	point result(config_->min_width, config_->min_height);
+#ifdef __ANDROID__
+	result = apply_touch_size(result, get_control_type(), false);
+#endif
 
 	DBG_GUI_L << LOG_HEADER << " result " << result << ".";
 	return result;
@@ -141,6 +208,9 @@ point styled_widget::get_config_default_size() const
 	assert(config_);
 
 	point result(config_->default_width, config_->default_height);
+#ifdef __ANDROID__
+	result = apply_touch_size(result, get_control_type(), false);
+#endif
 
 	DBG_GUI_L << LOG_HEADER << " result " << result << ".";
 	return result;
@@ -151,6 +221,10 @@ point styled_widget::get_config_maximum_size() const
 	assert(config_);
 
 	point result(config_->max_width, config_->max_height);
+#ifdef __ANDROID__
+	// A non-zero maximum must not be below the touch minimum (0 means no limit and stays 0).
+	result = apply_touch_size(result, get_control_type(), true);
+#endif
 
 	DBG_GUI_L << LOG_HEADER << " result " << result << ".";
 	return result;
