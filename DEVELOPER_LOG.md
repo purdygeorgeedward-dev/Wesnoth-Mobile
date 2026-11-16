@@ -535,3 +535,12 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - `DEVELOPMENT_JOURNAL.md`: entry added.
 
 **Status:** edited only; not compiled or run. Size helper tested standalone (A26 values: 63x63 button). Branch only.
+
+## 2026-11-16 05:19 MST: spacing between tappable controls; list rows finger height (branch `mobile-ui`)
+
+**Files**
+- `src/gui/widgets/grid.cpp`: Android only. Buttons, menu buttons, repeating buttons, checkboxes, comboboxes and sliders get at least 6 dp of space on every side (about 8 logical px on the A26, so about 16 between two buttons). Old lines commented out.
+- `src/gui/widgets/styled_widget.cpp`: list rows (`toggle_panel`) also get the 48 dp minimum height.
+- `DEVELOPMENT_JOURNAL.md`: entry added.
+
+**Status:** edited only; not compiled or run. Branch only.

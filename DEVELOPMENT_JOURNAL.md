@@ -530,3 +530,9 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - Story slides: the dark translucent panel behind the text is gone on mobile. Text now sits straight on the art; if it is hard to read on bright images, a text outline is the next fix.
 - Risk: dialogs packed tight in landscape (540 high) may now overflow and scroll. Needs a build and screenshots.
 - Not compiled. Branch `mobile-ui`.
+
+### Buttons too close to tap one at a time (2026-11-16 05:19 MST)
+- George: the main problem has been buttons too small to isolate with a tap; the screens need redesign for touch.
+- Added space around every tappable control (6 dp each side) in `grid.cpp`, and made list rows at least 48 dp tall. With the 48 dp minimum size, every screen gets finger-size, separated targets without hand edits.
+- Per-screen redesign (layout, what shows in portrait vs landscape) needs screenshots from a build; can't be judged blind.
+- Not compiled. Branch `mobile-ui`.

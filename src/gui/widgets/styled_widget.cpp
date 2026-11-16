@@ -162,7 +162,9 @@ touch_grow touch_rule(const std::string& type)
 	if(type == "button" || type == "repeating_button" || type == "menu_button") {
 		return touch_grow::both;
 	}
-	if(type == "toggle_button" || type == "text_box" || type == "combobox" || type == "slider") {
+	// toggle_panel: list rows (saves, campaigns, units); each row at least one finger tall.
+	if(type == "toggle_button" || type == "text_box" || type == "combobox" || type == "slider"
+		|| type == "toggle_panel") {
 		return touch_grow::height;
 	}
 	return touch_grow::none;

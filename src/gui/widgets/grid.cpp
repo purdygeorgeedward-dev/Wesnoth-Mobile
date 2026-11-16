@@ -25,6 +25,11 @@
 #include "gui/widgets/window.hpp"
 
 #include <numeric>
+#ifdef __ANDROID__
+#include "video.hpp"
+#include <algorithm>
+#include <cmath>
+#endif
 
 #define LOG_SCOPE_HEADER "grid [" + id() + "] " + __func__
 #define LOG_HEADER LOG_SCOPE_HEADER + ':'
@@ -87,9 +92,41 @@ void grid::set_child(std::unique_ptr<widget> widget,
 				  << row << ',' << col << "' will be replaced.";
 	}
 
+#ifdef __ANDROID__
+	// 2026-11-16: space around everything that is tapped, so a finger hits one control and not
+	// its neighbour. At least 6 dp on every side (12 dp between two buttons), about 8 logical
+	// pixels on the Galaxy A26. Uses the screen density and the pixel scale, like the touch
+	// target size in styled_widget.cpp.
+	unsigned touch_flags = flags;
+	unsigned touch_border = border_size;
+	if(const auto* sw = dynamic_cast<const styled_widget*>(widget.get());
+		sw && !video::headless() && !video::testing())
+	{
+		const std::string& type = sw->get_control_type();
+		if(type == "button" || type == "repeating_button" || type == "menu_button"
+			|| type == "toggle_button" || type == "combobox" || type == "slider")
+		{
+			float density = video::content_scaling();
+			if(!(density > 0.5f && density < 8.0f)) {
+				density = 2.5f;
+			}
+			const int scale = std::max(1, video::get_pixel_scale());
+			const unsigned gap = static_cast<unsigned>(std::clamp(
+				static_cast<int>(std::ceil(6.0f * density / scale)), 4, 16));
+			touch_border = std::max(touch_border, gap);
+			touch_flags |= BORDER_ALL;
+		}
+	}
+	// Old lines:
+	// cell.set_flags(flags);
+	// cell.set_border_size(border_size);
+	cell.set_flags(touch_flags);
+	cell.set_border_size(touch_border);
+#else
 	// copy data
 	cell.set_flags(flags);
 	cell.set_border_size(border_size);
+#endif
 	cell.set_widget(std::move(widget));
 
 	// make sure the new child is valid before deferring
