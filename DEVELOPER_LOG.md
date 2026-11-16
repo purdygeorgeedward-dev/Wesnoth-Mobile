@@ -519,3 +519,10 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - Old lines commented out. `DEVELOPMENT_JOURNAL.md`: entry added.
 
 **Status:** edited only; not compiled or run. Branch only.
+
+## 2026-11-16 04:11 MST: branch `fix/mip-pixel-scale` merged to master
+
+- Fast-forward of master to the branch: mip pixel-scale fix, API 23 safe `InitActivity` code, app ID `com.essoth.game`. George asked for the push to master.
+- No builds run on push (only manual workflows remain).
+
+**Status:** not compiled or run.
