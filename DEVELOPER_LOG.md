@@ -561,3 +561,11 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - `DEVELOPMENT_JOURNAL.md`: entry added.
 
 **Status:** edited only; not compiled or run. Branch only.
+
+## 2026-11-16 15:01 MST: image cache memory limits (branch `image-cache-limits`, built on `android-lifecycle`)
+
+**Files**
+- `src/picture.cpp`: `cache_type` now tracks bytes and last use. On Android each decoded-image cache (RAM) is capped at 64 MB and each GPU texture cache at 128 MB; when over, the least recently used images are dropped down to 3/4 of the cap. Dropped images reload from disk when next drawn. Desktop: no limit (unchanged behaviour). Old class kept as a comment. Added `<algorithm>`, `<cstdint>`, `<vector>`.
+- `DEVELOPMENT_JOURNAL.md`: entry added.
+
+**Status:** edited only; not compiled in the game. Cache class tested standalone (40 x 16 MB images into a 64 MB cache: keeps the newest 4). Branch only.

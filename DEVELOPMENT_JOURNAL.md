@@ -543,3 +543,10 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - Limit: if the app is backgrounded mid-animation or during the AI turn, no save is written then (the state is not consistent). If a save fails, the game's own error box may show on return.
 - To test: start a campaign, move a unit, press Home, swipe the app away, reopen, Load Game: "Background-Save" should be there with the move.
 - Not compiled. Branch `android-lifecycle`.
+
+### Improvement #2: image cache limits (2026-11-16 15:01 MST)
+- George set the order for the improvement list: 1 lifecycle, 2 cache limits, 6 touch input, 3 texture compression, 4 startup, 5 file size, 7 C++20 last ("we do that last").
+- Done: image caches had no size limit; on Android they are now capped (64 MB per RAM cache, 128 MB per GPU cache), least recently used dropped first.
+- Not capped: the lit (time-of-day lighting) variant caches; they are smaller, and the low-memory flush from #1 clears them.
+- If scrolling the map stutters after a build, the caps are too low; they are two numbers near the top of `src/picture.cpp` (`cache_byte_limit`).
+- Not compiled. Branch `image-cache-limits` (includes `android-lifecycle`).

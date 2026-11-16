@@ -47,8 +47,11 @@ using cache_map = boost::unordered_map<Key, Value>;
 
 #endif
 
+#include <algorithm>
 #include <array>
+#include <cstdint>
 #include <set>
+#include <vector>
 
 static lg::log_domain log_image("image");
 #define ERR_IMG LOG_STREAM(err, log_image)
@@ -83,9 +86,73 @@ std::size_t hash_value(const image::locator& val)
 	return hash;
 }
 
+/*
+ * 2026-11-16: memory limit for the image caches on Android. Old cache_type, kept for reference:
+ *
+ * template<typename T>
+ * class cache_type
+ * {
+ * public:
+ * 	bool in_cache(const locator& item) const { return content_.find(item) != content_.end(); }
+ * 	const T* locate_in_cache(const locator& item) const
+ * 	{ if(auto iter = content_.find(item); iter != content_.end()) { return &iter->second; } else { return nullptr; } }
+ * 	T& access_in_cache(const locator& item) { return content_[item]; }
+ * 	void add_to_cache(const locator& item, T data) { content_.insert_or_assign(item, std::move(data)); }
+ * 	void flush() { content_.clear(); }
+ * private:
+ * 	cache_map<locator, T> content_;
+ * };
+ */
+
+/**
+ * Bytes an entry holds, for the memory limit. Only decoded images count; the yes/no caches
+ * and the lit-variant maps are tiny or hold their own images, and report 0 (never evicted).
+ */
+std::size_t cache_entry_bytes(const surface& s)
+{
+	return s ? s.area() * 4 : 0;
+}
+
+std::size_t cache_entry_bytes(const texture& t)
+{
+	if(!t) {
+		return 0;
+	}
+	const point raw = t.get_raw_size();
+	const std::size_t base = static_cast<std::size_t>(raw.x) * raw.y * 4;
+	// A full mip chain adds about a third.
+	return t.has_mips() ? base + base / 3 : base;
+}
+
+template<typename T>
+std::size_t cache_entry_bytes(const T&)
+{
+	return 0;
+}
+
+/**
+ * Most bytes one cache may hold before the least recently used images are dropped.
+ * 0 means no limit (desktop). On Android the game keeps one cache per image type
+ * (original, hexed, lit...) and per scaling mode, so these are per cache; in play only
+ * two or three are large. Dropped images reload from disk the next time they are drawn.
+ */
+#ifdef __ANDROID__
+template<typename T> constexpr std::size_t cache_byte_limit = 0;
+template<> constexpr std::size_t cache_byte_limit<surface> = 64u * 1024 * 1024;  // RAM
+template<> constexpr std::size_t cache_byte_limit<texture> = 128u * 1024 * 1024; // GPU
+#else
+template<typename T> constexpr std::size_t cache_byte_limit = 0;
+#endif
+
 template<typename T>
 class cache_type
 {
+	struct entry
+	{
+		T value;
+		mutable std::uint64_t last_use = 0;
+	};
+
 public:
 	bool in_cache(const locator& item) const
 	{
@@ -96,7 +163,8 @@ public:
 	const T* locate_in_cache(const locator& item) const
 	{
 		if(auto iter = content_.find(item); iter != content_.end()) {
-			return &iter->second;
+			iter->second.last_use = ++clock_;
+			return &iter->second.value;
 		} else {
 			return nullptr;
 		}
@@ -105,24 +173,74 @@ public:
 	/**
 	 * Returns a reference to the cache item associated with the given key.
 	 * If no corresponding value is found, a default instance will be created.
+	 * (Only used for the lit-variant maps, which are never evicted.)
 	 */
 	T& access_in_cache(const locator& item)
 	{
-		return content_[item];
+		entry& e = content_[item];
+		e.last_use = ++clock_;
+		return e.value;
 	}
 
 	void add_to_cache(const locator& item, T data)
 	{
-		content_.insert_or_assign(item, std::move(data));
+		const std::size_t added = cache_entry_bytes(data);
+		if(auto iter = content_.find(item); iter != content_.end()) {
+			bytes_ -= std::min(bytes_, cache_entry_bytes(iter->second.value));
+			iter->second.value = std::move(data);
+			iter->second.last_use = ++clock_;
+		} else {
+			content_.emplace(item, entry{std::move(data), ++clock_});
+		}
+		bytes_ += added;
+		trim(item);
 	}
 
 	void flush()
 	{
 		content_.clear();
+		bytes_ = 0;
 	}
 
 private:
-	cache_map<locator, T> content_;
+	/**
+	 * Over the limit: drop the least recently used entries until the cache is down to
+	 * three quarters of the limit (so this does not run on every add). Never drops `keep`,
+	 * the entry just added. Pointers from earlier locate_in_cache() calls on this cache
+	 * may be invalid afterwards; callers copy the value right away, so none are held.
+	 */
+	void trim(const locator& keep)
+	{
+		constexpr std::size_t limit = cache_byte_limit<T>;
+		if(limit == 0 || bytes_ <= limit) {
+			return;
+		}
+		const std::size_t target = limit / 4 * 3;
+
+		std::vector<std::pair<std::uint64_t, locator>> order;
+		order.reserve(content_.size());
+		for(const auto& [key, e] : content_) {
+			if(cache_entry_bytes(e.value) > 0 && !(key == keep)) {
+				order.emplace_back(e.last_use, key);
+			}
+		}
+		std::sort(order.begin(), order.end(),
+			[](const auto& a, const auto& b) { return a.first < b.first; });
+
+		for(const auto& [use, key] : order) {
+			if(bytes_ <= target) {
+				break;
+			}
+			if(auto iter = content_.find(key); iter != content_.end()) {
+				bytes_ -= std::min(bytes_, cache_entry_bytes(iter->second.value));
+				content_.erase(iter);
+			}
+		}
+	}
+
+	cache_map<locator, entry> content_;
+	std::size_t bytes_ = 0;
+	mutable std::uint64_t clock_ = 0;
 };
 
 namespace
