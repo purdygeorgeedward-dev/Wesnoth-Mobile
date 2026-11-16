@@ -26,6 +26,8 @@
 #include <SDL3/SDL_rect.h>
 #include <SDL3/SDL_render.h>
 
+#include <algorithm>
+
 static lg::log_domain log_draw("draw");
 #define DBG_D LOG_STREAM(debug, log_draw)
 #define WRN_D LOG_STREAM(warn, log_draw)
@@ -435,7 +437,11 @@ tex_choice choose_draw_texture(const texture& tex, const ::rect& dst)
 	}
 
 	const point src_size = rect ? point{rect->w, rect->h} : tex.get_raw_size();
-	const texture::mip_choice mip = tex.choose_mip(src_size, point{dst.w, dst.h});
+	// 2026-11-15: old line, compared against draw-space size, which is too small by the pixel scale
+	// (2 on the Galaxy A26), so too small a mip was chosen and then upscaled (blurry):
+	// const texture::mip_choice mip = tex.choose_mip(src_size, point{dst.w, dst.h});
+	const int pixel_scale = std::max(1, video::get_pixel_scale());
+	const texture::mip_choice mip = tex.choose_mip(src_size, point{dst.w * pixel_scale, dst.h * pixel_scale});
 	if(!mip.tex) {
 		return res;
 	}

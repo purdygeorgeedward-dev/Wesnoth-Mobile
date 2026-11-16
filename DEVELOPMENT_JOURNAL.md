@@ -510,3 +510,8 @@ George's concept: a flat 3D plane with the map on it, and objects standing on th
 - Left in place: `android.yml` and `codeql.yml` (manual only), `irc-notify.yml`, `labeler.yml` (issues/pull requests only).
 - Cancelled the runs that were still in progress.
 - Pushed 2026-11-14, see git log.
+
+### Code review: mip level ignored the pixel scale (2026-11-15 21:20 MST)
+- Reviewed the uncompiled Android and mip map changes. One real bug: `choose_draw_texture()` in `src/draw.cpp` compared the source size to the draw-space destination size. Draw space is logical pixels; the screen shows `pixel_scale` times more (2 on the A26). A 288 px image drawn at 72 logical (144 real) px chose the quarter-size mip (72 px), then the GPU stretched it 2x: blurry. Now the destination is multiplied by the pixel scale first, so that case uses the half-size mip (144 px).
+- Pushed to branch `fix/mip-pixel-scale` only. master untouched. Not compiled.
+- Noted, not changed: `InitActivity` uses `java.nio.file.Files.walk` (API 26) with minSdk 23; `initStatusFile` logs a harmless exception on first run; `applicationId` still `org.wesnoth.Wesnoth`.

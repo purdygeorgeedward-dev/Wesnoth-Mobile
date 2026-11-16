@@ -493,3 +493,11 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - `DEVELOPMENT_JOURNAL.md`: entry added.
 
 **Status:** edited only; not compiled or run.
+
+## 2026-11-15 21:20 MST: mip level uses real pixel size (branch `fix/mip-pixel-scale`)
+
+**Files**
+- `src/draw.cpp`: `choose_draw_texture()` multiplies the destination size by `video::get_pixel_scale()` before choosing a mip. Old line commented out. Added `#include <algorithm>`.
+- `DEVELOPMENT_JOURNAL.md`: entry added.
+
+**Status:** edited only; not compiled or run. Branch only, not merged to master.
