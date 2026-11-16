@@ -544,3 +544,10 @@ Dated record of every push. Times are Mountain Time (El Paso).
 - `DEVELOPMENT_JOURNAL.md`: entry added.
 
 **Status:** edited only; not compiled or run. Branch only.
+
+## 2026-11-16 05:21 MST: branch `mobile-ui` merged to master
+
+- Fast-forward of master to `mobile-ui`: 48 dp touch targets, spacing between tappable controls, finger-height list rows, no story text background. George asked for the push to master.
+- No builds run on push.
+
+**Status:** not compiled or run.
